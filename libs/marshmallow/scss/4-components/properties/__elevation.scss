@@ -1,0 +1,10 @@
+@use "sass:map";
+
+$components: append($components, elevation);
+
+@function set-elevation-properties($_theme, $_properties: ()) {
+  $_properties: () !default;
+  $_basic: ();
+  $_result: merge-flattened-map($_basic, $_properties);
+  @return $_result;
+}

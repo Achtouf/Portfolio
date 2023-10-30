@@ -1,0 +1,3 @@
+@function is-null($_object) {
+  @return $_object == null;
+}

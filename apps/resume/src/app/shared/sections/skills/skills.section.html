@@ -1,0 +1,15 @@
+<aa-section id="SKILLS" class="m-width:full">
+  <h2 class="aa-title:1">{{ "SKILLS.TITLE" | translate }}</h2>
+  <div class="m-flex m-flex-column m-flex-gap:2 m-width:full">
+    <ng-container *ngFor="let item of skills">
+      <div class="m-flex m-flex-column m-width:full m-padding-l:2">
+        <h3 class="aa-title:3 m-text-bold">
+          {{ ("SKILLS.CONTENT." + item + ".TITLE") | translate }}
+        </h3>
+        <p class="aa-paragraph m-padding-l:2">
+          {{ ("SKILLS.CONTENT." + item + ".VALUE") | translate }}
+        </p>
+      </div>
+    </ng-container>
+  </div>
+</aa-section>

@@ -1,0 +1,24 @@
+* {
+  scrollbar-width: variable(scrollbar-mos-width);
+  scrollbar-color: variable(scrollbar-thumb-color) variable(scrollbar-track-color);
+
+  &::-webkit-scrollbar {
+    width: variable(scrollbar-width);
+    height: variable(scrollbar-height);
+  }
+
+  $_aspects: track, thumb;
+
+  @each $_aspect in $_aspects {
+    &::-webkit-scrollbar-#{$_aspect} {
+      margin: variable(scrollbar-#{$_aspect}-margin);
+      padding: variable(scrollbar-#{$_aspect}-padding);
+      border-radius: variable(scrollbar-#{$_aspect}-border-radius);
+      background-color: variable(scrollbar-#{$_aspect}-color);
+
+      &:hover {
+        background-color: variable(scrollbar-#{$_aspect}-hover-color);
+      }
+    }
+  }
+}

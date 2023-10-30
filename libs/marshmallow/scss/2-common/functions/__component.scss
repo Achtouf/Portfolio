@@ -1,0 +1,80 @@
+@use "sass:map";
+@use "sass:meta";
+@use "sass:list";
+
+@function get-component-properties($_properties: (), $_component) {
+  $_args: ();
+  $_result: $_properties;
+
+  @if is-null($_component) or is-empty($_component) {
+    @error "[get-component-properties] $_component should be specified !";
+    @return false;
+  }
+
+  @if map-contains($_result, $_component) {
+    $_args: flatten-map(map.get($_result, $_component));
+  }
+
+  $_function: set-#{$_component}-properties;
+  @if function-exists(#{$_function}) {
+    $_result: meta.call(get-function($_function), $_result, $_args);
+  }
+
+  @return $_result;
+}
+
+@function get-component-size($_size, $_properties: (), $_ratio: 1) {
+  $_result: $_properties;
+
+  @each $_key, $_value in $_properties {
+    @if (is-list($_value)) {
+      $_list: ();
+      @each $_item in $_value {
+        $_list: list.append($_list, calc($_item * $_ratio));
+      }
+      $_result: map.set($_result, $_key, #{$_list});
+    } @else if (is-map($_value)) {
+      $_result: map.set(
+        $_result,
+        $_key,
+        get-component-size($_size, $_value, $_ratio)
+      );
+    } @else if (is-number($_value)) {
+      $_result: map.set($_result, $_key, calc($_value * $_ratio));
+    } @else {
+      // @debug "#{$_key}: #{$_value} IS A #{meta.type-of($_value)}";
+      // $_result: map.set($_result, $_key, #{calc($_value * $_ratio)});
+      $_result: map.set($_result, $_key, $_value);
+    }
+  }
+
+  @return $_result;
+}
+
+@function generate-component-sizes($_properties: (), $_targets: ()) {
+  $_parent: ();
+  $_result: flatten-map($_properties);
+
+  @each $_key in $_targets {
+    $_parent: map.set($_parent, $_key, map.get($_result, $_key));
+  }
+
+  @each $_size, $_ratio in $mSizesProperties {
+    $_sizeProps: map.get($_result, $_size);
+    $_sizeProps: () !default;
+    $_sizeProps: merge-map($_parent, $_sizeProps);
+
+    $_sizeRatio: map.get($_sizeProps, ratio);
+    $_sizeRatio: $_ratio !default;
+
+    $_sizeProps: get-component-size($_size, $_sizeProps, $_sizeRatio);
+
+    $_result: map.set($_result, $_size, $_sizeProps);
+  }
+
+  @return $_result;
+}
+
+@function merge-component-properties($_basic, $_properties: ()) {
+  @return merge-flattened-map($_basic, $_properties);
+}

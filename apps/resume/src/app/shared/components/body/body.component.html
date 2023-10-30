@@ -1,0 +1,24 @@
+<div class="m-flex m-flex-column m-width:full m-min-height:full">
+  <div
+    class="body-navigation m-width:full m-position:sticky m-inset-h:0 m-inset-t:0"
+  >
+    <ul class="m-width:full m-flex m-flex-wrap m-flex-justify:end m-flex-gap:1">
+      <li *ngFor="let section of sections">
+        <button
+          (click)="goToTarget(section)"
+          class="m-button m-button-text m-primary m-text-decoration:none"
+        >
+          {{ "GENERAL." + section | translate }}
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="body-content m-flex m-flex-column m-flex-gap:2 m-width:full m-height:full"
+  >
+    <aa-education-section></aa-education-section>
+    <aa-skills-section></aa-skills-section>
+    <aa-experience-section></aa-experience-section>
+    <aa-personal-projects-section></aa-personal-projects-section>
+  </div>
+</div>

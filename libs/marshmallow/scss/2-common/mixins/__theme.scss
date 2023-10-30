@@ -1,0 +1,79 @@
+@use "sass:map";
+@use "sass:string";
+
+@mixin expose-theme(
+  $_theme: (),
+  $_forceScheme: false,
+  $_prefersScheme: false,
+  $_forceThemeNameAttribute: false
+) {
+  @if $_theme != null {
+    $_scheme: map.get($_theme, scheme);
+
+    @if $_forceScheme {
+      @if $_prefersScheme {
+        @media screen and (prefers-color-scheme: $_scheme) {
+          @debug $_forceThemeNameAttribute;
+          @include expose-theme-selector(
+            $_theme,
+            $_forceNameSelector: $_forceThemeNameAttribute
+          );
+        }
+      } @else {
+        @include expose-theme-selector(
+          $_theme,
+          $_forceNameSelector: $_forceThemeNameAttribute,
+          $_additionalSelectors: '[#{$mAttributePrefix}scheme="#{$_scheme}"]'
+        );
+      }
+    } @else {
+      @include expose-theme-selector(
+        $_theme,
+        $_forceNameSelector: $_forceThemeNameAttribute
+      );
+    }
+  }
+}
+
+@mixin expose-theme-selector(
+  $_theme: (),
+  $_forceNameSelector: true,
+  $_additionalSelectors: ""
+) {
+  $_selector: ":root";
+
+  @if $_forceNameSelector {
+    $_name: map.get($_theme, name);
+    $_selector: '[#{$mAttributePrefix}theme="#{$_name}"], [#{$mAttributePrefix}theme="#{string.to-lower-case($_name)}"]';
+  }
+
+  #{$_additionalSelectors}#{$_selector} {
+    @include expose-theme-variables($_theme);
+  }
+}
+
+@mixin expose-theme-variables($_theme: ()) {
+  $_scheme: map.get($_theme, scheme);
+
+  $_name: map.get($_theme, name);
+  $_name: $name !default;
+
+  // Theme
+  @debug "--------------------";
+  @debug "#{$_name} - #{$_scheme}";
+  @debug "--------------------";
+
+  $_core: map.get($_theme, core);
+  $_data: map.remove($_theme, core);
+  $_result: flatten-map($_data);
+
+  @each $_key, $_value in flatten-map($_core) {
+    @include set-variable($_key, $_value);
+  }
+
+  /* Variables */
+  @each $_key, $_value in $_result {
+    // @debug "[theme] #{$_key}: #{$_value}";
+    @include set-variable($_key, $_value);
+  }
+}

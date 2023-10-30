@@ -1,0 +1,53 @@
+@use "sass:map";
+@use "sass:math";
+
+$components: append($components, loader);
+
+@function set-loader-properties($_theme, $_properties: ()) {
+  $_properties: () !default;
+
+  $_core: map.get($_theme, core);
+  $_core: () !default;
+
+  $_primary: map.get($_theme, primary);
+  $_primary: () !default;
+
+  $_iconColor: map.get($_primary, accent);
+  $_backgroundColor: map.get($_primary, main);
+
+  $_curtainRatio: 1.5;
+  $_curtainOpacity: 0.6;
+
+  $_animationDuration: 1s;
+  $_animationCount: infinite;
+  $_animationDirection: alternate;
+  $_animationTimingFunction: ease-in;
+
+  $_basic: (
+    icon-color: $_iconColor,
+    background-color: $_backgroundColor,
+    transition: map.get($_core, transition),
+    curtain: (
+      ratio: $_curtainRatio,
+      opacity: $_curtainOpacity,
+      before: (
+        delay: 0s,
+        duration: $_animationDuration,
+        direction: $_animationDirection,
+        iteration-count: $_animationCount,
+        timing-function: $_animationTimingFunction,
+      ),
+      after: (
+        delay: $_animationDuration,
+        duration: $_animationDuration,
+        direction: $_animationDirection,
+        iteration-count: $_animationCount,
+        timing-function: $_animationTimingFunction,
+      ),
+    ),
+  );
+
+  $_result: merge-flattened-map($_basic, $_properties);
+
+  @return $_result;
+}

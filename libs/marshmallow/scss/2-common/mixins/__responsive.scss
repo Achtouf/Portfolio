@@ -1,0 +1,47 @@
+@use "sass:map";
+
+@mixin responsive {
+  $_breakpoints: map.merge(("": null), $mBreakpoints);
+  @each $_breakpoint, $_value in $_breakpoints {
+    $_prefix: ".#{$mPrefix}";
+    @if not is-empty($_breakpoint) {
+      @if is-map($_value) {
+        $_prefix: "#{$_prefix}#{$_breakpoint}#{$mResponsiveSeparator}";
+
+        $_max: map.get($_value, max);
+        $_min: map.get($_value, min);
+
+        $_hasMax: not is-null($_max);
+        $_hasMin: not is-null($_min);
+
+        @media screen {
+          @if $_hasMin and $_hasMax {
+            @media (min-width: $_min) {
+              @media (max-width: $_max) {
+                #{$_prefix} {
+                  @content;
+                }
+              }
+            }
+          } @else if $_hasMin {
+            @media (min-width: $_min) {
+              #{$_prefix} {
+                @content;
+              }
+            }
+          } @else if $_hasMax {
+            @media (max-width: $_max) {
+              #{$_prefix} {
+                @content;
+              }
+            }
+          }
+        }
+      }
+    } @else {
+      #{$_prefix} {
+        @content;
+      }
+    }
+  }
+}

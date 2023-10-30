@@ -1,0 +1,3 @@
+@function m($_name, $_prefix: $mPrefix) {
+  @return var(--#{$_prefix}#{$_name});
+}

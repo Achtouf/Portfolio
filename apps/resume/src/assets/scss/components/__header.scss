@@ -1,0 +1,11 @@
+.header {
+  // padding: pad(2);
+
+  &-section {
+    // m-position:sticky m-inset-t:0 m-bg-color:surface m-padding:2
+    top: 0;
+    padding: pad(2);
+    position: sticky;
+    background-color: m(surface-main);
+  }
+}

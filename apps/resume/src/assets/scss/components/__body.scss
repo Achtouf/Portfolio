@@ -1,0 +1,22 @@
+.body {
+  &-navigation {
+    margin-bottom: mar(6);
+    padding-block: pad(2);
+    padding-inline: pad(2);
+
+    backdrop-filter: blur(0.5rem);
+    background-color: rgba(m(surface-main), 0.8);
+  }
+
+  &-content {
+    padding-top: pad(2);
+  }
+}
+
+@media print {
+  .body {
+    &-navigation {
+      display: none;
+    }
+  }
+}

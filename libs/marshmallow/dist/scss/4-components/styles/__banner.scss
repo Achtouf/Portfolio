@@ -1,0 +1,70 @@
+$_c: banner;
+
+.#{$mPrefix}#{$_c} {
+  $_prefix: &;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+
+  box-shadow: variable(#{$_c}-box-shadow);
+  background-color: variable(#{$_c}-background-color);
+
+  border-radius: variable(#{$_c}-border-radius);
+  border: variable(#{$_c}-border-width) variable(#{$_c}-border-style)
+    variable(#{$_c}-border-color);
+
+  &-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: variable(#{$_c}-header-padding);
+
+    width: 100%;
+    height: variable(#{$_c}-header-height);
+
+    &-content {
+      flex-grow: 1;
+      display: flex;
+      padding: variable(#{$_c}-header-content-padding);
+
+      height: 100%;
+    }
+
+    &-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: variable(#{$_c}-header-actions-gap);
+      padding: variable(#{$_c}-header-actions-padding);
+
+      height: 100%;
+
+      &.#{$mPrefix}default {
+        padding: variable(#{$_c}-header-actions-padding);
+
+        .#{$mPrefix}button {
+          padding: 1rem;
+          align-self: center;
+
+          height: auto;
+          max-height: variable(#{$_c}-header-content-height);
+        }
+      }
+    }
+  }
+
+  &-body {
+    display: flex;
+    width: 100%;
+
+    &-content {
+      display: flex;
+      padding: variable(#{$_c}-body-content-padding);
+
+      width: 100%;
+    }
+  }
+}

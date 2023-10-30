@@ -1,0 +1,48 @@
+@use "sass:math";
+@use "sass:map";
+
+$components: append($components, popup);
+
+@function set-popup-properties($_theme, $_properties: ()) {
+  $_properties: () !default;
+
+  $_core: map.get($_theme, core);
+  $_core: () !default;
+
+  $_shadow: map.get($_core, shadow);
+  $_shadow: black !default;
+
+  $_surface: map.get($_theme, surface);
+  $_surface: () !default;
+
+  $_panelGap: map.get($_core, margin);
+  $_panelGap: 1rem !default;
+
+  $_backgroundColor: map.get($_surface, main);
+
+  $_basic: (
+    transition: map.get($_core, transition),
+    panel: (
+      filter: blur(0),
+      gap: $_panelGap,
+      border: (
+        width: 0rem,
+        color: map.get($_core, border-color),
+        style: map.get($_core, border-style),
+      ),
+    ),
+    arrow: (
+      gap: 0.4rem,
+      width: 1.6rem,
+      text-color: inherit,
+    ),
+  );
+
+  $_result: merge-flattened-map($_basic, $_properties);
+
+  @if map.get($_result, panel-border-width) <= 0 {
+    $_result: map.set($_result, panel-border-color, null);
+  }
+
+  @return $_result;
+}

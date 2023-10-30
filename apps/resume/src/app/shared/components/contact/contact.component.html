@@ -1,0 +1,19 @@
+<div id="CONTACT" class="m-flex m-flex-column m-flex-gap:2 m-width:full">
+  <ng-container *ngFor="let item of 'CONTACT.ELEMENTS' | translate">
+    <div class="m-flex m-flex-column m-flex-gap:half m-width:full">
+      <span class="m-text-color:primary">{{ item.TITLE }}</span>
+      <ng-container *ngIf="item.LINK; else elseTemplate">
+        <a
+          target="_blank"
+          [href]="item.LINK"
+          class="m-link m-tertiary m-text-normal"
+        >
+          {{ item.VALUE }}
+        </a>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <span>{{ item.VALUE }}</span>
+      </ng-template>
+    </div>
+  </ng-container>
+</div>

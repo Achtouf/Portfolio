@@ -1,0 +1,10 @@
+.#{$prefix} {
+  &list {
+    list-style: disc;
+    list-style-position: inside;
+
+    li {
+      line-height: 1.4;
+    }
+  }
+}

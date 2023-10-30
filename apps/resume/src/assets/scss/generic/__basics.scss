@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  min-height: 100%;
+}
+
+html {
+  font-size: var(--m-unit);
+}
+
+body {
+  color: var(--m-text-color);
+  font-size: var(--m-font-size);
+  font-family: var(--m-font-family);
+  background-color: var(--m-surface-main);
+}
+
+@media print {
+  html {
+    padding: 2rem;
+    font-size: 7px;
+  }
+}

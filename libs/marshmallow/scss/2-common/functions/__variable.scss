@@ -1,0 +1,14 @@
+// Variables
+@function get-variable($_name, $_prefix: $mPrefix) {
+  $_key: --#{$_prefix}#{$_name};
+  @return $_key;
+}
+
+@function variable($_name, $_default: null) {
+  $_key: get-variable($_name);
+  @if is-empty($_default) {
+    @return var(#{$_key});
+  } @else {
+    @return var(#{$_key}, #{$_default});
+  }
+}

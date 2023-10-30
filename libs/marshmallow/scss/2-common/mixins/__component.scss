@@ -1,0 +1,41 @@
+@mixin component-on-states($_states...) {
+  @for $i from 0 to length($_states) {
+    $_state: #{nth($_states, $i + 1)};
+    &:#{$_state},
+    &.#{$mPrefix}#{$_state} {
+      @content;
+    }
+  }
+}
+
+@mixin component-off-states($_states...) {
+  @for $i from 0 to length($_states) {
+    $_state: #{nth($_states, $i + 1)};
+    &:not(:#{$_state}),
+    &:not(.#{$mPrefix}#{$_state}) {
+      @content;
+    }
+  }
+}
+
+@mixin component-property-or-normal(
+  $_component,
+  $_prefix,
+  $_property,
+  $_selector: $_component
+) {
+  #{$_property}: variable(
+    #{$_component}#{$_prefix}-#{$_property},
+    variable(#{$_component}-#{$_property})
+  );
+}
+
+@mixin generate-component-outline(
+  $_color: variable(outline-color),
+  $_width: variable(outline-width),
+  $_gapColor: variable(outline-gap-color),
+  $_gapWidth: variable(outline-gap-width)
+) {
+  box-shadow: 0 0 0 #{$_gapWidth} #{$_gapColor},
+    0 0 0 calc($_width + $_gapWidth) #{$_color};
+}

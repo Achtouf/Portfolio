@@ -1,0 +1,107 @@
+$mButton: true !default;
+
+$mButtonGap: 1rem !default;
+$mButtonHeight: 3.6rem !default;
+$mButtonPadding: 1rem 1.6rem !default;
+$mButtonBackgroundColor: var(--m-neutral-main) !default;
+
+$mButtonFontSize: 1.2rem !default;
+$mButtonFontWeight: 600 !default;
+
+$mButtonIconSize: 1rem 1.6rem !default;
+
+$mButtonBorderStyle: solid !default;
+$mButtonBorderWidth: 0.2rem !default;
+$mButtonBorderColor: var(--m-primary-main) !default;
+$mButtonBorderRadius: 0.4rem !default;
+$mButtonBorderRoundedRadius: $mButtonHeight !default;
+
+$mButtonOutlineWidth: 0.2rem !default;
+$mButtonOutlineColor: var(--m-primary-main) !default;
+$mButtonOutlineGapWidth: 0.2rem !default;
+$mButtonOutlineGapColor: var(--m-surface-main) !default;
+
+$mButtonTransition: var(--m-transition) !default;
+
+$mButtonColorConfiguration: (
+  normal: (
+    text: accent 50,
+    border: main 50,
+    background: main 50,
+    hover: (
+      text: accent 50,
+      border: main 60,
+      background: main 60,
+    ),
+    active: (
+      text: accent 50,
+      border: main 70,
+      background: main 70,
+    ),
+    disabled: (
+      text: accent 20,
+      border: main 20,
+      background: main 20,
+    ),
+  ),
+  outlined: (
+    text: main 50,
+    border: main 50,
+    background: transparent,
+    hover: (
+      text: main 60,
+      border: main 60,
+      background: main 5,
+    ),
+    active: (
+      text: main 70,
+      border: main 70,
+      background: transparent,
+    ),
+    disabled: (
+      text: main 20,
+      border: main 20,
+      background: transparent,
+    ),
+  ),
+  text: (
+    text: main 50,
+    border: transparent,
+    background: transparent,
+    hover: (
+      text: main 60,
+      border: transparent,
+      background: main 5,
+    ),
+    active: (
+      text: main 70,
+      border: transparent,
+      background: main 0,
+    ),
+    disabled: (
+      text: main 20,
+      border: transparent,
+      background: transparent,
+    ),
+  ),
+  plain: (
+    text: inherit,
+    border: transparent,
+    background: transparent,
+    hover: (
+      text: inherit,
+      border: transparent,
+      background: transparent,
+    ),
+    active: (
+      text: inherit,
+      border: transparent,
+      background: transparent,
+    ),
+    disabled: (
+      text: inherit,
+      border: transparent,
+      background: transparent,
+    ),
+  ),
+) !default;

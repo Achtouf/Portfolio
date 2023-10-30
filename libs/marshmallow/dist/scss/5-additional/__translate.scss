@@ -1,0 +1,29 @@
+.#{$mPrefix} {
+  @if $mTranslate {
+    &translate {
+      @include loop-axes($mTranslateAxes) using ($_k, $_axis) {
+        $_prefix: map-get($mTranslateAxesPrefixes, $_k, "");
+
+        // Rem
+        @if $mTranslateUnit {
+          @include loop-range($mTranslateUnitLimit, $mTranslateUnitStep) using ($_index) {
+            &#{$mSeparator}#{$_index} {
+              translate: #{$_prefix} calc(#{$_index} * #{variable(translate)});
+            }
+          }
+        }
+
+        // Percentage
+        @if $mTranslatePercent {
+          @if (list-contains($mTranslatePercentAxes, $_k)) {
+            @include loop-range($mTranslatePercentLimit, $mTranslatePercentStep) using ($_index) {
+              &#{$mSeparator}#{$_index}p {
+                translate: #{$_prefix} #{$_index * 1%};
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

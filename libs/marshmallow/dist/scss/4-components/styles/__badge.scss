@@ -1,0 +1,243 @@
+$_c: badge;
+
+.#{$mPrefix}#{$_c} {
+  $_prefix: &;
+
+  display: inline-flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: variable(#{$_c}-gap);
+
+  padding: variable(#{$_c}-padding);
+
+  height: variable(#{$_c}-height, auto);
+
+  font-size: variable(#{$_c}-font-size);
+  font-family: variable(#{$_c}-font-family, variable(font-family));
+  font-weight: variable(#{$_c}-font-weight);
+  color: variable(text-color);
+  line-height: variable(#{$_c}-line-height, 1);
+  text-align: variable(#{$_c}-text-align, center);
+  vertical-align: variable(#{$_c}-vertical-align, bottom);
+
+  outline: none;
+
+  transition: variable(#{$_c}-transition);
+  border-radius: variable(#{$_c}-border-radius);
+  background-color: variable(#{$_c}-color, transparent);
+  border: variable(#{$_c}-border-width) solid transparent;
+
+  .#{$mPrefix}icon {
+    font-size: variable(#{$_c}-icon-size);
+  }
+
+  &#{$_prefix}-icon {
+    padding: 0;
+
+    font-size: variable(#{$_c}-font-size);
+
+    width: variable(#{$_c}-height);
+    height: variable(#{$_c}-height);
+  }
+
+  &#{$_prefix}-dot {
+    padding: 0;
+    font-size: 0;
+    width: variable(#{$_c}-dot);
+    height: variable(#{$_c}-dot);
+    border-radius: variable(#{$_c}-dot);
+  }
+
+  @each $_level in $mSeveritiesList {
+    $color: variable(#{$_level}-main);
+    $onColor: variable(#{$_level}-accent);
+
+    &.#{$mPrefix}#{$_level} {
+      color: $onColor;
+      background-color: $color;
+
+      &#{$_prefix}-text {
+        color: $color;
+        border-color: transparent;
+        background-color: transparent;
+      }
+
+      &#{$_prefix}-outlined {
+        color: $color;
+        border-color: $color;
+        background-color: transparent;
+      }
+    }
+  }
+
+  &#{$_prefix}-no-gutter {
+    padding: 0;
+    height: variable(#{$_c}-height);
+    min-width: variable(#{$_c}-height);
+    border-radius: variable(#{$_c}-height);
+  }
+
+  // Sizes
+  @each $_size, $_ratio in $mSizesProperties {
+    $_dot: variable(#{$_c}-#{$_size}-dot);
+    $_height: variable(#{$_c}-#{$_size}-height);
+    $_fontSize: variable(#{$_c}-#{$_size}-font-size);
+    $_iconSize: variable(#{$_c}-#{$_size}-icon-size);
+
+    &#{$_prefix}-#{$_size} {
+      gap: variable(#{$_c}-#{$_size}-gap);
+      padding: variable(#{$_c}-#{$_size}-padding);
+
+      font-size: $_fontSize;
+
+      height: $_height;
+
+      border-radius: variable(#{$_c}-#{$_size}-border-radius);
+
+      .#{$mPrefix}icon {
+        font-size: $_iconSize;
+      }
+
+      &#{$_prefix}-icon {
+        padding: 0;
+
+        font-size: $_fontSize;
+
+        width: $_height;
+        height: $_height;
+      }
+
+      &#{$_prefix}-dot {
+        padding: 0;
+        font-size: 0;
+
+        width: $_dot;
+        height: $_dot;
+        border-radius: $_dot;
+      }
+
+      &#{$_prefix}-no-gutter {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.#{$mPrefix}overlay-#{$_c} {
+  position: relative;
+
+  .#{$mPrefix}#{$_c} {
+    margin: 0;
+    position: absolute;
+    transform-origin: 100% 0;
+
+    // Top
+    &.#{$mPrefix}#{$_c} {
+      &-top {
+        &-left,
+        &-center,
+        &-right {
+          bottom: 100%;
+        }
+
+        &-left {
+          right: 100%;
+          transform: translate(50%, 50%);
+        }
+
+        &-center {
+          left: 50%;
+          transform: translate(-50%, 50%);
+        }
+
+        &-right {
+          left: 100%;
+          transform: translate(-50%, 50%);
+        }
+      }
+
+      &-middle {
+        &-left,
+        &-center,
+        &-right {
+          top: 50%;
+        }
+
+        &-left {
+          right: 100%;
+          transform: translate(50%, -50%);
+        }
+
+        &-center {
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        &-right {
+          left: 100%;
+          transform: translate(-50%, -50%);
+        }
+
+        transform: translateX(-50%);
+      }
+
+      &-bottom {
+        &-left,
+        &-center,
+        &-right {
+          top: 100%;
+        }
+
+        &-left {
+          right: 100%;
+          transform: translate(50%, -50%);
+        }
+
+        &-center {
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        &-right {
+          left: 100%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      &-center {
+        &-left,
+        &-center,
+        &-right {
+          top: 50%;
+        }
+
+        &-left {
+          right: 100%;
+          transform: translateX(50%);
+        }
+
+        &-center {
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        &-right {
+          left: 100%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+}
+
+@each $_level in $mSeveritiesList {
+  .#{$mPrefix}#{$_level} {
+    & > .#{$mPrefix}#{$_c} {
+      &.#{$mPrefix}adapt {
+        color: variable(#{$_level}-main);
+        background-color: variable(#{$_level}-accent);
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@use "sass:map";
+
+$components: append($components, tag);
+
+@function set-tag-properties($_theme, $_properties: ()) {
+  $_properties: () !default;
+
+  $_core: map.get($_theme, core);
+  $_core: () !default;
+
+  $_borderStyle: map.get($_core, border-style);
+  $_borderWidth: map.get($_core, border-width);
+  $_borderColor: map.get($_core, border-color);
+  $_borderRadius: map.get($_core, border-radius);
+
+  $_gap: 0.5rem;
+  $_height: 2rem;
+  $_fontSize: 1rem;
+  $_iconSize: 1.2rem;
+  $_borderRadius: 0rem !default;
+
+  $_basic: (
+    gap: $_gap,
+
+    height: $_height,
+    font-weight: 600,
+    padding: 0.2rem 0.4rem,
+    icon-size: $_iconSize,
+    font-size: $_fontSize,
+
+    rounded-border-radius: #{$_height},
+
+    border: (
+      style: $_borderStyle,
+      width: $_borderWidth,
+      color: $_borderColor,
+      radius: $_borderRadius,
+    ),
+    transition: map.get($_core, transition),
+  );
+
+  $_result: merge-flattened-map($_basic, $_properties);
+
+  // Sizes
+  $_targets: gap height padding font-size icon-size border-radius;
+  $_result: generate-component-sizes($_result, $_targets);
+
+  @return $_result;
+}

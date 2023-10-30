@@ -1,0 +1,53 @@
+@use "sass:map";
+
+$components: append($components, icon);
+
+@function set-icon-properties($_theme, $_properties: ()) {
+  $_properties: () !default;
+
+  $_core: map.get($_theme, core);
+  $_core: () !default;
+
+  $_fontSize: map.get($_core, icon-size);
+  $_fontSize: map.get($_core, font-size) !default;
+
+  $_basic: (
+    font-size: $_fontSize,
+    transition: map.get($_core, transition)
+  );
+
+  $_result: merge-flattened-map($_basic, $_properties);
+
+  // Sizes
+  @each $_size, $_ratio in $mSizesProperties {
+    $_result: set-icon-size-properties($_size, $_ratio, $_result, $_fontSize);
+  }
+
+  @return $_result;
+}
+
+@function get-icon-size-properties($_size, $_ratio, $_fontSize) {
+  $_result: () !default;
+
+  @return (font-size: $_fontSize * $_ratio);
+}
+
+@function set-icon-size-properties(
+  $_size,
+  $_ratio: 1,
+  $_result: (),
+  $_fontSize
+) {
+  $_props: map.get($_result, #{$_size});
+  $_props: () !default;
+
+  $_newRatio: map.get($_props, ratio);
+  $_newRatio: $_ratio !default;
+
+  $_props: merge-map(
+    get-icon-size-properties($_size, $_newRatio, $_fontSize),
+    $_props
+  );
+
+  @return map.set($_result, #{$_size}, $_props);
+}

@@ -1,0 +1,12 @@
+.#{$mPrefix} {
+  @if $mPosition {
+    &position {
+      // Properties
+      @include loop-list-properties($mPositionProperties) using ($_prop) {
+        &#{$mSeparator}#{$_prop} {
+          position: #{$_prop};
+        }
+      }
+    }
+  }
+}

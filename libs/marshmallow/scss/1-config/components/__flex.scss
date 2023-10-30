@@ -1,0 +1,71 @@
+@use "sass:map";
+@use "sass:list";
+
+$mFlex: true !default;
+$mFlexLimit: 12 !default;
+$mFlexExtra: true !default;
+
+$mFlexGrow: true !default;
+$mFlexGrowLimit: 10 !default;
+$mFlexGrowProperties: () !default;
+
+$mFlexGap: true !default;
+$mFlexGapLimit: 10 !default;
+$mFlexGapDirections: $mObjectGridDirections !default;
+
+$mFlexWrap: true !default;
+$mFlexWrapProperties: nowrap wrap wrap-reverse !default;
+
+$mFlexOrder: true !default;
+$mFlexOrderLimit: $mFlexLimit !default;
+$mFlexOrderProperties: () !default;
+
+$mFlexDirection: true !default;
+$mFlexDirectionProperties: () !default;
+$mFlexDirectionDirections: (
+  row: row,
+  column: column,
+  row-r: row-reverse,
+  column-r: column-reverse,
+) !default;
+
+$mFlexJustifyContent: true !default;
+$mFlexJustifyContentProperties: (
+  end: flex-end,
+  center: center,
+  start: flex-start,
+  evenly: space-evenly,
+  around: space-around,
+  between: space-between,
+) !default;
+
+$mFlexAlignContent: true !default;
+$mFlexAlignContentProperties: (
+  end: flex-end,
+  center: center,
+  stretch: stretch,
+  start: flex-start,
+  around: space-around,
+  evenly: space-evenly,
+  between: space-between,
+) !default;
+
+$mFlexAlignItems: true !default;
+$mFlexAlignItemsProperties: (
+  end: flex-end,
+  center: center,
+  stretch: stretch,
+  start: flex-start,
+  baseline: baseline,
+) !default;
+
+$mFlexAlignSelf: true !default;
+$mFlexAlignSelfProperties: (
+  auto: auto,
+  end: flex-end,
+  normal: normal,
+  center: center,
+  stretch: stretch,
+  start: flex-start,
+  baseline: baseline,
+) !default;

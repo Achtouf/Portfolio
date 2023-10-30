@@ -1,0 +1,25 @@
+@use "sass:meta";
+@use "sass:string";
+
+@function is-string($_object) {
+  @return meta.type-of($_object) == "string";
+}
+
+@function is-str-empty($_object) {
+  @return $_object == "";
+}
+
+@function str-replace($_string, $_search, $_replace: "") {
+  $_index: str-index($_string, $_search);
+
+  @if $_index {
+    @return str-slice($_string, 1, $_index - 1) + $_replace +
+      str-replace(
+        str-slice($_string, $_index + str-length($_search)),
+        $_search,
+        $_replace
+      );
+  }
+
+  @return $_string;
+}

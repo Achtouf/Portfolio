@@ -1,0 +1,56 @@
+@use "sass:map";
+@use "sass:math";
+
+$components: append($components, label);
+
+@function set-label-properties($_theme, $_properties: ()) {
+  $_properties: () !default;
+
+  $_core: map.get($_theme, core);
+  $_core: () !default;
+
+  $_tertiary: map.get($_theme, tertiary);
+  $_tertiary: () !default;
+
+  $_danger: map.get($_theme, danger);
+  $_danger: () !default;
+
+  $_textColor: map.get($_tertiary, main);
+  $_asteriskColor: map.get($_danger, main);
+
+  $_borderStyle: map.get($_core, border-style);
+  $_borderWidth: map.get($_core, border-width);
+  $_borderColor: map.get($_core, border-color);
+  $_borderRadius: map.get($_core, border-radius);
+
+  $_basic: (
+    gap: 0.7rem,
+
+    line-height: 1,
+    font-weight: bold,
+    color: $_textColor,
+    font-size: map.get($_theme, font-size),
+    
+    border-style: $_borderStyle,
+    border-width: $_borderWidth,
+    border-color: $_borderColor,
+    border-radius: $_borderRadius,
+
+    asterisk: (
+      gap: 0.5rem,
+      line-height: 0.7,
+      font-size: 1.6rem,
+      font-weight: bolder,
+      color: $_asteriskColor,
+    ),
+    transition: map.get($_core, transition),
+  );
+
+  $_result: merge-flattened-map($_basic, $_properties);
+
+  // Sizes
+  $_targets: gap padding font-size font-weight asterisk-gap asterisk-padding asterisk-font-size asterisk-font-weight;
+  $_result: generate-component-sizes($_result, $_targets);
+
+  @return $_result;
+}

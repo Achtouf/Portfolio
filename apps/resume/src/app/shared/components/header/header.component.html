@@ -1,0 +1,49 @@
+<div
+  class="header m-flex m-flex-column m-flex-gap:4 m-flex-justify:between m-width:full m-height:full m-position:relative"
+>
+  <div class="header-section m-flex m-flex-column m-flex-gap:4 m-width:full">
+    <!-- Name -->
+    <aa-logo class="m-display:block m-width:24"></aa-logo>
+
+    <!-- Description -->
+    <div class="m-flex m-flex-column m-flex-gap:4 m-width:full">
+      <div
+        [ngStyle]="{ gap: '0.2rem' }"
+        class="m-flex m-flex-column m-width:full"
+      >
+        <div class="aa-subtitle">{{ "GENERAL.NATIONALITY" | translate }}</div>
+        <div class="m-text-color:primary m-text-uppercase m-text-bold">
+          {{ "GENERAL.JOB_TITLE" | translate }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Software Skills -->
+  <aa-software-skills class="header-section m-width:full"></aa-software-skills>
+
+  <!-- Information -->
+  <aa-information
+    [anchor]="info.ANCHOR"
+    [text]="info.DESCRIPTION"
+    *ngFor="let info of infoList"
+    class="header-section"
+  ></aa-information>
+
+  <!-- Hobbies -->
+  <aa-hobbies class="m-width:full"></aa-hobbies>
+
+  <div class="m-flex m-flex-column m-flex-gap:4 m-width:full">
+    <!-- Glossary -->
+  </div>
+
+  <!-- Second Illustration -->
+  <div class=""></div>
+
+  <div class="m-flex m-flex-column m-flex-gap:4 m-width:full">
+    <!-- Glossary -->
+  </div>
+
+  <!-- Contact -->
+  <aa-contact class="m-flex-self:end"></aa-contact>
+</div>

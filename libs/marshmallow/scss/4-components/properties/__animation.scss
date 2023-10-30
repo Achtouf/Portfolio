@@ -1,0 +1,41 @@
+// animation-jump-translateY
+@use "sass:map";
+@use "sass:math";
+
+$components: append($components, animation);
+
+@function set-animation-properties($_theme, $_properties: ()) {
+  $_properties: () !default;
+
+  $_core: map.get($_theme, core);
+  $_core: () !default;
+
+  $_basic: (
+    wave: (
+      skew: -15deg,
+      translateX: 100%,
+    ),
+    fade: (
+      opacity: 0,
+    ),
+    spin: (
+      from: (
+        rotateZ: 0turn,
+      ),
+      to: (
+        rotateZ: 1turn,
+      ),
+    ),
+    flash: (
+      scale: 0.2,
+    ),
+    jump: (
+      translateY: -100%,
+    ),
+    transition: map.get($_core, transition),
+  );
+
+  $_result: merge-flattened-map($_basic, $_properties);
+
+  @return $_result;
+}

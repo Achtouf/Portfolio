@@ -1,0 +1,19 @@
+$mGrid: true !default;
+$mGridLimit: 12 !default;
+$mGridExtra: true !default;
+
+$mGridGap: true !default;
+$mGridGapLimit: 10 !default;
+$mGridGapDirections: $mObjectGridDirections !default;
+
+$mGridTemplate: true !default;
+$mGridTemplateLimit: 12 !default;
+$mGridTemplateDirections: $mObjectGridDirections !default;
+
+$mGridSpan: true !default;
+$mGridSpanLimit: 12 !default;
+$mGridSpanProperties: auto none !default;
+
+$mGridSpanBorder: true !default;
+$mGridSpanBorderSides: start end !default;
+$mGridSpanBorderProperties: auto none !default;

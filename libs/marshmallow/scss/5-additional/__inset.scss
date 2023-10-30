@@ -1,0 +1,26 @@
+@include responsive {
+  @if $mInset {
+    &inset {
+      // Sides
+      @if $mInsetSides {
+        $_sides: $mInsetSidesProperties;
+
+        @include loop-sides($_sides) using ($_key, $_name, $_) {
+          // Unit
+          @if $mInsetUnit {
+            @include loop-limit($mInsetUnitLimit, true) using ($_index, $_) {
+              #{$_name}: calc(#{$_index} * #{variable(inset)});
+            }
+          }
+
+          // Properties
+          @include loop-list-properties($mInsetProperties) using ($_prop) {
+            &#{$mSeparator}#{$_prop} {
+              #{$_name}: #{$_prop};
+            }
+          }
+        }
+      }
+    }
+  }
+}

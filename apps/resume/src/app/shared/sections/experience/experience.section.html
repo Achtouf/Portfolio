@@ -1,0 +1,54 @@
+<aa-section id="EXPERIENCE" class="m-width:full">
+  <h2 class="aa-title:1">{{ "EXPERIENCE.TITLE" | translate }}</h2>
+  <div class="m-flex m-flex-column m-flex-gap:4 m-width:full">
+    <ng-container *ngFor="let bloc of ('EXPERIENCE.CONTENT' | translate)">
+      <div
+        class="m-flex m-flex-column m-flex-gap:2"
+        [attr.id]="util.toId(bloc.TITLE)"
+      >
+        <div class="m-flex m-flex-column m-width:full">
+          <div class="m-flex m-flex-justify:between m-flex-items:center">
+            <h3 class="aa-title:2 m-text-uppercase">{{ bloc.TITLE }}</h3>
+            <span *ngIf="bloc.DATE" class="aa-title:3 m-text-color:neutral">
+              <span *ngIf="bloc.DATE.FROM">{{ bloc.DATE.FROM }}</span>
+              <span *ngIf="bloc.DATE.TO"> - {{ bloc.DATE.TO }}</span>
+            </span>
+          </div>
+          <span class="aa-title:4 m-text-color:neutral">
+            {{ bloc.SUBTITLE }}
+          </span>
+        </div>
+        <ng-container *ngFor="let project of bloc.PROJECTS">
+          <div
+            [attr.id]="util.toId(project.TITLE)"
+            class="m-flex m-flex-column m-flex-gap:1 m-padding-l:2"
+          >
+            <div class="m-flex m-flex-column">
+              <div *ngIf="project.TITLE" class="aa-title:3 m-text-bold">
+                {{ project.TITLE }}
+              </div>
+              <div
+                *ngIf="project.DESCRIPTION"
+                class="aa-title:5 m-text-color:neutral"
+              >
+                {{ project.DESCRIPTION }}
+              </div>
+            </div>
+            <ul
+              class="aa-list m-padding-l:2 m-width:full"
+              *ngIf="project.DETAILS && project.DETAILS.length > 0"
+            >
+              <ng-container
+                *ngFor="let task of project.DETAILS; let isLast = last"
+              >
+                <li [ngClass]="{ 'm-margin-b:1': !isLast }">
+                  <span class="aa-paragraph">{{ task }}</span>
+                </li>
+              </ng-container>
+            </ul>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</aa-section>

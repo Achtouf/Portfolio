@@ -1,0 +1,60 @@
+@use "sass:map";
+
+$components: append($components, modal);
+
+@function set-modal-properties($_theme, $_properties: ()) {
+  $_properties: () !default;
+
+  $_core: map.get($_theme, core);
+  $_core: () !default;
+  $_overlay: map.get($_theme, overlay);
+  $_overlay: () !default;
+  $_background: map.get($_theme, background);
+  $_background: () !default;
+  $_surface: map.get($_theme, surface);
+  $_surface: () !default;
+
+  $_surfaceColor: map.get($_surface, main);
+  $_onSurface: map.get($_surface, accent);
+
+  $_overlayColor: map.get($_overlay, main);
+  $_overlayColor: black !default;
+  $_onOverlay: map.get($_overlay, accent);
+
+  $_padding: map.get($_core, padding);
+  $_borderStyle: map.get($_core, border-style);
+  $_borderWidth: map.get($_core, border-width);
+  $_borderColor: map.get($_core, border-color);
+  $_borderRadius: map.get($_core, border-radius);
+
+  $_basic: (
+    zindex: 1000,
+    max-width: 60rem,
+    max-height: 90vh,
+
+    text-color: $_onSurface,
+    background-color: $_surfaceColor,
+    transition: map.get($_core, transition),
+
+    border: (
+      style: $_borderStyle,
+      width: $_borderWidth,
+      color: $_borderColor,
+      radius: $_borderRadius,
+    ),
+    header-padding: $_padding,
+    body-padding: $_padding,
+    footer-padding: $_padding,
+
+    backdrop: (
+      overlay-opacity: 0.7,
+      overlay-padding: $_padding,
+      overlay-accent: $_onOverlay,
+      overlay-main: $_overlayColor,
+    ),
+  );
+
+  $_result: merge-flattened-map($_basic, $_properties);
+
+  @return $_result;
+}

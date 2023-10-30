@@ -1,0 +1,107 @@
+.#{$mPrefix} {
+  @if $mBackground {
+    &bg {
+      // Color
+      @if $mBackgroundColor {
+        &-color {
+          $_steps: $mBackgroundColorShadesStep;
+          $_limit: $mBackgroundColorShadesLimit;
+
+          @include loop-list-properties($mBackgroundColorColors) using ($_color) {
+            &#{$mSeparator} {
+              &#{$_color} {
+                background-color: variable(#{$_color}-main);
+
+                @if $mBackgroundColorShades {
+                  @include loop-shades($_limit, $_steps) using ($_shade) {
+                    background-color: variable(#{$_color}-#{$_shade});
+                  }
+                }
+              }
+
+              @if $mBackgroundColorOn {
+                &on-#{$_color} {
+                  background-color: variable(#{$_color}-accent);
+
+                  @if $mBackgroundColorShades {
+                    @include loop-shades($_limit, $_steps) using ($_shade) {
+                      background-color: variable(#{$_color}-on-#{$_shade});
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // Size
+      @if $mBackgroundSize {
+        &-size {
+          @include loop-list-properties($mBackgroundSizeProperties) using
+            ($_prop) {
+            &#{$mSeparator}#{$_prop} {
+              background-size: #{$_prop};
+            }
+          }
+        }
+      }
+
+      // Repeat
+      @if $mBackgroundRepeat {
+        &-repeat {
+          @include loop-list-properties($mBackgroundRepeatProperties) using
+            ($_prop) {
+            &#{$mSeparator}#{$_prop} {
+              background-repeat: #{$_prop};
+            }
+          }
+
+          // Axes
+          @if $mBackgroundRepeatAxes {
+            @include loop-list($mBackgroundRepeatAxesValues) using ($_axis) {
+              $_properties: $mBackgroundRepeatAxesProperties;
+              &-#{$_axis} {
+                @include loop-list-properties($_properties) using ($_prop) {
+                  &#{$mSeparator}#{$_prop} {
+                    background-repeat-#{$_axis}: #{$_prop};
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // Position
+      @if $mBackgroundPosition {
+        &-position {
+          $_properties: $mBackgroundPositionProperties;
+
+          @include loop-list-properties($_properties) using ($_prop) {
+            &#{$mSeparator}#{$_prop} {
+              background-position: #{$_prop};
+            }
+          }
+
+          // Axes
+          @if $mBackgroundPositionAxes {
+            $_axes: $mBackgroundPositionAxesValues;
+
+            @include loop-map($_axes) using ($_key, $_properties) {
+              &-#{$_key} {
+                @include loop-list($_properties) using ($_axes) {
+                  @include loop-list-properties($_axes) using ($_prop) {
+                    &#{$mSeparator}#{$_prop} {
+                      background-position-#{$_key}: #{$_prop};
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

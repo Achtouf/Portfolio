@@ -1,0 +1,26 @@
+.#{$mPrefix} {
+  @if $mRotate {
+    &rotate {
+      @include loop-axes($mRotateAxes) using ($_key, $_axis) {
+        @if $mRotateDegree {
+          @include loop-range($mRotateDegreeLimit, $mRotateDegreeStep) using
+            ($_degree) {
+            &#{$mSeparator}#{$_degree}d {
+              rotate: #{$_key} #{$_degree * 1deg};
+            }
+          }
+        }
+
+        @if $mRotateTurn {
+          @include loop-range($mRotateTurnLimit, $mRotateTurnStep) using ($_turn) {
+            $_position: str-replace(#{$_turn}, ".", "_");
+
+            &#{$mSeparator}#{$_position}t {
+              rotate: #{$_key} #{$_turn * 1turn};
+            }
+          }
+        }
+      }
+    }
+  }
+}

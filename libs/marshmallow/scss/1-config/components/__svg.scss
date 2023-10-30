@@ -1,0 +1,17 @@
+@use "sass:list";
+
+$mStroke: true !default;
+$mStrokeColor: true !default;
+$mStrokeColorOn: true !default;
+$mStrokeColorProperties: list.join($mSeveritiesList, $mColorsList) !default;
+$mStrokeColorShades: true !default;
+$mStrokeColorShadesStep: 5 !default;
+$mStrokeColorShadesLimit: 10 !default;
+
+$mFill: true !default;
+$mFillColor: true !default;
+$mFillColorOn: true !default;
+$mFillColorProperties: list.join($mSeveritiesList, $mColorsList) !default;
+$mFillColorShades: true !default;
+$mFillColorShadesStep: 5 !default;
+$mFillColorShadesLimit: 10 !default;

@@ -1,0 +1,176 @@
+@use "sass:map";
+@use "sass:math";
+
+$components: append($components, button);
+
+@function set-button-properties($_theme, $_properties: ()) {
+  $_properties: () !default;
+
+  $_core: map.get($_theme, core);
+  $_core: () !default;
+
+  $_scheme: map.get($_theme, scheme);
+  $_scheme: light !default;
+
+  $_elevation: map.get($_theme, elevation);
+  $_elevation: () !default;
+
+  $_surface: map.get($_theme, surface);
+  $_surface: () !default;
+
+  $_borderStyle: map.get($_core, border-style);
+  $_borderWidth: map.get($_core, border-width);
+  $_borderColor: map.get($_core, border-color);
+
+  $_borderRadius: map.get($_core, border-radius);
+  $_borderRadius: 0rem !default;
+
+  $_fontSize: 1.6rem;
+
+  $_iconSize: map.get($_core, icon-size);
+  $_iconSize: 1.4rem !default;
+
+  $_gap: 1rem !default;
+
+  $_basic: (
+    font-weight: 500,
+    font-size: $_fontSize,
+    icon-size: $_iconSize,
+
+    gap: $_gap,
+    height: $mButtonHeight,
+    padding: $mButtonPadding,
+
+    border-style: $_borderStyle,
+    border-width: $_borderWidth,
+    border-color: $_borderColor,
+    border-radius: $_borderRadius,
+
+    elevation: 1,
+    transition: map.get($_core, transition),
+    outline-color: map.get($_core, outline-color),
+    outline-width: map.get($_core, outline-width),
+    outline-gap-width: map.get($_core, outline-gap-width),
+    outline-gap-color: map.get($_core, outline-gap-color),
+  );
+
+  $_result: merge-component-properties($_basic, $_properties);
+
+  // Automatically calculated
+  $_height: map.get($_result, height);
+  $_fontSize: map.get($_result, font-size);
+  $_elevationIndex: map.get($_result, elevation);
+  $_borderRadius: map.get($_result, border-radius);
+  $_boxShadow: map.get($_elevation, $_elevationIndex);
+
+  @if is-empty($_borderRadius) {
+    @if is-empty($_height) {
+      $_borderRadius: map.get($_core, border-radius);
+    } @else {
+      $_borderRadius: math.div($_height, 2);
+    }
+    $_result: map.set($_result, border-radius, $_borderRadius);
+  }
+
+  @if not map-contains($_result, rounded-border-radius) {
+    $_result: map.set($_result, rounded-border-radius, #{$_height});
+  }
+
+  @if not map-contains($_result, box-shadow) {
+    $_result: map.set($_result, box-shadow, #{$_boxShadow});
+  }
+
+  // Sizes
+  @each $_size, $_ratio in $mSizesProperties {
+    $_result: set-button-size-properties(
+      $_size,
+      $_ratio,
+      $_result,
+      $_height,
+      $_fontSize,
+      $_iconSize,
+      $_borderRadius,
+      $_gap
+    );
+  }
+
+  @each $_level in $mSeveritiesList {
+    $_color: map.get($_theme, $_level);
+    $_color: () !default;
+
+    $_main: map.get($_color, main);
+    $_accent: map.get($_color, accent);
+    $_result: map.set(
+      $_result,
+      $_level,
+      generate-two-colors-properties(
+        $_main,
+        $_accent,
+        $_scheme,
+        $_darkAccent: $_accent,
+        $_lightAccent: $_accent
+      )
+    );
+  }
+
+  $_result: merge-component-properties($_result, $_properties);
+
+  @return $_result;
+}
+
+@function get-button-size-properties(
+  $_size,
+  $_ratio,
+  $_height,
+  $_fontSize,
+  $_iconSize,
+  $_borderRadius,
+  $_gap
+) {
+  $_result: () !default;
+
+  $_height: $_height * $_ratio;
+  $_verticalPadding: math.div(($_height - $_fontSize) * $_ratio, 2);
+
+  @return (
+    gap: $_gap * $_ratio,
+    height: $_height,
+    font-size: $_fontSize * $_ratio,
+    icon-size: $_iconSize * $_ratio,
+    border-radius: $_borderRadius * $_ratio,
+    rounded-border-radius: $_height * $_ratio,
+    padding: $_verticalPadding #{$_height - $_verticalPadding}
+  );
+}
+
+@function set-button-size-properties(
+  $_size,
+  $_ratio: 1,
+  $_result: (),
+  $_height,
+  $_fontSize,
+  $_iconSize,
+  $_borderRadius,
+  $_gap
+) {
+  $_props: map.get($_result, #{$_size});
+  $_props: () !default;
+
+  $_newRatio: map.get($_props, ratio);
+  $_newRatio: $_ratio !default;
+
+  $_props: merge-component-properties(
+    get-button-size-properties(
+      $_size,
+      $_newRatio,
+      $_height,
+      $_fontSize,
+      $_iconSize,
+      $_borderRadius,
+      $_gap
+    ),
+    $_props
+  );
+
+  @return map.set($_result, #{$_size}, $_props);
+}

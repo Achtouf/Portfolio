@@ -1,0 +1,47 @@
+.p-checkbox {
+  $_size: 2rem;
+
+  width: $_size;
+  height: $_size;
+
+  .p-checkbox-box {
+    width: $_size;
+    height: $_size;
+    border-width: variable(form-border-width, 0.1rem);
+    border-radius: variable(form-border-radius, 0.4rem);
+
+    &:not(.p-disabled) {
+      &.p-highlight {
+        border-color: variable(primary-main);
+        background-color: variable(primary-main);
+
+        .p-checkbox-icon {
+          background-color: variable(primary-main);
+
+          .m-icon {
+            font-size: 1.4rem;
+            font-weight: border;
+          }
+        }
+      }
+
+      &.p-focus {
+        box-shadow: 0 0 0 variable(outline-gap-width)
+            variable(outline-gap-color),
+          0 0 0 calc(variable(outline-width) + variable(outline-gap-width))
+            variable(
+              button-tertiary-focus-outline,
+              variable(button-tertiary-normal-background)
+            );
+      }
+
+      &:hover {
+        border-color: variable(form-active, variable(primary-60));
+
+        .p-checkbox-icon {
+          background-color: variable(form-active, variable(primary-60));
+        }
+      }
+    }
+  }
+}

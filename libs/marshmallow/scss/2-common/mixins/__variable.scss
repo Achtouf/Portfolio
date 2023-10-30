@@ -1,0 +1,25 @@
+@use "../functions/global";
+
+@mixin set-variable($_name, $_value) {
+  // @debug "#{$_name}: #{$_value};";
+  @if not is-null($_value) and not is-empty($_value) {
+    $_key: get-variable($_name);
+    @if not is-null($_key) and not is-str-empty($_key) {
+      #{$_key}: #{$_value};
+    }
+  }
+}
+
+@mixin generate-variables($_properties: (), $_prefix: "") {
+  $_result: flatten-map($_properties);
+
+  @each $_key, $_value in $_result {
+    $_separator: $_prefix;
+    @if not is-str-empty($_separator) {
+      $_separator: #{$_separator}-;
+    }
+    $_separator: #{$_separator}#{$_key};
+
+    @include set-variable(#{$_separator}, $_value);
+  }
+}

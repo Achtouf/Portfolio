@@ -1,0 +1,15 @@
+.app {
+  &-navigation {
+    padding-top: pad(2);
+    margin-bottom: mar(8);
+    padding-inline: pad(2);
+  }
+}
+
+@media print {
+  .app {
+    &-navigation {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+$_c: formset;
+
+.#{$mPrefix}#{$_c} {
+  display: flex;
+  flex-wrap: nowrap;
+
+  // Marshmallow components
+  > #{$mPrefix} {
+    &button {
+      @include style-formset-component("& > .#{$mPrefix}component");
+    }
+  }
+
+  // PrimeNG component with Marshmallow class
+  > .#{$mPrefix} {
+    &dropdown,
+    &inputtext {
+      @include style-formset-component("& > .#{$pPrefix}component");
+    }
+
+    &inputtext {
+      @include style-formset-element();
+    }
+  }
+}

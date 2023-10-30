@@ -1,0 +1,62 @@
+@use "sass:math";
+
+@include responsive {
+  @if $mSizing {
+    @include loop-map($mSizingDirectionProperties) using ($_key, $_name) {
+      @if $mSizingSimpleOnly {
+        &#{$_name} {
+          @include loop-list($mSizingSimpleOnlyProperties) using ($_prop) {
+            &#{$mSeparator}#{$_prop} {
+              #{$_name}: #{$_prop};
+            }
+          }
+        }
+      }
+
+      @include loop-prefixes($mSizingWrapperProperties) using ($_wrapper) {
+        &#{$_name} {
+          // Unit
+          @if $mSizingUnit {
+            @include loop-limit($mSizingUnitLimit) using ($_index) {
+              #{$_wrapper}#{$_name}: calc(#{$_index} * #{variable(sizing)});
+            }
+          }
+
+          // Fluid
+          @if $mSizingFluid {
+            $_step: math.div($mSizingFluidLimit, $mSizingFluidGridLimit);
+            @include loop-limit($mSizingFluidGridLimit) using ($_index) {
+              &f {
+                #{$_wrapper}#{$_name}: $_step * $_index * 1%;
+              }
+            }
+          }
+
+          // Percent
+          @if $mSizingPercent {
+            @include loop-steps($_step: $mSizingPercentStep) using ($_step) {
+              &#{$mSeparator}#{$_step}p {
+                #{$_wrapper}#{$_name}: $_step * 1%;
+              }
+            }
+          }
+
+          // Extra
+          @if $mSizingExtra {
+            @include loop-map-properties($mSizingExtraProperties) using ($_prop, $_value) {
+              $_bindings: (
+                "{{prop-key}}": $_key,
+                "{{prop-name}}": $_name,
+                "{{value-name}}": $_prop,
+                "{{value-value}}": $_value,
+              );
+              &#{$mSeparator}#{$_prop} {
+                #{$_wrapper}#{$_name}: bind-properties($_value, $_bindings);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

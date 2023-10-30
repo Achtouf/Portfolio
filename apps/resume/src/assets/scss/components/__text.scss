@@ -1,0 +1,12 @@
+.#{$prefix} {
+  &paragraph {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.4;
+  }
+
+  &subtitle {
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+}

@@ -1,0 +1,45 @@
+@use "sass:map";
+@use "sass:list";
+
+$mBorder: true !default;
+$mBorderExtra: true !default;
+
+$mBorderDirection: true !default;
+$mBorderDirectionProperties: $mObjectExtendedDirections !default;
+
+$mBorderWidth: true !default;
+$mBorderWidthLimit: 10 !default;
+$mBorderWidthProperties: thin medium thick !default;
+
+$mBorderColor: true !default;
+$mBorderColorList: $mSeveritiesList !default;
+$mBorderColorProperties: () !default;
+
+$mBorderStyle: true !default;
+$mBorderStyleProperties: none hidden dotted dashed solid double groove ridge
+  inset outset !default;
+
+$mBorderRadius: true !default;
+$mBorderRadiusLimit: 10 !default;
+$mBorderRadiusCorners: $mObjectCorners !default;
+$mBorderRadiusProperties: () !default;
+
+$mBorderRadiusVertical: true !default;
+$mBorderRadiusVerticalSides: $mObjectVerticalSides !default;
+
+$mBorderRadiusHorizontal: true !default;
+$mBorderRadiusHorizontalSides: $mObjectHorizontalSides !default;
+
+$mBorderRadiusExtra: true !default;
+$mBorderRadiusExtraComponents: true !default;
+$mBorderRadiusExtraComponentsList: "accordion", "avatar", "badge", "banner",
+  "breadcrumb", "button", "card", "checkbox", "dropdown", "form", "inputtext",
+  "loader", "modal", "popup", "radiobutton", "spinner", "tag";
+
+$mBorderRadiusExtraComponentsWithSizes: false !default;
+$mBorderRadiusExtraComponentsWithCorners: true !default;
+$mBorderRadiusExtraComponentsWithDirections: true !default;
+
+// TODO
+$mBorderState: true !default;
+$mBorderStateProperties: hover !default;

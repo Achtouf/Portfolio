@@ -1,0 +1,136 @@
+@use "sass:map";
+@use "sass:list";
+@use "sass:math";
+
+@mixin loop-limit(
+  $_limit,
+  $_withHalf: false,
+  $_prefix: "",
+  $_postfix: "",
+  $_startsAt: 0
+) {
+  @if $_withHalf {
+    &#{$mSeparator}#{$_prefix}half#{$_postfix} {
+      @content (0.5, true);
+    }
+  }
+
+  @for $_index from $_startsAt through $_limit {
+    &#{$mSeparator}#{$_prefix}#{$_index}#{$_postfix} {
+      @if $_withHalf {
+        @content ($_index, false);
+      } @else {
+        @content ($_index);
+      }
+    }
+  }
+}
+
+@mixin loop-list($_properties) {
+  @each $_prop in $_properties {
+    @content ($_prop);
+  }
+}
+
+@mixin loop-map($_properties) {
+  @each $_key, $_name in $_properties {
+    @content ($_key, $_name);
+  }
+}
+
+@mixin loop-sides($_sides, $_withEmpty: false, $_withClass: true) {
+  @if $_withEmpty {
+    $_sides: map.merge(
+      (
+        "": "",
+      ),
+      $_sides
+    );
+  }
+  @each $_key, $_name in $_sides {
+    $_side: prefix($_key);
+    @if $_withClass {
+      &#{$_side} {
+        @content ($_key, $_name, $_side);
+      }
+    } @else {
+      @content ($_key, $_name, $_side);
+    }
+  }
+}
+
+@mixin loop-axes($_axes, $_setClass: true, $_prefix: "-") {
+  @each $_key in $_axes {
+    $_axis: $_key;
+    $_axis: prefix($_key, $_prefix);
+
+    @if $_setClass {
+      &#{$_axis} {
+        @content ($_key, $_axis);
+      }
+    } @else {
+      @content ($_key, $_axis);
+    }
+  }
+}
+
+@mixin loop-prefixes($_prefixes) {
+  @each $_key in $_prefixes {
+    $_prefix: postfix($_key);
+
+    &#{$_prefix} {
+      @content ($_prefix);
+    }
+  }
+}
+
+@mixin loop-list-properties($_additional: ()) {
+  $_properties: list.join($mObjectCommonProperties, $_additional);
+  @each $_prop in $_properties {
+    @content ($_prop);
+  }
+}
+
+@mixin loop-map-properties($_additional: ()) {
+  $_common: ();
+  @each $_prop in $mObjectCommonProperties {
+    $_common: map.set($_common, $_prop, $_prop);
+  }
+  $_common: map.merge($_common, $_additional);
+  @each $_name, $_key in $_common {
+    @content ($_name, $_key);
+  }
+}
+
+@mixin loop-shades($_range, $_step: 5, $_setClass: true) {
+  $_length: $_range * 2;
+
+  @for $_index from 0 through $_length {
+    $_shade: $_index * $_step;
+    @if $_setClass {
+      &-#{$_shade} {
+        @content ($_shade);
+      }
+    } @else {
+      @content ($_shade);
+    }
+  }
+}
+
+@mixin loop-steps($_total: 100, $_step: 10) {
+  $_length: math.round(math.div($_total, $_step));
+
+  @for $_index from 0 through $_length {
+    $_child: $_index * $_step;
+    @content ($_child);
+  }
+}
+
+@mixin loop-range($_side: 100, $_step: 10) {
+  $_length: math.round(math.div($_side, $_step));
+
+  @for $_index from ($_length * -1) through $_length {
+    $_child: $_index * $_step;
+    @content ($_child);
+  }
+}

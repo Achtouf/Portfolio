@@ -1,0 +1,98 @@
+$_c: inputtext;
+
+.#{$pPrefix}#{$_c} {
+  height: variable(#{$_c}-height);
+  padding: variable(#{$_c}-padding);
+
+  color: variable(#{$_c}-color);
+  font-size: variable(#{$_c}-font-size);
+  font-family: variable(#{$_c}-font-family);
+
+  border-width: variable(#{$_c}-border-width);
+  border-style: variable(#{$_c}-border-style);
+  border-color: variable(#{$_c}-border-color);
+  border-radius: variable(#{$_c}-border-radius);
+
+  background-color: variable(#{$_c}-background-color);
+
+  outline: none;
+  appearance: none;
+  transition: variable(#{$_c}-transition);
+
+  $_conditions: valid invalid;
+  $_states: hover focus active;
+  $_properties: color background-color;
+  $_borderProperties: border-width border-style border-color border-radius;
+
+  &::placeholder {
+    color: variable(#{$_c}-placeholder-color);
+    font-size: variable(#{$_c}-placeholder-font-size);
+    font-family: variable(#{$_c}-placeholder-font-family);
+  }
+
+  &:enabled {
+    @each $_state in $_states {
+      &:#{$_state} {
+        @each $_prop in $_borderProperties {
+          @include component-property-or-normal($_c, "-#{$_state}", $_prop);
+        }
+
+        @each $_prop in $_properties {
+          @include component-property-or-normal($_c, "-#{$_state}", $_prop);
+        }
+      }
+    }
+
+    &.#{$pPrefix}sensible {
+      @each $_condition in $_conditions {
+        &.ng-#{$_condition},
+        &.#{$pPrefix}#{$_condition} {
+          $_pCondition: #{$_c}-#{$_condition};
+
+          color: variable(#{$_pCondition}-color);
+          border-color: variable(#{$_pCondition}-border-color);
+          background-color: variable(#{$_pCondition}-background-color);
+        }
+      }
+    }
+
+    &:focus {
+      $_color: variable(#{$_c}-outline-color);
+      $_width: variable(#{$_c}-outline-width);
+      $_gapColor: variable(#{$_c}-outline-gap-color);
+      $_gapWidth: variable(#{$_c}-outline-gap-width);
+
+      @include generate-component-outline(
+        $_color,
+        $_width,
+        $_gapColor,
+        $_gapWidth
+      );
+    }
+  }
+
+  &:disabled {
+    $_pState: -disabled;
+
+    @each $_prop in $_borderProperties {
+      @include component-property-or-normal($_c, $_pState, $_prop);
+    }
+
+    @each $_prop in $_properties {
+      @include component-property-or-normal($_c, $_pState, $_prop);
+    }
+  }
+
+  @each $_size, $_ratio in $mSizesProperties {
+    $_sizeProperties: height padding font-size border-width border-radius;
+
+    &-#{$_size} {
+      $_pState: #{$_c}-#{$_size};
+
+      @each $_prop in $_sizeProperties {
+        @include component-property-or-normal($_c, "-#{$_size}", $_prop);
+        // #{$_prop}: variable(#{$_pState}-#{$_prop});
+      }
+    }
+  }
+}

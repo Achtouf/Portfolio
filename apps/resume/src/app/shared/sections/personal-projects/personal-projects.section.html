@@ -1,0 +1,69 @@
+<aa-section id="PERSONAL_PROJECTS" [isLast]="true" class="m-width:full">
+  <h2 class="aa-title:1">{{ "PERSONAL_PROJECTS.TITLE" | translate }}</h2>
+  <span class="aa-paragraph m-padding-l:2">
+    {{ "PERSONAL_PROJECTS.DESCRIPTION" | translate }}
+  </span>
+  <div class="m-flex m-flex-column m-flex-gap:4 m-width:full">
+    <ng-container
+      *ngFor="let bloc of ('PERSONAL_PROJECTS.CONTENT' | translate)"
+    >
+      <div
+        [attr.id]="util.toId(bloc.TITLE)"
+        class="m-flex m-flex-column m-flex-gap:2"
+      >
+        <div class="m-flex m-flex-column m-width:full">
+          <div class="m-flex m-flex-justify:between m-flex-items:center">
+            <h3 class="aa-title:2 m-text-uppercase">{{ bloc.TITLE }}</h3>
+            <span *ngIf="bloc.DATE" class="aa-title:3 m-text-color:neutral">
+              <span *ngIf="bloc.DATE.FROM">{{ bloc.DATE.FROM }}</span>
+              <span *ngIf="bloc.DATE.TO"> - {{ bloc.DATE.TO }}</span>
+            </span>
+          </div>
+          <span class="aa-title:4 m-text-color:neutral">
+            {{ bloc.SUBTITLE }}
+          </span>
+        </div>
+        <ng-container *ngFor="let project of bloc.PROJECTS">
+          <div
+            [attr.id]="util.toId(project.TITLE)"
+            class="m-flex m-flex-column m-flex-gap:1 m-padding-l:2"
+          >
+            <div class="m-flex m-flex-column">
+              <div *ngIf="project.TITLE" class="aa-title:3 m-text-bold">
+                {{ project.TITLE }}
+              </div>
+              <div
+                *ngIf="project.SUBTITLE"
+                class="aa-title:5 m-text-color:neutral"
+              >
+                {{ project.SUBTITLE }}
+              </div>
+            </div>
+            <div class="aa-paragraph" *ngIf="project.DESCRIPTION">
+              {{ project.DESCRIPTION }}
+            </div>
+            <div
+              class="m-grid m-grid-gap:1 m-grid-columns:{{ project.COLUMNS }} m-grid-rows:{{ project.ROWS }}"
+            >
+              <ng-container *ngFor="let detail of project.DETAILS">
+                <div
+                  class="m-flex m-grid-c:{{ detail.COLUMN }} m-grid-r:{{ detail.ROW }}"
+                >
+                  <span *ngIf="detail.TEXT" class="aa-paragraph m-width:full">
+                    {{ detail.TEXT }}
+                  </span>
+                  <img
+                    alt=""
+                    *ngIf="detail.SRC"
+                    src="{{detail.SRC}}"
+                    class="aa-image m-flex-self:end m-display:block m-width:full m-border m-border-width:3 m-border-radius:2 m-border-color:tertiary"
+                  />
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</aa-section>

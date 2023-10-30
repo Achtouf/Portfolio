@@ -1,0 +1,104 @@
+@use "sass:map";
+@use "sass:list";
+
+$mName: "Marshmallow" !default;
+$mPrefix: "m-" !default;
+$mSeparator: "\\:" !default;
+$mResponsiveSeparator: "\\:" !default;
+$mAttributePrefix: "mar-" !default;
+
+$mMobileS: 320px !default;
+$mMobileM: 425px !default;
+$mMobileL: 576px !default;
+$mTablet: 768px !default;
+$mLaptop: 1024px !default;
+$mLaptopL: 1440px !default;
+$mLaptopXL: 2560px !default;
+
+$mBreakpoints: (
+  xl: (
+    min: $mLaptopL,
+  ),
+  lg: (
+    max: $mLaptopL,
+  ),
+  md: (
+    max: $mLaptop,
+  ),
+  sm: (
+    max: $mTablet,
+  ),
+  xs: (
+    max: $mMobileM,
+  ),
+) !default;
+
+// Additional
+$mSizesProperties: (
+  xs: 0.6,
+  sm: 0.8,
+  md: 1,
+  lg: 1.2,
+  xl: 1.4,
+) !default;
+$mColorsList: () !default;
+$mLevelsList: primary secondary tertiary success info warning danger help
+  neutral !default;
+$mSeveritiesList: list.join($mLevelsList, surface background) !default;
+$mStatusesList: list.join($mSeveritiesList, overlay) !default;
+
+// Content
+$mObject2dAxes: x y !default;
+$mObject3dAxes: x y z !default;
+$mObjectDegreeLimit: 24 !default;
+$mObjectPseudoSelectors: before after !default;
+$mObjectDirections: (
+  v: block,
+  h: inline,
+) !default;
+$mObjectGridDirections: (
+  r: row,
+  c: column,
+) !default;
+$mObjectVerticalSides: (
+  t: top,
+  b: bottom,
+) !default;
+$mObjectHorizontalSides: (
+  r: right,
+  l: left,
+) !default;
+$mObjectCorners: (
+  tl: top-left,
+  tr: top-right,
+  bl: bottom-left,
+  br: bottom-right,
+) !default;
+$mObjectDirectionEdgeSides: (
+  vs: block-start,
+  hs: inline-start,
+  ve: block-end,
+  he: inline-end,
+) !default;
+$mObjectVerticalSidesProperties: top bottom !default;
+$mObjectHorizontalSidesProperties: right left !default;
+$mObjectCommonProperties: inherit initial revert unset !default;
+$mObjectSides: map.merge(
+  $mObjectVerticalSides,
+  $mObjectHorizontalSides
+) !default;
+$mObjectExtendedDirections: map.merge(
+  $mObjectSides,
+  $mObjectDirections
+) !default;
+$mObjectExtendedEdges: map.merge(
+  $mObjectExtendedDirections,
+  $mObjectDirectionEdgeSides
+) !default;
+
+// Components
+$components: () !default;
+
+// Theme
+$theme: () !default;
+$scheme: light !default;

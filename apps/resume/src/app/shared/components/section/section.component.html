@@ -1,0 +1,7 @@
+<aa-content
+  [attr.id]="id"
+  class="section m-flex m-flex-gap:2 m-flex-column m-width:full"
+>
+  <ng-content></ng-content>
+  <aa-separator *ngIf="!isLast"></aa-separator>
+</aa-content>

@@ -1,0 +1,78 @@
+.#{$mPrefix} {
+  @if $mGrid {
+    &grid {
+      @if $mGridExtra {
+        display: grid;
+        grid-template-rows: repeat(variable(grid-rows, 1), 1fr);
+        grid-template-columns: repeat(variable(grid-columns, 12), 1fr);
+      }
+
+      // Gap
+      @if $mGridGap {
+        &-gap {
+          $_directions: $mGridGapDirections;
+          @include loop-sides($_directions, true) using ($_key, $_name, $_side) {
+            $_direction: postfix($_name);
+
+            @include loop-limit($mGridGapLimit, true) using ($_index, $_ih) {
+              #{$_direction}gap: calc(#{variable(grid-gap)} * #{$_index});
+            }
+          }
+        }
+      }
+
+      // Template
+      @if $mGridTemplate {
+        // Containers
+        @include loop-map($mGridTemplateDirections) using ($_k, $_name) {
+          $_direction: #{$_name}s;
+          &-#{$_direction} {
+            @include loop-limit($mGridTemplateLimit) using ($_index) {
+              grid-template-#{$_direction}: repeat(#{$_index}, minmax(0, 1fr));
+            }
+          }
+        }
+      }
+
+      // Span
+      @if $mGridSpan {
+        @include loop-map($mGridTemplateDirections) using ($_key, $_name) {
+          &-#{$_key} {
+            &#{$mSeparator}0 {
+              grid-#{$_name}: none;
+            }
+
+            @include loop-limit($mGridSpanLimit, $_startsAt: 1) using ($_index) {
+              grid-#{$_name}: span #{$_index};
+            }
+
+            @include loop-list-properties($mGridSpanProperties) using ($_prop) {
+              &#{$mSeparator}#{$_prop} {
+                grid-#{$_name}: #{$_prop};
+              }
+            }
+
+            @if $mGridSpanBorder {
+              @include loop-list($mGridSpanBorderSides) using ($_side) {
+                &-#{$_side} {
+                  // Properties
+                  $_properties: $mGridSpanBorderProperties;
+                  @include loop-list-properties($_properties) using ($_prop) {
+                    &#{$mSeparator}#{$_prop} {
+                      grid-#{$_name}-#{$_side}: #{$_prop};
+                    }
+                  }
+
+                  // Unit
+                  @include loop-limit($mGridSpanLimit) using ($_index) {
+                    grid-#{$_name}-#{$_side}: span #{$_index};
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

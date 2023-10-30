@@ -1,0 +1,38 @@
+@use "sass:list";
+@use "sass:meta";
+@use "sass:math";
+
+@function is-list($_object) {
+  @return meta.type-of($_object) == "list";
+}
+
+@function is-list-empty($_list) {
+  @return length($_list) <= 0;
+}
+
+@function list-contains($_list, $_value) {
+  @return not is-null(index($_list, $_value));
+}
+
+@function list-get-nth($_list, $_index) {
+  @if (is-list-empty($_list)) {
+    @return null;
+  }
+  @return nth($_list, $_index);
+}
+
+@function merge-list($_list: (), $_additional: ()) {
+  @return list.join($_list, $_additional);
+}
+
+@function reverse-list($_list: (), $_separator: auto) {
+  $_length: length($_list);
+
+  @for $_index from 1 through math.floor(math.div($_length, 2)) {
+    $item: list.nth($_list, $_index);
+    $_list: list.set-nth($_list, $_index, list.nth($_list, $_index * -1));
+    $_list: list.set-nth($_list, $_index * -1, $item);
+  }
+
+  @return list.join($_list, (), $_separator);
+}

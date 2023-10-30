@@ -1,0 +1,270 @@
+.#{$mPrefix} {
+  @if $mText {
+    &text {
+      // Display
+      @if $displayTextSize {
+        &-display {
+          @include loop-map($displayTextSizeProperties) using ($_key, $_ratio) {
+            &#{$mSeparator}#{$_key} {
+              font-size: calc(#{variable(font-size)} * #{$_ratio});
+            }
+          }
+        }
+      }
+
+      // Heading
+      @if $headingTextSize {
+        &-heading {
+          @include loop-limit($headingTextSizeLimit, $_startsAt: 0) using
+            ($_index) {
+            $_prefix: heading-#{$_index};
+            margin: #{variable(#{$_prefix}-margin)};
+            font-size: #{variable(#{$_prefix}-font-size)};
+            line-height: #{variable(#{$_prefix}-line-height)};
+          }
+        }
+      }
+
+      // Body
+      @if $bodyTextSize {
+        &-body {
+          @include loop-limit($bodyTextSizeLimit) using ($_index) {
+            $_prefix: text-#{$_index};
+            font-size: variable(#{$_prefix}-font-size);
+          }
+        }
+      }
+
+      // Size
+      @if $mTextSize {
+        &-size {
+          @include loop-map($mTextSizeProperties) using ($_size, $_ratio) {
+            &#{$mSeparator}#{$_size} {
+              $_prefix: text-#{$_size};
+              font-size: variable(#{$_prefix}-font-size);
+            }
+          }
+        }
+      }
+
+      // Line
+      @if $mTextLine {
+        &-line {
+          @include loop-limit($mTextLineLimit, $_startsAt: 1) using ($_line) {
+            @include clip-text($_line);
+            display: -moz-box;
+            display: -webkit-box;
+          }
+        }
+      }
+
+      // Color
+      @if $mTextColor {
+        &-color {
+          $_steps: $mTextColorShadesStep;
+          $_limit: $mTextColorShadesLimit;
+
+          @include loop-list-properties($mTextColorProperties) using ($_color) {
+            &#{$mSeparator} {
+              &#{$_color} {
+                color: variable(#{$_color}-main);
+
+                @if $mTextColorShades {
+                  @include loop-shades($_limit, $_steps) using ($_shade) {
+                    color: variable(#{$_color}-#{$_shade});
+                  }
+                }
+              }
+
+              @if $mTextColorOn {
+                &on-#{$_color} {
+                  color: variable(#{$_color}-accent);
+
+                  @if $mTextColorShades {
+                    @include loop-shades($_limit, $_steps) using ($_shade) {
+                      color: variable(#{$_color}-on-#{$_shade});
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // Align
+      @if $mTextAlign {
+        &-align {
+          @include loop-list-properties($mTextAlignProperties) using
+            ($_direction) {
+            &#{$mSeparator}#{$_direction} {
+              text-align: #{$_direction};
+            }
+          }
+        }
+      }
+
+      // Style
+      @if $mTextStyle {
+        &-style {
+          @include loop-list-properties($mTextStyleProperties) using ($_style) {
+            &#{$mSeparator}#{$_style} {
+              font-style: #{$_style};
+            }
+          }
+        }
+      }
+
+      // Weight
+      @if $mTextWeight {
+        &-weight {
+          @include loop-list-properties($mTextWeightProperties) using ($_weight) {
+            &#{$mSeparator}#{$_weight} {
+              font-weight: #{$_weight};
+            }
+          }
+
+          @if ($mTextWeightExtra) {
+            @include loop-map($mTextWeightExtraProperties) using ($_name, $_key) {
+              &#{$mSeparator}#{$_key},
+              &#{$mSeparator}#{$_name} {
+                font-weight: #{$_key};
+              }
+            }
+          }
+        }
+      }
+
+      // Overflow
+      @if $mTextOverflow {
+        &-overflow {
+          @include loop-list-properties($mTextOverflowProperties) using ($_prop) {
+            &#{$mSeparator}#{$_prop} {
+              text-overflow: #{$_prop};
+            }
+          }
+        }
+      }
+
+      // Transform
+      @if $mTextTransform {
+        &-transform {
+          @include loop-list-properties($mTextTransformProperties) using
+            ($_prop) {
+            &#{$mSeparator}#{$_prop} {
+              text-transform: #{$_prop};
+            }
+          }
+        }
+      }
+
+      // Wrap
+      @if $mTextWrap {
+        &-wrap {
+          @include loop-list-properties($mTextWrapProperties) using ($_prop) {
+            &#{$mSeparator}#{$_prop} {
+              text-wrap: #{$_prop};
+            }
+          }
+        }
+      }
+
+      // Line Height
+      @if $mTextLineHeight {
+        &-height {
+          $_props: $mTextLineHeightProperties;
+
+          // Properties
+          @include loop-list-properties($_props) using ($_prop) {
+            &#{$mSeparator}#{$_prop} {
+              text-wrap: #{$_prop};
+            }
+          }
+
+          // Values
+          @if ($mTextLineHeightValue) {
+            $_steps: $mTextLineHeightValueStep;
+            $_limit: $mTextLineHeightValueLimit;
+
+            @include loop-steps($_limit, $_steps) using ($_index) {
+              &#{$mSeparator}#{$_index * 10} {
+                line-height: $_index;
+              }
+            }
+          }
+
+          // Unit
+          @if ($mTextLineHeightUnit) {
+            $_steps: $mTextLineHeightUnitStep;
+            $_limit: $mTextLineHeightUnitLimit;
+
+            @include loop-steps($_limit, $_steps) using ($_index) {
+              &#{$mSeparator}#{$_index * 10}u {
+                line-height: $_index * 1rem;
+              }
+            }
+          }
+
+          // Percentage
+          @if ($mTextLineHeightUnit) {
+            $_steps: $mTextLineHeightPercentageStep;
+            $_limit: $mTextLineHeightPercentageLimit;
+
+            @include loop-steps($_limit, $_steps) using ($_index) {
+              &#{$mSeparator}#{$_index}p {
+                line-height: $_index * 1%;
+              }
+            }
+          }
+        }
+      }
+
+      // Extra
+      @if $mTextExtra {
+        // Align
+        &-start {
+          text-align: start;
+        }
+        &-center {
+          text-align: center;
+        }
+        &-end {
+          text-align: end;
+        }
+
+        // Weight
+        &-bold {
+          font-weight: bold;
+        }
+        &-normal {
+          font-weight: normal;
+        }
+
+        // Wrap
+        &-balance {
+          text-wrap: balance;
+        }
+
+        // Overflow
+        &-clipped,
+        &-ellipsis {
+          @include clip-text(1);
+          max-width: 100%;
+          white-space: nowrap;
+          word-break: keep-all;
+        }
+
+        // Transform
+        &-lowercase {
+          text-transform: lowercase;
+        }
+        &-capitalize {
+          text-transform: capitalize;
+        }
+        &-uppercase {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@function pad($_multiple: 1) {
+  @return calc($_multiple * m(padding));
+}
+
+@function mar($_multiple: 1) {
+  @return calc($_multiple * m(margin));
+}

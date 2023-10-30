@@ -1,0 +1,66 @@
+@use "sass:map";
+
+$components: append($components, breadcrumb);
+
+@function set-breadcrumb-properties($_theme, $_properties: ()) {
+  $_properties: () !default;
+
+  $_core: map.get($_theme, core);
+  $_core: () !default;
+
+  $_primary: map.get($_theme, primary);
+  $_primary: () !default;
+
+  $_primaryColor: map.get($_primary, main);
+
+  $_iconColor: map.get($_primary, main);
+  $_textColor: map.get($_core, text-color);
+  $_fontSize: map.get($_theme, font-size);
+  $_fontFamily: map.get($_theme, font-family);
+  $_fontWeight: map.get($_theme, font-weight);
+
+  $_borderStyle: map.get($_core, border-style);
+  $_borderWidth: map.get($_core, border-width);
+  $_borderColor: map.get($_core, border-color);
+  $_borderRadius: map.get($_core, border-radius);
+
+  $_basic: (
+    padding: 0rem,
+    color: $_textColor,
+    font-size: $_fontSize,
+    font-weight: $_fontWeight,
+
+    home: (
+      margin: 0 0.6rem,
+      icon: (
+        padding: 0,
+        size: $_fontSize,
+        color: $_primaryColor,
+        border-radius: $_borderRadius,
+        background-color: transparent,
+      ),
+    ),
+    separator: (
+      margin: 0 0.6rem,
+      icon: (
+        size: $_fontSize,
+        color: $_textColor,
+      ),
+    ),
+    hover: (
+      color: $_primaryColor,
+    ),
+    active: (
+      color: $_primaryColor,
+    ),
+    disabled: (
+      opacity: 0.6,
+      color: rgba($_primaryColor, 0.5),
+    ),
+    transition: map.get($_core, transition),
+  );
+
+  $_result: merge-flattened-map($_basic, $_properties);
+
+  @return $_result;
+}

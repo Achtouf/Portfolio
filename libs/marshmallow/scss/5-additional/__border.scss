@@ -1,0 +1,225 @@
+@include responsive {
+  @if $mBorder {
+    &border {
+      @if $mBorderExtra {
+        border: variable(border-width)
+          variable(border-style)
+          variable(border-color);
+      }
+
+      $_sides: $mBorderDirectionProperties;
+      @include loop-sides($_sides, true, false) using ($_, $_name, $_s) {
+        $_key: prefix($_name);
+        $_prefix: border#{$_key};
+
+        // Width
+        @if $mBorderWidth {
+          &-width#{$_s} {
+            @if $mBorderExtra {
+              #{$_prefix}-width: variable(border-width);
+            }
+
+            @include loop-list-properties($mBorderWidthProperties) using
+              ($_prop) {
+              &#{$mSeparator}#{$_prop} {
+                #{$_prefix}-width: #{$_prop};
+              }
+            }
+
+            @include loop-limit($mBorderWidthLimit, $_withHalf: true) using
+              ($_index, $_) {
+              #{$_prefix}-width: calc(#{$_index} * #{variable(border-width)});
+            }
+          }
+        }
+
+        // Color
+        @if $mBorderColor {
+          &-color#{$_s} {
+            @if $mBorderExtra {
+              #{$_prefix}-color: variable(border-color);
+
+              &#{$mSeparator}transparent {
+                #{$_prefix}-color: transparent;
+              }
+            }
+
+            @include loop-list-properties($mBorderColorProperties) using
+              ($_prop) {
+              &#{$mSeparator}#{$_prop} {
+                #{$_prefix}-color: #{$_prop};
+              }
+            }
+
+            @include loop-list($mBorderColorList) using ($_color) {
+              &#{$mSeparator}#{$_color} {
+                #{$_prefix}-color: variable(#{$_color}-main);
+
+                @include loop-steps(100, 5) using ($_index) {
+                  &-#{$_index} {
+                    #{$_prefix}-color: variable(#{$_color}-#{$_index});
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // Style
+        @if $mBorderStyle {
+          &-style#{$_s} {
+            @if $mBorderExtra {
+              #{$_prefix}-style: variable(border-style);
+            }
+
+            @include loop-list-properties($mBorderStyleProperties) using
+              ($_style) {
+              &#{$mSeparator}#{$_style} {
+                #{$_prefix}-style: $_style;
+              }
+            }
+          }
+        }
+
+        // Extra
+        @if $mBorderExtra {
+          // TODO
+        }
+      }
+
+      // Radius
+      @if $mBorderRadius {
+        &-radius {
+          border-radius: variable(border-radius);
+
+          // Corners
+          @include loop-sides($mBorderRadiusCorners, true) using ($_k, $_n, $_) {
+            $_postfix: prefix($_n);
+
+            border#{$_postfix}-radius: variable(border-radius);
+
+            // Unit
+            @include loop-limit($mBorderRadiusLimit) using ($_index) {
+              border#{$_postfix}-radius: calc(
+                #{$_index} * #{variable(border-radius)}
+              );
+            }
+
+            // Properties
+            @include loop-list-properties($mBorderRadiusProperties) using
+              ($_prop) {
+              &#{$mSeparator}#{$_prop} {
+                border#{$_postfix}-radius: $_prop;
+              }
+            }
+          }
+
+          // Vertical
+          @if $mBorderRadiusVertical {
+            $_verticals: $mBorderRadiusVerticalSides;
+
+            // Unit
+            @include loop-sides($_verticals) using ($_k, $_vertical, $_) {
+              $_horizontals: $mBorderRadiusHorizontalSides;
+
+              @include loop-map($_horizontals) using ($_k, $_horizontal) {
+                border-#{$_vertical}-#{$_horizontal}-radius: variable(
+                  border-radius
+                );
+
+                // Unit
+                @include loop-limit($mBorderRadiusLimit) using ($_index) {
+                  $_value: calc(#{$_index} * #{variable(border-radius)});
+                  border-#{$_vertical}-#{$_horizontal}-radius: $_value;
+                }
+
+                // Properties
+                @include loop-list-properties($mBorderRadiusProperties) using
+                  ($_prop) {
+                  &#{$mSeparator}#{$_prop} {
+                    border-#{$_vertical}-#{$_horizontal}-radius: $_prop;
+                  }
+                }
+              }
+            }
+          }
+
+          // Horizontal
+          @if $mBorderRadiusHorizontal {
+            $_horizontals: $mBorderRadiusHorizontalSides;
+
+            // Unit
+            @include loop-sides($_horizontals) using ($_k, $_horizontal, $_) {
+              $_verticals: $mBorderRadiusVerticalSides;
+
+              @include loop-map($_verticals) using ($_k, $_vertical) {
+                border-#{$_vertical}-#{$_horizontal}-radius: variable(
+                  border-radius
+                );
+
+                // Unit
+                @include loop-limit($mBorderRadiusLimit) using ($_index) {
+                  $_value: calc(#{$_index} * #{variable(border-radius)});
+                  border-#{$_vertical}-#{$_horizontal}-radius: $_value;
+                }
+
+                // Properties
+                @include loop-list-properties($mBorderRadiusProperties) using
+                  ($_prop) {
+                  &#{$mSeparator}#{$_prop} {
+                    border-#{$_vertical}-#{$_horizontal}-radius: $_prop;
+                  }
+                }
+              }
+            }
+          }
+
+          // Extra
+          @if $mBorderRadiusExtra {
+            // Corners
+            @if $mBorderRadiusExtraComponentsWithCorners {
+              // TODO: Later add corners for components
+            }
+
+            // Directions
+            @if $mBorderRadiusExtraComponentsWithDirections {
+              // TODO: Later add directions for components
+            }
+
+            &#{$mSeparator} {
+              // Components
+              @if $mBorderRadiusExtraComponents {
+                $_components: $mBorderRadiusExtraComponentsList;
+                @include loop-list($_components) using ($_component) {
+                  &#{$_component} {
+                    border-radius: variable(#{$_component}-border-radius);
+
+                    @if $mBorderRadiusExtraComponentsWithSizes {
+                      @include loop-map($mSizesProperties) using($_size, $_) {
+                        &-#{$_size} {
+                          border-radius: variable(
+                            #{$_component}-#{$_size}-border-radius
+                          );
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+              // Button
+              &button-rounded {
+                border-radius: variable(button-rounded-border-radius);
+              }
+
+              // Circle
+              &circle {
+                border-radius: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@include responsive {
+  @if $mSpacing {
+    @include loop-map($mSpacingKindProperties) using ($_prefix, $_name) {
+      &#{$_name} {
+        // Direction
+        @include loop-sides($mSpacingDirectionProperties, true) using ($_key, $_side, $_) {
+          $_postfix: prefix($_side);
+
+          // Unit
+          @if $mSpacingUnit {
+            @include loop-limit($mSpacingUnitLimit, true) using ($_index, $_ih) {
+              #{$_name}#{$_postfix}: calc(#{$_index} * #{variable(#{$_name})});
+            }
+          }
+
+          // Properties
+          @include loop-list-properties($mSpacingProperties) using ($_prop) {
+            &#{$mSeparator}#{$_prop} {
+              #{$_name}#{$_postfix}: #{$_prop};
+            }
+          }
+
+          // Extra
+          @if $mSpacingExtra {
+            @include loop-map($mSpacingExtraProperties) using ($_prop, $_value) {
+              $_bindings: (
+                "{{prop-key}}": $_key,
+                "{{prop-name}}": $_name,
+                "{{value-name}}": $_prop,
+                "{{value-value}}": $_value,
+              );
+              &#{$mSeparator}#{$_prop} {
+                #{$_name}#{$_postfix}: bind-properties($_value, $_bindings);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

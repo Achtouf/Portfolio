@@ -1,0 +1,23 @@
+.#{$mPrefix} {
+  @if $mOpacity {
+    &opacity {
+      // Steps
+      @if $mOpacityUnit {
+        @include loop-steps($mOpacityUnitLimit, $mOpacityUnitStep) using ($_index) {
+          &#{$mSeparator}#{$_index} {
+            opacity: $_index * $mOpacityUnitRealStep;
+          }
+        }
+      }
+
+      // Percentage
+      @if $mOpacityPercent {
+        @include loop-steps($mOpacityPercentLimit, $mOpacityPercentStep) using ($_index) {
+          &#{$mSeparator}#{$_index}p {
+            opacity: $_index * 1%;
+          }
+        }
+      }
+    }
+  }
+}

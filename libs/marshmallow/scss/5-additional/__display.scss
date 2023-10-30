@@ -1,0 +1,21 @@
+@include responsive {
+  @if $mDisplay {
+    &display {
+      &#{$mSeparator} {
+        @include loop-list-properties($mDisplayProperties) using ($_prop) {
+          &#{$_prop} {
+            display: $_prop;
+          }
+
+          @if $mDisplayInline {
+            @if list-contains($mDisplayInlineProperties, $_prop) {
+              &inline-#{$_prop} {
+                display: inline-#{$_prop};
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

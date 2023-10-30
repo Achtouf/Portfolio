@@ -1,0 +1,65 @@
+@use "sass:map";
+@use "sass:math";
+
+$components: append($components, dropdown);
+
+@function set-dropdown-properties($_theme, $_properties: ()) {
+  $_properties: () !default;
+
+  $_core: map.get($_theme, core);
+  $_core: () !default;
+
+  $_form: map.get($_theme, form);
+  $_form: () !default;
+
+  $_primary: map.get($_theme, primary);
+  $_primary: () !default;
+
+  $_surface: map.get($_theme, surface);
+  $_surface: () !default;
+
+  $_tertiary: map.get($_theme, tertiary);
+  $_tertiary: () !default;
+
+  $_elevation: map.get($_theme, elevation);
+  $_elevation: () !default;
+
+  $_panel: map.get($_properties, panel);
+  $_panel: () !default;
+
+  $_dropdownElevation: map.get($_panel, elevation);
+  $_dropdownElevation: 1 !default;
+
+  $_basic: (
+    panel: (
+      background-color: map.get($_surface, main),
+      border-radius: map.get($_core, border-radius),
+      box-shadow: map.get($_elevation, #{$_dropdownElevation}),
+    ),
+    header: (
+      padding: 1rem,
+    ),
+    item: (
+      padding: 1rem,
+      hover: (
+        background-color: map.get($_tertiary, 95),
+      ),
+      active: (
+        color: map.get($_primary, main),
+        background-color: map.get($_primary, 95),
+      ),
+    ),
+    empty: (
+      padding: 1rem,
+    ),
+  );
+
+  $_basic: merge-flattened-map($_basic, $_form);
+  $_result: merge-flattened-map($_basic, $_properties);
+
+  // Sizes
+  $_targets: height padding font-size border-width border-radius;
+  $_result: generate-component-sizes($_result, $_targets);
+
+  @return $_result;
+}

@@ -1,0 +1,36 @@
+$mSizing: true !default;
+$mSizingWrapperProperties: "" min max !default;
+$mSizingDirectionProperties: (
+  h: height,
+  w: width,
+) !default;
+
+$mSizingSimpleOnly: true !default;
+$mSizingSimpleOnlyProperties: auto !default;
+
+$mSizingUnit: true !default;
+$mSizingUnitLimit: 30 !default;
+
+$mSizingFluid: true !default;
+$mSizingFluidLimit: 100 !default;
+$mSizingFluidGridLimit: 12 !default;
+
+$mSizingPercent: true !default;
+$mSizingPercentStep: 10 !default;
+
+$mSizingExtra: true !default;
+$mSizingExtraProperties: (
+  /*
+  fifth: "20%",
+  quarter: "25%",
+  third: "33.33333%",
+  half: "50%",
+  three-quarters: "75%",
+  */
+  full: "100%",
+  double: "200%",
+  screen: "100v{{prop-key}}",
+  fit: "fit-content",
+  min: "min-content",
+  max: "max-content",
+) !default;

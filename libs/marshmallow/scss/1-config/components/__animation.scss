@@ -1,0 +1,30 @@
+$mAnimation: true !default;
+$mAnimationExtra: true !default;
+
+$mAnimationNames: true !default;
+$mAnimationNamesProperties: wave fade spin flash jump !default;
+
+$mAnimationDelay: true !default;
+$mAnimationDelayLimit: 50 !default;
+
+$mAnimationCount: true !default;
+$mAnimationCountLimit: 10 !default;
+
+$mAnimationMode: true !default;
+$mAnimationModeProperties: none forwards backwards both !default;
+
+$mAnimationDuration: true !default;
+$mAnimationDurationLimit: 50 !default;
+
+$mAnimationTiming: true !default;
+$mAnimationTimingProperties: ease ease-in ease-out ease-in-out linear step-start step-end !default;
+
+$mAnimationDirection: true !default;
+$mAnimationDirectionProperties: normal reverse alternate both alternate-reverse !default;
+
+$mAnimationIteration: true !default;
+$mAnimationIterationProperties: infinite !default;
+
+$mAnimationPlayState: true !default;
+$mAnimationPlayStateProperties: running paused !default;
+

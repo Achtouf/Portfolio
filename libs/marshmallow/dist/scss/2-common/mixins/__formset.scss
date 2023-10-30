@@ -1,0 +1,75 @@
+@mixin style-formset-element() {
+  &:not(:first-child) {
+    &:not(:last-child) {
+      border-radius: 0;
+    }
+  }
+
+  &:not(:first-child) {
+    margin-left: calc(variable(form-border-width) * -1);
+  }
+
+  &:not(:last-child) {
+    margin-right: calc(variable(form-border-width) * -1);
+  }
+
+  &:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &:focus,
+  &:active,
+  &.#{$mPrefix}focus,
+  &.#{$pPrefix}focus {
+    z-index: 1;
+    position: relative;
+  }
+}
+
+@mixin style-formset-component($_element) {
+  &:not(:last-child) {
+    margin-right: calc(variable(form-border-width) * -1);
+  }
+
+  &:not(:first-child) {
+    margin-left: calc(variable(form-border-width) * -1);
+  }
+
+  &:not(:first-child) {
+    &:not(:last-child) {
+      #{$_element} {
+        border-radius: 0;
+      }
+    }
+  }
+
+  &:first-child {
+    #{$_element} {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &:last-child {
+    #{$_element} {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  #{$_element} {
+    &:focus,
+    &:active,
+    &.#{$mPrefix}focus,
+    &.#{$pPrefix}focus {
+      z-index: 1;
+      position: relative;
+    }
+  }
+}

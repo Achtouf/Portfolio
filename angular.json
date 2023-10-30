@@ -3,5 +3,150 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "@achtouf/resume": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true,
+          "standalone": true,
+          "inlineStyle": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true,
+          "standalone": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true,
+          "standalone": true
+        },
+        "@schematics/angular:resolver": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "prefix": "aa",
+      "root": "apps/resume",
+      "sourceRoot": "apps/resume/src",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "polyfills": ["zone.js"],
+            "inlineStyleLanguage": "scss",
+            "outputPath": "dist/apps/resume",
+            "main": "apps/resume/src/main.ts",
+            "index": "apps/resume/src/index.html",
+            "tsConfig": "apps/resume/tsconfig.app.json",
+            "assets": ["apps/resume/src/favicon.ico", "apps/resume/src/assets"],
+            "styles": [
+              "apps/resume/src/assets/scss/styles.scss",
+              {
+                "inject": false,
+                "bundleName": "marshmallow.min",
+                "input": "apps/resume/src/assets/scss/modules/__marshmallow.scss"
+              }
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "@achtouf/resume:build:production"
+            },
+            "development": {
+              "browserTarget": "@achtouf/resume:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "@achtouf/resume:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": ["zone.js", "zone.js/testing"],
+            "tsConfig": "apps/resume/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": ["apps/resume/src/favicon.ico", "apps/resume/src/assets"],
+            "styles": ["apps/resume/src/styles.scss"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "schematicCollections": ["@schematics/angular"],
+    "analytics": false
+  },
+  "schematics": {
+    "@angular-eslint/schematics:application": {
+      "setParserOptionsProject": true
+    },
+    "@angular-eslint/schematics:library": {
+      "setParserOptionsProject": true
+    },
+    "@schematics/angular:pipe": {
+      "standalone": true
+    },
+    "@schematics/angular:directive": {
+      "standalone": true
+    },
+    "@schematics/angular:component": {
+      "style": "scss",
+      "standalone": true,
+      "changeDetection": "OnPush"
+    },
+    "@schematics/angular:library": {
+      "standalone": true,
+      "entryFile": "public_api"
+    },
+    "@schematics/angular:application": {
+      "strict": true,
+      "style": "scss",
+      "standalone": true
+    }
   }
 }

@@ -1,0 +1,20 @@
+<div class="m-flex m-flex-column m-flex-gap:1 m-flex-gap:half">
+  <div class="m-text-weight:400 m-text-color:primary">
+    {{ "GENERAL.MISCELLANEOUS" | translate }}
+  </div>
+  <div class="m-flex m-flex-column m-flex-gap:1 m-width:full">
+    <ng-container *ngFor="let skill of 'SKILLS.SOFTWARES' | translate">
+      <div class="m-grid m-grid-gap:1 m-width:full">
+        <span class="m-grid-c:6">{{ skill.TITLE }}</span>
+        <div class="m-grid-c:6 m-flex m-flex-center">
+          <div
+            [ngStyle]="{ height: '1.2rem', borderRadius: '0.2rem' }"
+            class="m-width:full m-border m-border-width:2 m-border-color:tertiary"
+          >
+            <div class="m-height:full m-bg-color:tertiary m-width:{{ skill.PERCENT }}"></div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

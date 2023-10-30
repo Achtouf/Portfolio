@@ -1,0 +1,67 @@
+@use "sass:map";
+
+$components: append($components, text);
+$components: append($components, heading);
+$components: append($components, paragraph);
+
+@function set-text-properties($_theme, $_properties: ()) {
+  $_properties: () !default;
+
+  $_core: map.get($_theme, core);
+  $_core: () !default;
+
+  $_fontSize: map.get($_core, font-size);
+
+  $_basic: (
+    font-size: $_fontSize,
+  );
+
+  $_basic: generate-component-sizes($_basic, (font-size));
+  $_result: merge-flattened-map($_basic, $_properties);
+
+  @return $_result;
+}
+
+@function set-paragraph-properties($_theme, $_properties: ()) {
+  $_properties: () !default;
+
+  $_basic: (
+    padding: 0,
+    margin: 0 0 1rem,
+
+    color: inherit,
+    font-size: inherit,
+    line-height: inherit,
+    font-weight: inherit,
+    font-family: inherit,
+  );
+
+  $_result: merge-flattened-map($_basic, $_properties);
+
+  @return $_result;
+}
+
+@function set-heading-properties($_theme, $_properties: ()) {
+  $_properties: () !default;
+
+  $_heading: map.get($_theme, heading);
+  $_heading: () !default;
+
+  $_core: map.get($_theme, core);
+  $_core: () !default;
+
+  $_fontFamily: map.get($_core, font-family);
+  $_fontFamily: Arial !default;
+
+  $_basic: (
+    margin: 1.5rem 0 1rem,
+
+    line-height: 1.2,
+    font-weight: 600,
+    font-family: $_fontFamily,
+  );
+
+  $_result: merge-flattened-map($_basic, $_properties);
+
+  @return $_result;
+}

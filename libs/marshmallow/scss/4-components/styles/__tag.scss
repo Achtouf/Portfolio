@@ -1,0 +1,115 @@
+$_component: tag;
+
+.#{$mPrefix}#{$_component} {
+  $_prefix: &;
+
+  display: inline-flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: variable(#{$_component}-gap);
+
+  padding: variable(#{$_component}-padding);
+
+  height: variable(#{$_component}-height, auto);
+
+  font-size: variable(#{$_component}-font-size);
+  font-family: variable(#{$_component}-font-family, variable(font-family));
+  font-weight: variable(#{$_component}-font-weight);
+  color: variable(text-color);
+  line-height: variable(#{$_component}-line-height, 1);
+  text-align: variable(#{$_component}-text-align, center);
+  vertical-align: variable(#{$_component}-vertical-align, bottom);
+
+  outline: none;
+
+  border-radius: variable(#{$_component}-border-radius);
+  background-color: variable(#{$_component}-color, transparent);
+  border: variable(#{$_component}-border-width) solid transparent;
+
+  .#{$mPrefix}icon {
+    font-size: variable(#{$_component}-icon-size);
+  }
+
+  &#{$_prefix}-icon {
+    $height: variable(#{$_component}-height);
+
+    padding: 0;
+
+    font-size: variable(#{$_component}-icon-size);
+
+    width: $height;
+    height: $height;
+  }
+
+  &#{$_prefix}-rounded {
+    border-radius: variable(#{$_component}-rounded-border-radius);
+  }
+
+  @each $_level in $mSeveritiesList {
+    $color: variable(#{$_level}-main);
+    $onColor: variable(#{$_level}-accent);
+
+    $hoverColor: variable(#{$_level}-hover);
+    $activeColor: variable(#{$_level}-active);
+    $outlineColor: variable(#{$_level}-outline-color);
+
+    $hoverOutlineColor: variable(#{$_level}-outline-hover);
+    $activeOutlineColor: variable(#{$_level}-outline-active);
+
+    &.#{$mPrefix}#{$_level} {
+      color: $onColor;
+      background-color: $color;
+
+      &#{$_prefix}-text {
+        color: $color;
+        border-color: transparent;
+        background-color: transparent;
+      }
+
+      &#{$_prefix}-outlined {
+        color: $color;
+        border-color: $color;
+        background-color: transparent;
+      }
+    }
+  }
+
+  // Sizes
+  @each $_size, $_ratio in $mSizesProperties {
+    &#{$_prefix}-#{$_size} {
+      gap: variable(#{$_component}-#{$_size}-gap);
+      padding: variable(#{$_component}-#{$_size}-padding);
+
+      font-size: variable(#{$_component}-#{$_size}-font-size);
+
+      height: variable(#{$_component}-#{$_size}-height);
+      border-radius: variable(#{$_component}-#{$_size}-border-radius);
+
+      .#{$mPrefix}icon {
+        // font-size: variable(#{$_component}-icon-size);
+        font-size: variable(#{$_component}-#{$_size}-icon-size);
+      }
+
+      &#{$_prefix}-icon {
+        padding: 0;
+
+        font-size: variable(#{$_component}-#{$_size}-font-size);
+
+        width: variable(#{$_component}-#{$_size}-height);
+        height: variable(#{$_component}-#{$_size}-height);
+      }
+    }
+  }
+}
+
+@each $_level in $mSeveritiesList {
+  .#{$mPrefix}#{$_level} {
+    & > .#{$mPrefix}#{$_component} {
+      &.#{$mPrefix}adapt {
+        color: variable(#{$_level}-main);
+        background-color: variable(#{$_level}-accent);
+      }
+    }
+  }
+}

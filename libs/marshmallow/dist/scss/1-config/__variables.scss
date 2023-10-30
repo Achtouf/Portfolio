@@ -1,0 +1,72 @@
+@use "sass:map";
+@use "sass:list";
+
+$mName: "Marshmallow" !default;
+$mPrefix: "m-" !default;
+$mSeparator: "\\:" !default;
+$mAttributePrefix: "mos-" !default;
+
+$mSM: 576px !default;
+$mMD: 768px !default;
+$mLG: 1024px !default;
+$mXL: 1680px !default;
+
+$mBreakpoints: (
+  sm: $mSM,
+  md: $mMD,
+  lg: $mLG,
+  xl: $mXL,
+) !default;
+
+// Additional
+$mSizesProperties: (
+  xs: 0.6,
+  sm: 0.8,
+  md: 1,
+  lg: 1.2,
+  xl: 1.4,
+) !default;
+$mColorsList: () !default;
+$mLevelsList: primary secondary tertiary success info warning danger help neutral !default;
+$mSeveritiesList: list.join($mLevelsList, surface background) !default;
+$mStatusesList: list.join($mSeveritiesList, overlay) !default;
+
+// Content
+$mObject2dAxes: x y !default;
+$mObject3dAxes: x y z !default;
+$mObjectDegreeLimit: 24 !default;
+$mObjectPseudoSelectors: before after !default;
+$mObjectDirections: (
+  v: block,
+  h: inline,
+) !default;
+$mObjectGridDirections: (
+  r: row,
+  c: column,
+) !default;
+$mObjectVerticalSides: (
+  t: top,
+  b: bottom,
+) !default;
+$mObjectHorizontalSides: (
+  r: right,
+  l: left,
+) !default;
+$mObjectVerticalSidesProperties: top bottom !default;
+$mObjectHorizontalSidesProperties: right left !default;
+$mObjectCommonProperties: inherit initial revert unset !default;
+$mObjectSides: map.merge($mObjectVerticalSides, $mObjectHorizontalSides) !default;
+$mObjectExtendedDirections: map.merge($mObjectSides, $mObjectDirections) !default;
+$mObjectCorners: (
+  tl: top-left,
+  tr: top-right,
+  bl: bottom-left,
+  br: bottom-right,
+) !default;
+
+// Components
+$components: () !default;
+
+// Theme
+$theme: () !default;
+$scheme: light !default;

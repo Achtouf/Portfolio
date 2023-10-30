@@ -1,0 +1,166 @@
+@include responsive {
+  @if $mFlex {
+    &flex {
+      // Extra
+      @if $mFlexExtra {
+        & {
+          display: flex;
+        }
+
+        &-row {
+          flex-direction: row;
+        }
+
+        &-column {
+          flex-direction: column;
+        }
+
+        &-full {
+          width: 100%;
+          height: 100%;
+          flex: 1 1 100%;
+        }
+
+        &-spaced {
+          gap: #{variable(flex-gap)};
+        }
+
+        &-center {
+          align-items: center;
+          justify-content: center;
+        }
+
+        &-break {
+          flex-basis: 100%;
+        }
+      }
+
+      // Grow
+      @if $mFlexGrow {
+        &-grow {
+          @if $mFlexExtra {
+            flex-grow: 1;
+          }
+
+          @include loop-list-properties($mFlexGrowProperties) using ($_prop) {
+            &#{$mSeparator}#{$_prop} {
+              flex-grow: $_prop;
+            }
+          }
+
+          @include loop-limit($mFlexGrowLimit) using ($_index) {
+            flex-grow: $_index;
+          }
+        }
+      }
+
+      // Gap
+      @if $mFlexGap {
+        &-gap {
+          @include loop-sides($mFlexGapDirections, true) using ($_key, $_name, $_side) {
+            $_direction: postfix($_name);
+
+            @if $mFlexExtra {
+              #{$_direction}gap: #{variable(flex-gap)};
+            }
+
+            @include loop-limit($mFlexGapLimit, true) using ($_index, $_ih) {
+              #{$_direction}gap: calc(#{variable(flex-gap)} * #{$_index});
+            }
+          }
+        }
+      }
+
+      // Wrap
+      @if $mFlexWrap {
+        &-wrap {
+          @if $mFlexExtra {
+            flex-wrap: wrap;
+          }
+
+          @include loop-list-properties($mFlexWrapProperties) using ($_prop) {
+            &#{$mSeparator}#{$_prop} {
+              flex-wrap: #{$_prop};
+            }
+          }
+        }
+      }
+
+      // Order
+      @if $mFlexOrder {
+        &-order {
+          @include loop-list-properties($mFlexOrderProperties) using ($_prop) {
+            &#{$mSeparator}#{$_prop} {
+              order: #{$_prop};
+            }
+          }
+
+          @include loop-limit($mFlexOrderLimit) using ($_index) {
+            order: #{$_index};
+          }
+        }
+      }
+
+      // Direction
+      @if $mFlexDirection {
+        &-direction {
+          @include loop-list-properties($mFlexDirectionProperties) using ($_prop) {
+            &#{$mSeparator}#{$_prop} {
+              flex-direction: #{$_prop};
+            }
+          }
+
+          @include loop-map-properties($mFlexDirectionDirections) using ($_key, $_name) {
+            &#{$mSeparator}#{$_key} {
+              flex-direction: #{$_name};
+            }
+          }
+        }
+      }
+
+      // Justify content
+      @if $mFlexJustifyContent {
+        &-justify {
+          @include loop-map-properties($mFlexJustifyContentProperties) using ($_key, $_name) {
+            &#{$mSeparator}#{$_key} {
+              justify-content: #{$_name};
+            }
+          }
+        }
+      }
+
+      // Align content
+      @if $mFlexAlignContent {
+        &-content {
+          @include loop-map-properties($mFlexAlignContentProperties) using ($_key, $_name) {
+            &#{$mSeparator}#{$_key} {
+              align-content: #{$_name};
+            }
+          }
+        }
+      }
+
+      // Align items
+      @if $mFlexAlignItems {
+        &-items {
+          @include loop-map-properties($mFlexAlignItemsProperties) using ($_key, $_name) {
+            &#{$mSeparator}#{$_key} {
+              align-items: #{$_name};
+            }
+          }
+        }
+      }
+
+      // Align self
+      @if $mFlexAlignSelf {
+        &-self {
+          @include loop-map-properties($mFlexAlignSelfProperties) using ($_key, $_name) {
+            &#{$mSeparator}#{$_key} {
+              align-self: #{$_name};
+            }
+          }
+        }
+      }
+    }
+  }
+}

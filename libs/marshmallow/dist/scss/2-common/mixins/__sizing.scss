@@ -1,0 +1,23 @@
+@mixin setPropWithMaxAndMin($_propName, $_propKey, $_valueName, $_valueKey) {
+  $_value: $_valueKey;
+  $_prefixes: (
+    mi: "min-",
+    "": "",
+    ma: "max-",
+  );
+  $_bindings: (
+    "{{prop-key}}": $_propKey,
+    "{{prop-name}}": $_propName,
+    "{{value-name}}": $_valueName,
+  );
+
+  @each $_bindingName, $_bindingKey in $_bindings {
+    $_value: str-replace($_value, $_bindingName, $_bindingKey);
+  }
+
+  @each $_prefixName, $_prefixKey in $_prefixes {
+    &#{$_prefixName}#{$_propName}#{$mSeparator}#{$_valueName} {
+      #{$_prefixKey}#{$_propKey}: #{$_value};
+    }
+  }
+}

@@ -1,0 +1,145 @@
+@use "sass:math";
+@use "sass:map";
+
+$components: append($components, avatar);
+
+@function set-avatar-properties($_theme, $_properties: ()) {
+  $_properties: () !default;
+
+  $_core: map.get($_theme, core);
+  $_core: () !default;
+
+  $_neutral: map.get($_theme, neutral);
+  $_neutral: () !default;
+
+  $_surface: map.get($_theme, surface);
+  $_surface: () !default;
+
+  $_haloColor: map.get($_surface, main);
+  $_textColor: map.get($_neutral, accent);
+  $_backgroundColor: map.get($_neutral, main);
+
+  $_borderColor: map.get($_surface, main);
+  $_borderStyle: map.get($_core, border-style);
+  $_borderWidth: map.get($_core, border-width);
+  $_borderRadius: map.get($_core, border-radius);
+
+  $_dotSize: 1rem;
+  $_setGap: -0.5rem;
+  $_fontSize: 1.2rem;
+  $_iconSize: $_fontSize;
+
+  $_height: 2.4rem !default;
+  $_borderWidth: 0.2rem !default;
+  $_borderRadius: 0.4rem !default;
+
+  $_haloGap: 0.2rem;
+  $_haloWidth: 0.2rem;
+
+  $_basic: (
+    set-gap: $_setGap,
+
+    size: $_height,
+    font-weight: 600,
+    icon-size: $_iconSize,
+    font-size: $_fontSize,
+    text-color: $_textColor,
+
+    border-style: $_borderStyle,
+    border-width: $_borderWidth,
+    border-color: $_borderColor,
+    border-radius: $_borderRadius,
+    background-color: $_backgroundColor,
+
+    halo-gap: $_haloGap,
+    halo-width: $_haloWidth,
+    halo-gap-color: $_haloColor,
+    halo-background-color: $_haloColor,
+
+    transition: map.get($_core, transition)
+  );
+
+  $_result: merge-flattened-map($_basic, $_properties);
+
+  $_height: map.get($_result, size);
+  $_setGap: map.get($_result, set-gap);
+  $_fontSize: map.get($_result, font-size);
+  $_iconSize: map.get($_result, icon-size);
+  $_borderWidth: map.get($_result, border-width);
+  $_borderRadius: map.get($_result, border-radius);
+
+  // Sizes
+  @each $_size, $_ratio in $mSizesProperties {
+    $_result: set-avatar-size-properties(
+      $_size,
+      $_ratio,
+      $_result,
+      $_height,
+      $_setGap,
+      $_fontSize,
+      $_borderRadius,
+      $_iconSize,
+      $_borderWidth
+    );
+  }
+
+  @return $_result;
+}
+
+@function get-avatar-size-properties(
+  $_size,
+  $_ratio,
+  $_height,
+  $_setGap,
+  $_fontSize,
+  $_borderRadius,
+  $_iconSize,
+  $_borderWidth
+) {
+  $_buttonHeight: $_height * $_ratio;
+  $_verticalPadding: math.div(($_height - $_fontSize) * $_ratio, 2);
+
+  @return (
+    size: $_buttonHeight,
+    set-gap: $_setGap * $_ratio,
+    font-size: $_fontSize * $_ratio,
+    icon-size: $_iconSize * $_ratio,
+    border-width: $_borderWidth * $_ratio,
+    border-radius: $_borderRadius * $_ratio,
+    padding: $_verticalPadding #{$_buttonHeight - $_verticalPadding}
+  );
+}
+
+@function set-avatar-size-properties(
+  $_size,
+  $_ratio: 1,
+  $_result: (),
+  $_height,
+  $_setGap,
+  $_fontSize,
+  $_borderRadius,
+  $_iconSize,
+  $_borderWidth
+) {
+  $_props: map.get($_result, #{$_size});
+  $_props: () !default;
+
+  $_avatarRatio: map.get($_props, ratio);
+  $_avatarRatio: $_ratio !default;
+
+  $_props: merge-map(
+    get-avatar-size-properties(
+      $_size,
+      $_avatarRatio,
+      $_height,
+      $_setGap,
+      $_fontSize,
+      $_borderRadius,
+      $_iconSize,
+      $_borderWidth
+    ),
+    $_props
+  );
+
+  @return map.set($_result, #{$_size}, $_props);
+}

@@ -1,0 +1,10 @@
+<div class="m-flex m-flex-column m-flex-gap:1 m-width:full">
+  <div class="m-text-weight:400 m-text-color:primary">
+    {{ "HOBBIES.TITLE" | translate }}
+  </div>
+  <ul class="aa-list m-flex m-flex-column m-flex-gap:1 m-padding-l:2j">
+    <ng-container *ngFor="let info of 'HOBBIES.ELEMENTS' | translate">
+      <li class="m-width:full">{{ info }}</li>
+    </ng-container>
+  </ul>
+</div>
