@@ -1,4 +1,4 @@
-.#{$mPrefix} {
+@include responsive {
   @if $mText {
     &text {
       // Display

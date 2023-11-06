@@ -1,10 +1,64 @@
 @use "sass:map";
 @use "sass:math";
 @use "sass:meta";
+@use "sass:list";
 @use "sass:color";
 
+@function to-hex($_color, $_alpha: 1) {
+  $_result: null;
+  @if not is-color($_color) {
+    @warn "The given $_color parameter is not a color for `to-hex`.";
+  } @else {
+    $_result: color.red($_color), color.green($_color), color.blue($_color);
+  }
+  @return $_result;
+}
+
+@function to-rgb($_color) {
+  $_result: null;
+  @if is-list($_color) or not is-color($_color) {
+    @warn "The given $_color parameter is not a color for `to-rgb`.";
+  } @else {
+    $_result: color.red($_color), color.green($_color), color.blue($_color);
+  }
+  @return $_result;
+}
+
+@function to-rgba($_color, $_alpha: 1) {
+  $_result: to-rgb($_color);
+  @if not is-list($_color) {
+    $_result: list.append($_color, $_alpha, $separator: comma);
+  }
+  @return $_result;
+}
+
 @function is-color($_object) {
-  @return meta.type-of($_object) == "color";
+  @if meta.type-of($_object) == "color" {
+    @return true;
+  }
+
+  @if is-list($_object) {
+    $_length: list.length($_object);
+    @if $_length >=3 and $_length <=4 {
+      $_rgb: slice-list($_object, 1, 3);
+      @each $_value in $_rgb {
+        @if not(meta.type-of($_value) == "number" and $_value >= 0 and $_value <= 255) {
+          @return false;
+        }
+      }
+
+      @if $_length > 3 {
+        $_alpha: list.nth($_object, 4);
+        @if is-null($_alpha) or $_alpha < 0 or $_alpha > 1 {
+          @return false;
+        }
+      }
+
+      @return true;
+    }
+  }
+
+  @return false;
 }
 
 // Shades
@@ -28,18 +82,8 @@
 }
 
 @function generate-color-with-contrast($_color, $_light: white, $_dark: black) {
-  $_colorBrightness: round(
-    math.div(
-      (red($_color) * 299) + (green($_color) * 587) + (blue($_color) * 114),
-      1000
-    )
-  );
-  $_lightColor: round(
-    math.div(
-      (red($_light) * 299) + (green($_light) * 587) + (blue($_light) * 114),
-      1000
-    )
-  );
+  $_colorBrightness: round(math.div((red($_color) * 299) + (green($_color) * 587) + (blue($_color) * 114), 1000));
+  $_lightColor: round(math.div((red($_light) * 299) + (green($_light) * 587) + (blue($_light) * 114), 1000));
 
   @if abs($_colorBrightness) < math.div($_lightColor, 2) {
     @return $_light;
@@ -130,13 +174,8 @@
 
       $_shades: (
         main:
-          generate-color-shades-pack(
-            $_background,
-            $_scheme,
-            $_darkAccent: $_darkAccent,
-            $_lightAccent: $_lightAccent
-          ),
-        accent: generate-color-shades-pack($_foreground, $_scheme),
+          generate-color-shades-pack($_background, $_scheme, $_darkAccent: $_darkAccent, $_lightAccent: $_lightAccent),
+        accent: generate-color-shades-pack($_foreground, $_scheme)
       );
 
       @if length($_configuration) >= 2 {
@@ -176,3 +215,9 @@
 
   @return $_result;
 }
+
+$_color: #ffffff;
+@debug to-rgb($_color);
+@debug to-rgba($_color);
+$_example: to-rgba($_color);
+@debug is-color($_example);
