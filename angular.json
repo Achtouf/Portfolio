@@ -48,6 +48,7 @@
             "outputPath": "dist/apps/resume",
             "main": "apps/resume/src/main.ts",
             "index": "apps/resume/src/index.html",
+            "allowedCommonJsDependencies": ["lodash"],
             "tsConfig": "apps/resume/tsconfig.app.json",
             "assets": ["apps/resume/src/favicon.ico", "apps/resume/src/assets"],
             "styles": [

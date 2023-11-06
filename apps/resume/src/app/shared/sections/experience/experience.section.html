@@ -41,9 +41,10 @@
               <ng-container
                 *ngFor="let task of project.DETAILS; let isLast = last"
               >
-                <li [ngClass]="{ 'm-margin-b:1': !isLast }">
-                  <span class="aa-paragraph">{{ task }}</span>
-                </li>
+                <li
+                  [innerHTML]="task | html"
+                  [ngClass]="{ 'm-margin-b:1': !isLast }"
+                ></li>
               </ng-container>
             </ul>
           </div>

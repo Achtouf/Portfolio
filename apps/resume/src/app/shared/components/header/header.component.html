@@ -1,7 +1,8 @@
 <div
   class="header m-flex m-flex-column m-flex-gap:4 m-flex-justify:between m-width:full m-height:full m-position:relative"
 >
-  <div class="header-section m-flex m-flex-column m-flex-gap:4 m-width:full">
+  <!-- Identity -->
+  <div class="header-section m-flex m-flex-column m-flex-gap:4 m-width:full m-padding:2 m-lg:padding-b:10 m-md:padding-b:2">
     <!-- Name -->
     <aa-logo class="m-display:block m-width:24"></aa-logo>
 
@@ -17,33 +18,32 @@
         </div>
       </div>
     </div>
+
+    <!-- Additional Content -->
+    <div class="m-width:full m-md:display:none">
+      <!-- Information -->
+      <aa-aside class="m-position:sticky m-inset-t:0 m-width:full">
+        <aa-information class="m-width:full" [content]="infos"></aa-information>
+      </aa-aside>
+    </div>
   </div>
-
-  <!-- Software Skills -->
-  <aa-software-skills class="header-section m-width:full"></aa-software-skills>
-
-  <!-- Information -->
-  <aa-information
-    [anchor]="info.ANCHOR"
-    [text]="info.DESCRIPTION"
-    *ngFor="let info of infoList"
-    class="header-section"
-  ></aa-information>
 
   <!-- Hobbies -->
-  <aa-hobbies class="m-width:full"></aa-hobbies>
-
-  <div class="m-flex m-flex-column m-flex-gap:4 m-width:full">
-    <!-- Glossary -->
+  <div
+    class="m-flex m-flex-gap:4 m-flex-column m-widrh:full m-padding:2 m-md:display:none"
+  >
+    <aa-hobbies class="m-width:full"></aa-hobbies>
+    <aa-software-skills class="m-width:full"></aa-software-skills>
   </div>
 
-  <!-- Second Illustration -->
-  <div class=""></div>
+  <!-- Glossary -->
+  <div class="m-flex m-flex-column m-flex-gap:4 m-width:full m-md:display:none"></div>
 
-  <div class="m-flex m-flex-column m-flex-gap:4 m-width:full">
-    <!-- Glossary -->
-  </div>
+  <!-- Illustration -->
+  <div class="m-md:display:none"></div>
 
   <!-- Contact -->
-  <aa-contact class="m-flex-self:end"></aa-contact>
+  <aa-contact
+    class="m-flex m-flex-self:end m-width:full m-padding:2 m-md:display:none"
+  ></aa-contact>
 </div>

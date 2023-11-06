@@ -3,6 +3,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { IdUtil } from '../../utils/id.util';
+import { HtmlPipe } from '../../pipes/html.pipe';
 import { SectionComponent } from '../../components/section/section.component';
 
 @Component({
@@ -10,7 +11,7 @@ import { SectionComponent } from '../../components/section/section.component';
   selector: 'aa-experience-section',
   templateUrl: './experience.section.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, SectionComponent, TranslateModule],
+  imports: [HtmlPipe, CommonModule, TranslateModule, SectionComponent],
 })
 export class ExperienceSection {
   length = 3;

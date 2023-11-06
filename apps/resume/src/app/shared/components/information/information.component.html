@@ -1,10 +1,8 @@
-<div
-  *ngIf="text"
-  [ngStyle]="{ top: top }"
-  class="m-flex m-flex-gap:2 m-width:full"
->
+<div *ngIf="texts.length > 0" class="m-flex m-flex-gap:2 m-width:full">
   <div class="m-flex-items:start">
     <aa-help-icon></aa-help-icon>
   </div>
-  <span class="aa-title:5">{{ text }}</span>
+  <div class="m-flex m-flex-column m-flex-gap:2 m-width:full">
+    <span *ngFor="let text of texts" class="aa-title:5">{{ text }}</span>
+  </div>
 </div>

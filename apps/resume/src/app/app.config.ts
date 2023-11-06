@@ -8,15 +8,17 @@ import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 
 import {
   defaultLanguage,
-  ResumeMissingTranslationHandler,
   ResumeTranslateLoader,
+  ResumeMissingTranslationHandler,
 } from './app.i18n';
 import { routes } from './app.routes';
 
+import { HtmlPipe } from './shared/pipes/html.pipe';
 import { AnchorService } from './shared/services/anchor.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    HtmlPipe,
     AnchorService,
     provideRouter(routes),
     importProvidersFrom(

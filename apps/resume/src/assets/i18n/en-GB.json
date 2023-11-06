@@ -39,15 +39,15 @@
   },
   "INFORMATION": [
     {
-      "ANCHOR": "LEAD_FRONTEND_DEVELOPER",
+      "ANCHOR": "INTRODUCTION",
       "DESCRIPTION": "A web enthusiast who lives in Lyon. I try to see what is most marvelous in the simplest things. I am creative and have a passionate taste for cinema and music."
     },
     {
-      "ANCHOR": "SKILLS",
+      "ANCHOR": "LEAD_FRONTEND_DEVELOPER",
       "DESCRIPTION": "During my experience, I have worked both as a freelancer, for short and long missions, and for a final client. I had the opportunity to develop soft skills, such as demonstrating concentration, rigor, patience and tenacity, which allowed me to work independently, both alone and in a team."
     },
     {
-      "ANCHOR": "PERSONAL_PROJECTS",
+      "ANCHOR": "MOBILE",
       "DESCRIPTION": "In my free time, I enjoy reading articles, watching presentations, and attending meet-ups to keep up to date with different alternatives to the technologies I use every day. I also try to always keep my hand in practicing and using these technologies by creating and updating some personal projects using Supabase, Firebase, Flutter, React, and other frameworks, languages or libraries."
     },
     {
@@ -169,7 +169,7 @@
               "Adopt and contribute to Odigo's Design System by creating an Angular library.",
               "Help improve the relationship between Software Engineers and UX/UI Designers.",
               "Design project using micro-frontend architecture approach.",
-              "Create the project from scratch, adding needed dependencies, and following NFRs, CoP* decisions, best practices, and common guidelines."
+              "Create the project from scratch, adding needed dependencies, and following NFRs, <i aa-glossary=\"Community Of Practice\">CoP</i> decisions, best practices, and common guidelines."
             ]
           },
           {
@@ -179,7 +179,7 @@
               "Helped the team improve in Front-End by doing code reviews and setting up pair programming and training sessions.",
               "Developed main features and complex components using Angular, Typescript, RXJS, NgRX, NgxTranslate, and PrimeNG.",
               "Developed Rest APIs using Java and Quarkus.",
-              "Created the project from scratch, adding needed dependencies, and following NFRs, CoP* decisions, best practices, and common guidelines."
+              "Created the project from scratch, adding needed dependencies, and following NFRs, <i aa-glossary=\"Community Of Practice\">CoP</i> decisions, best practices, and common guidelines."
             ]
           },
           {
@@ -196,7 +196,7 @@
             "TITLE": "Life at Odigo",
             "DETAILS": [
               "Audited multiple projects in an effort to improve technical quality.",
-              "Initiated a CoP* to discuss front-end deployment, development, and best practices concerns.",
+              "Initiated a <i aa-glossary=\"Community Of Practice\">CoP</i> to discuss front-end deployment, development, and best practices concerns.",
               "Created a DEV/UX Community to help improve the relationship between Software Engineers and UX/UI Designers.",
               "Helped create NFRs, guidelines, best practices, and code quality improvements for front-end projects.",
               "Helped create new offers, improve existing offers, and recruit new talents."

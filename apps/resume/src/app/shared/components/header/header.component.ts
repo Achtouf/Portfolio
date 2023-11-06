@@ -13,6 +13,16 @@ import { ContactComponent } from '../contact/contact.component';
 import { HobbiesComponent } from '../hobbies/hobbies.component';
 import { InformationComponent } from '../information/information.component';
 import { SoftwareSkillsComponent } from '../software-skills/software-skills.component';
+import { AsideComponent } from '../aside/aside.component';
+
+interface InformationSection {
+  ANCHOR: string;
+  DESCRIPTION: string;
+}
+
+interface InformationSet {
+  [_: string]: string;
+}
 
 @Component({
   standalone: true,
@@ -23,6 +33,7 @@ import { SoftwareSkillsComponent } from '../software-skills/software-skills.comp
     CommonModule,
     TranslateModule,
     LogoComponent,
+    AsideComponent,
     ContactComponent,
     HobbiesComponent,
     InformationComponent,
@@ -30,16 +41,22 @@ import { SoftwareSkillsComponent } from '../software-skills/software-skills.comp
   ],
 })
 export class HeaderComponent {
-  infoList: any[] = [];
+  infos: InformationSet = {};
 
   private _cdr = inject(ChangeDetectorRef);
   private _translator = inject(TranslateService);
 
   constructor() {
-    this._translator.get('INFORMATION')
+    this._translator
+      .get('INFORMATION')
       .pipe(takeUntilDestroyed())
-      .subscribe((data) => {
-        this.infoList = data;
+      .subscribe((data: InformationSection[]) => {
+        this.infos = data.reduce((result, item) => {
+          return {
+            ...result,
+            [item.ANCHOR]: item.DESCRIPTION,
+          };
+        }, {});
         this._cdr.markForCheck();
       });
   }

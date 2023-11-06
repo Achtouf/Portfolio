@@ -1,1 +1,10 @@
-<ng-content></ng-content>
+<div
+  class="m-width:full"
+  [ngStyle]="{
+    translate: 'all 0.2s linear',
+    visibility: visible ? 'visible' : 'hidden'
+  }"
+  [ngClass]="{ 'm-opacity:0': !visible, 'm-opacity:10': visible }"
+>
+  <ng-content></ng-content>
+</div>

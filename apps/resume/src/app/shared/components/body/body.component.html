@@ -1,12 +1,12 @@
-<div class="m-flex m-flex-column m-width:full m-min-height:full">
+<div id="TOP" class="m-flex m-flex-column m-width:full m-min-height:full">
   <div
-    class="body-navigation m-width:full m-position:sticky m-inset-h:0 m-inset-t:0"
+    class="body-navigation m-width:full m-position:sticky m-inset-h:0 m-inset-t:0 m-padding:2 m-margin-b:6 m-md:margin-b:0"
   >
     <ul class="m-width:full m-flex m-flex-wrap m-flex-justify:end m-flex-gap:1">
       <li *ngFor="let section of sections">
         <button
           (click)="goToTarget(section)"
-          class="m-button m-button-text m-primary m-text-decoration:none"
+          class="m-button m-button-text m-md:text-body:4 m-sm:text-body:6 m-primary m-text-decoration:none"
         >
           {{ "GENERAL." + section | translate }}
         </button>
@@ -16,9 +16,16 @@
   <div
     class="body-content m-flex m-flex-column m-flex-gap:2 m-width:full m-height:full"
   >
-    <aa-education-section></aa-education-section>
-    <aa-skills-section></aa-skills-section>
-    <aa-experience-section></aa-experience-section>
-    <aa-personal-projects-section></aa-personal-projects-section>
+    <div
+      id="INTRODUCTION"
+      class="m-flex m-flex-column m-flex-gap:2 m-width:full"
+    >
+      <aa-education-section></aa-education-section>
+      <aa-skills-section></aa-skills-section>
+    </div>
+    <div class="m-flex m-flex-column m-flex-gap:2 m-width:full" id="MAIN">
+      <aa-experience-section></aa-experience-section>
+      <aa-personal-projects-section></aa-personal-projects-section>
+    </div>
   </div>
 </div>

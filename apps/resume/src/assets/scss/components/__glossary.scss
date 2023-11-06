@@ -1,0 +1,38 @@
+[aa-glossary] {
+  position: relative;
+
+  font-weight: bold;
+  font-style: normal;
+  color: m(primary-50);
+
+  &:before {
+    left: 50%;
+    z-index: 0;
+    position: absolute;
+    padding: 0.5rem 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: max-content;
+
+    text-align: center;
+    color: m(background-50);
+
+    cursor: help;
+    transform: translateX(-50%);
+    border-radius: m(border-radius);
+    background-color: m(overlay-90);
+  }
+
+  &:after {
+    content: "*";
+  }
+
+  &:hover {
+    &:before {
+      content: attr(aa-glossary);
+    }
+  }
+}
