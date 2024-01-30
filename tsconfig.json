@@ -21,7 +21,16 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "paths": {
-      "@achtouf/marshmallow/*": ["libs/marshmallow/*"]
+      "@resume/utils": ["./apps/resume/src/app/shared/utils"],
+      "@resume/pipes": ["./apps/resume/src/app/shared/pipes"],
+      "@resume/services": ["./apps/resume/src/app/shared/services"],
+      "@resume/sections": ["./apps/resume/src/app/shared/sections"],
+      "@resume/interfaces": ["./apps/resume/src/app/shared/interfaces"],
+      "@resume/components": ["./apps/resume/src/app/shared/components"],
+      "@resume/*": ["./apps/resume/*"],
+      "@apps/*": ["./apps/*"],
+      "@achtouf/marshmallow/*": ["libs/marshmallow/*"],
+      "@libs/*": ["./libs/*"]
     }
   },
   "angularCompilerOptions": {

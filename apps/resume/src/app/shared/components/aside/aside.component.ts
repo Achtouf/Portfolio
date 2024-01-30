@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -8,11 +7,12 @@ import {
   OnInit,
   inject,
 } from '@angular/core';
+import { NgClass, NgStyle } from '@angular/common';
 
 @Component({
   standalone: true,
   selector: 'aa-aside',
-  imports: [CommonModule],
+  imports: [NgClass, NgStyle],
   templateUrl: './aside.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

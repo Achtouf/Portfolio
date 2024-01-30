@@ -1,32 +1,21 @@
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import {
+  ChangeDetectorRef,
+  Component,
+  ViewEncapsulation,
+  inject,
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ChangeDetectorRef, Component, ViewEncapsulation, inject } from '@angular/core';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-
-import { BodyComponent } from './shared/components/body/body.component';
-import { LogoComponent } from './shared/components/logo/logo.component';
-import { HeaderComponent } from './shared/components/header/header.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  standalone: true,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    TranslateModule,
-    // Components
-    LogoComponent,
-    BodyComponent,
-    HeaderComponent,
-  ],
 })
 export class AppComponent {
-  private _cdr = inject(ChangeDetectorRef);
-  private _translator = inject(TranslateService);
+  readonly cdr = inject(ChangeDetectorRef);
+  readonly translator = inject(TranslateService);
 
   title = 'Achraf Abdessalem - Resume';
   sections = [
@@ -38,10 +27,10 @@ export class AppComponent {
   ];
 
   constructor() {
-    this._translator.onTranslationChange
+    this.translator.onTranslationChange
       .pipe(takeUntilDestroyed())
       .subscribe(() => {
-        this._cdr.markForCheck();
+        this.cdr.markForCheck();
       });
   }
 
@@ -49,7 +38,7 @@ export class AppComponent {
     const child = document.querySelector(`#${target}`);
     if (child) {
       child.scrollIntoView({
-        block: 'start',
+        block: 'end',
         behavior: 'smooth',
       });
     }

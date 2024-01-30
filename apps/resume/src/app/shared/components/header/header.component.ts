@@ -4,25 +4,19 @@ import {
   Component,
   inject,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgStyle } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
-import { LogoComponent } from '../logo/logo.component';
-import { ContactComponent } from '../contact/contact.component';
-import { HobbiesComponent } from '../hobbies/hobbies.component';
-import { InformationComponent } from '../information/information.component';
-import { SoftwareSkillsComponent } from '../software-skills/software-skills.component';
-import { AsideComponent } from '../aside/aside.component';
-
-interface InformationSection {
-  ANCHOR: string;
-  DESCRIPTION: string;
-}
-
-interface InformationSet {
-  [_: string]: string;
-}
+import {
+  LogoComponent,
+  AsideComponent,
+  ContactComponent,
+  HobbiesComponent,
+  InformationComponent,
+  SoftwareSkillsComponent,
+} from '@resume/components';
+import { InformationSection, InformationSet } from '@resume/interfaces';
 
 @Component({
   standalone: true,
@@ -30,7 +24,7 @@ interface InformationSet {
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    CommonModule,
+    NgStyle,
     TranslateModule,
     LogoComponent,
     AsideComponent,
@@ -51,12 +45,29 @@ export class HeaderComponent {
       .get('INFORMATION')
       .pipe(takeUntilDestroyed())
       .subscribe((data: InformationSection[]) => {
-        this.infos = data.reduce((result, item) => {
-          return {
-            ...result,
-            [item.ANCHOR]: item.DESCRIPTION,
+        let _infos: InformationSet = {};
+        console.log('[_translator] data: ', data);
+        data.forEach((_item) => {
+          const _anchors = _item.ANCHORS.split(',');
+          _infos = {
+            ..._infos,
+            ..._anchors
+              .map((_anchor) => {
+                const _descriptions: string[] = [];
+                const _found = _infos[_anchor];
+                if (_found) {
+                  _descriptions.push(..._found);
+                }
+                _descriptions.push(_item.DESCRIPTION);
+                return { [_anchor]: _descriptions } as InformationSet;
+              })
+              .reduce(
+                (_result, _item) => ({ ..._result, ..._item }),
+                {} as InformationSet
+              ),
           };
-        }, {});
+        });
+        this.infos = _infos;
         this._cdr.markForCheck();
       });
   }

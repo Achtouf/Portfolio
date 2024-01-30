@@ -1,5 +1,4 @@
 import {
-  AfterViewChecked,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -10,18 +9,10 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AnchorService } from '../../services/anchor.service';
-import { HelpIconComponent } from '../help-icon/help-icon.component';
-import { of } from 'rxjs';
-import { ObjectUtil } from '../../utils/object.util';
-
-interface InformationSection {
-  [_key: string]: string;
-}
-
-interface InformationOffset {
-  [_key: string]: number;
-}
+import { ObjectUtil } from '@resume/utils';
+import { AnchorService } from '@resume/services';
+import { HelpIconComponent } from '@resume/components';
+import { InformationSet, InformationOffset } from '@resume/interfaces';
 
 @Component({
   standalone: true,
@@ -34,7 +25,7 @@ export class InformationComponent implements OnInit {
   private _anchor = inject(AnchorService);
   private _cdr = inject(ChangeDetectorRef);
 
-  @Input() content: InformationSection = {};
+  @Input() content: InformationSet = {};
 
   private _texts: string[] = [];
   private _offset: InformationOffset = {};
@@ -64,7 +55,7 @@ export class InformationComponent implements OnInit {
         const end = begin + target.offsetHeight;
         const visible = window.scrollY >= begin && window.scrollY <= end;
         if (visible) {
-          texts = [...texts, this.content[id]];
+          texts = [...texts, ...this.content[id]];
         }
       }
     }

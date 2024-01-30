@@ -1,5 +1,6 @@
-<div id="TOP" class="m-flex m-flex-column m-width:full m-min-height:full">
+<div id="APP_TOP" class="m-flex m-flex-column m-width:full m-min-height:full">
   <div
+    id="APP_NAVIGATION"
     class="body-navigation m-width:full m-position:sticky m-inset-h:0 m-inset-t:0 m-padding:2 m-margin-b:6 m-md:margin-b:0"
   >
     <ul class="m-width:full m-flex m-flex-wrap m-flex-justify:end m-flex-gap:1">
@@ -14,16 +15,14 @@
     </ul>
   </div>
   <div
+    id="APP_CONTENT"
     class="body-content m-flex m-flex-column m-flex-gap:2 m-width:full m-height:full"
   >
-    <div
-      id="INTRODUCTION"
-      class="m-flex m-flex-column m-flex-gap:2 m-width:full"
-    >
+    <div id="APP_ASIDE" class="m-flex m-flex-column m-flex-gap:2 m-width:full">
       <aa-education-section></aa-education-section>
       <aa-skills-section></aa-skills-section>
     </div>
-    <div class="m-flex m-flex-column m-flex-gap:2 m-width:full" id="MAIN">
+    <div id="APP_MAIN" class="m-flex m-flex-column m-flex-gap:2 m-width:full">
       <aa-experience-section></aa-experience-section>
       <aa-personal-projects-section></aa-personal-projects-section>
     </div>

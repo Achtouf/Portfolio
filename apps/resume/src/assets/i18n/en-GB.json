@@ -39,19 +39,19 @@
   },
   "INFORMATION": [
     {
-      "ANCHOR": "INTRODUCTION",
+      "ANCHORS": "APP_ASIDE",
       "DESCRIPTION": "A web enthusiast who lives in Lyon. I try to see what is most marvelous in the simplest things. I am creative and have a passionate taste for cinema and music."
     },
     {
-      "ANCHOR": "LEAD_FRONTEND_DEVELOPER",
+      "ANCHORS": "LEAD_FRONTEND_DEVELOKKPER",
       "DESCRIPTION": "During my experience, I have worked both as a freelancer, for short and long missions, and for a final client. I had the opportunity to develop soft skills, such as demonstrating concentration, rigor, patience and tenacity, which allowed me to work independently, both alone and in a team."
     },
     {
-      "ANCHOR": "MOBILE",
+      "ANCHORS": "MOBILE",
       "DESCRIPTION": "In my free time, I enjoy reading articles, watching presentations, and attending meet-ups to keep up to date with different alternatives to the technologies I use every day. I also try to always keep my hand in practicing and using these technologies by creating and updating some personal projects using Supabase, Firebase, Flutter, React, and other frameworks, languages or libraries."
     },
     {
-      "ANCHOR": "WEB",
+      "ANCHORS": "WEB",
       "DESCRIPTION": "As a front-end engineer, I enjoy bridging the gap between engineering and design combining my technical knowledge with my keen eye for design to create a beautiful product. My goal is to always build applications that are scalable and efficient under the hood while providing engaging, pixel-perfect user experiences."
     }
   ],
@@ -168,7 +168,7 @@
               "Maintain and deploy multiple NPM libraries and release a new major version with redesigned components following the new brand guidelines and new components.",
               "Adopt and contribute to Odigo's Design System by creating an Angular library.",
               "Help improve the relationship between Software Engineers and UX/UI Designers.",
-              "Design project using micro-frontend architecture approach.",
+              "Design project using a micro-frontend architecture approach.",
               "Create the project from scratch, adding needed dependencies, and following NFRs, <i aa-glossary=\"Community Of Practice\">CoP</i> decisions, best practices, and common guidelines."
             ]
           },

@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
@@ -7,13 +8,14 @@ import {
   EducationSection,
   ExperienceSection,
   PersonalProjectsSection,
-} from '../../sections';
+} from '@resume/sections';
 
 @Component({
   selector: 'aa-body',
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
     TranslateModule,
     // Sections
     SkillsSection,
@@ -47,10 +49,15 @@ export class BodyComponent {
   ];
 
   goToTarget(target: string): void {
-    const child = document.querySelector(`#${target}`);
+    const child = document.getElementById(target);
     if (child) {
-      child.scrollIntoView({
-        block: 'start',
+      let _top = 0;
+      const _nav = document.getElementById('APP_NAVIGATION');
+      if (_nav) {
+        _top = _nav.getBoundingClientRect().height;
+      }
+      window.scrollTo({
+        top: child.offsetTop - _top,
         behavior: 'smooth',
       });
     }
