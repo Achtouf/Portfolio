@@ -61,7 +61,6 @@ export class BodyComponent {
     if (child) {
       let _top = 0;
       const _item = document.getElementById('APP_NAVIGATION');
-      console.log('[goToTarget] nav: ', _item);
       if (_item) {
         _top = _item.getBoundingClientRect().height;
         window.scrollTo({

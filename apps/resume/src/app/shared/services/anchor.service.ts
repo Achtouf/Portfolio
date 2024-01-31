@@ -31,7 +31,6 @@ export class AnchorService implements OnInit {
       .pipe(takeUntilDestroyed())
       .subscribe((data: InformationSection[]) => {
         let _infos: InformationSet = {};
-        console.log('[_translator] data: ', data);
         data.forEach((_item) => {
           const _anchors = _item.ANCHORS.split(',').map((_anchor) =>
             _anchor.trim()
@@ -81,8 +80,6 @@ export class AnchorService implements OnInit {
     const offsets = this._getOffsets();
     const haveChanged = this._didOffsetsChange(offsets);
 
-    console.log('[_updateText] offsets: ', offsets);
-
     if (haveChanged) {
       this._offset = offsets;
     }
@@ -100,7 +97,6 @@ export class AnchorService implements OnInit {
       }
     }
     const _texts = Array.from(new Set(texts));
-    console.log('[_updateText] _texts: ', _texts);
     this.updateInformation(_texts);
   }
 
