@@ -1,7 +1,9 @@
 @use "sass:map";
 @use "sass:math";
 
-$components: append($components, form);
+@if $mFormClass {
+  $components: append($components, form);
+}
 
 @function set-form-properties($_theme, $_properties: ()) {
   $_properties: () !default;
@@ -56,26 +58,25 @@ $components: append($components, form);
     // Additional
     transition: map.get($_core, transition),
     background-color: map.get($_surface, main),
-
     // Icon
     icon: (),
-
     // States
-    hover: (
-      border-color: var(--m-primary-60),
-      icon: (
-        color: var(--m-primary-60),
+    hover:
+      (
+        border-color: var(--m-primary-60),
+        icon: (
+          color: var(--m-primary-60)
+        )
       ),
-    ),
     focus: (),
     active: (
-      border-color: var(--m-primary-main),
+      border-color: var(--m-primary-main)
     ),
     selected: (
       border-color: var(--m-primary-50),
       icon: (
-        color: var(--m-primary-50),
-      ),
+        color: var(--m-primary-50)
+      )
     ),
     disabled: (
       color: map.get($_tertiary, 60),
@@ -83,19 +84,19 @@ $components: append($components, form);
       background-color: map.get($_background, main),
       icon: (
         border-color: transparent,
-        color: map.get($_tertiary, 60),
-      ),
+        color: map.get($_tertiary, 60)
+      )
     ),
     valid: (
       color: map.get($_success, main),
       border-color: map.get($_success, main),
-      background-color: map.get($_success, 5),
+      background-color: map.get($_success, 5)
     ),
     invalid: (
       color: map.get($_danger, main),
       border-color: map.get($_danger, main),
-      background-color: map.get($_danger, 5),
-    ),
+      background-color: map.get($_danger, 5)
+    )
   );
 
   $_result: merge-flattened-map($_basic, $_properties);

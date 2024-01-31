@@ -1,6 +1,8 @@
 @use "sass:map";
 
-$components: append($components, icon);
+@if $mIconClass {
+  $components: append($components, icon);
+}
 
 @function set-icon-properties($_theme, $_properties: ()) {
   $_properties: () !default;
@@ -32,22 +34,14 @@ $components: append($components, icon);
   @return (font-size: $_fontSize * $_ratio);
 }
 
-@function set-icon-size-properties(
-  $_size,
-  $_ratio: 1,
-  $_result: (),
-  $_fontSize
-) {
+@function set-icon-size-properties($_size, $_ratio: 1, $_result: (), $_fontSize) {
   $_props: map.get($_result, #{$_size});
   $_props: () !default;
 
   $_newRatio: map.get($_props, ratio);
   $_newRatio: $_ratio !default;
 
-  $_props: merge-map(
-    get-icon-size-properties($_size, $_newRatio, $_fontSize),
-    $_props
-  );
+  $_props: merge-map(get-icon-size-properties($_size, $_newRatio, $_fontSize), $_props);
 
   @return map.set($_result, #{$_size}, $_props);
 }

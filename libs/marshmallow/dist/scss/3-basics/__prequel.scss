@@ -1,9 +1,0 @@
-.#{$mPrefix} {
-  &disabled {
-    &,
-    & * {
-      pointer-events: none;
-      cursor: default !important;
-    }
-  }
-}

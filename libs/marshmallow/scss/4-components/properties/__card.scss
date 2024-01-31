@@ -1,6 +1,8 @@
 @use "sass:map";
 
-$components: append($components, card);
+@if $mCardClass {
+  $components: append($components, card);
+}
 
 @function set-card-properties($_theme, $_properties: ()) {
   $_properties: () !default;
@@ -35,15 +37,15 @@ $components: append($components, card);
     header: (
       padding: 1rem,
       color: $_headerTextColor,
-      background-color: $_headerBackgroundColor,
+      background-color: $_headerBackgroundColor
     ),
     content: (
-      padding: 1rem,
+      padding: 1rem
     ),
     footer: (
-      padding: 1rem,
+      padding: 1rem
     ),
-    transition: map.get($_core, transition),
+    transition: map.get($_core, transition)
   );
 
   $_result: merge-flattened-map($_basic, $_properties);

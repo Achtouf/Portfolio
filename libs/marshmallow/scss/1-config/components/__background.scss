@@ -9,23 +9,23 @@ $mBackgroundColorShades: true !default;
 $mBackgroundColorShadesStep: 5 !default;
 $mBackgroundColorShadesLimit: 10 !default;
 
-$mBackgroundSize: true !default;
+$mBackgroundSize: false !default;
 $mBackgroundSizeProperties: auto cover contain !default;
 
-$mBackgroundRepeat: true !default;
+$mBackgroundRepeat: false !default;
 $mBackgroundRepeatProperties: repeat no-repeat repeat-x repeat-y !default;
 
-$mBackgroundRepeatAxes: true !default;
+$mBackgroundRepeatAxes: false !default;
 $mBackgroundRepeatAxesValues: $mObject2dAxes !default;
 $mBackgroundRepeatAxesProperties: repeat no-repeat !default;
 
-$mBackgroundPosition: true !default;
+$mBackgroundPosition: false !default;
 $mBackgroundPositionProperties: list.join(
   $mObjectVerticalSidesProperties,
   $mObjectHorizontalSidesProperties
 ) !default;
 
-$mBackgroundPositionAxes: true !default;
+$mBackgroundPositionAxes: false !default;
 $mBackgroundPositionAxesValues: (
   y: list.join($mObjectVerticalSidesProperties, center),
   x: list.join($mObjectHorizontalSidesProperties, center),

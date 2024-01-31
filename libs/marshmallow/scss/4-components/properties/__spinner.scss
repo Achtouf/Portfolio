@@ -1,6 +1,8 @@
 @use "sass:map";
 
-$components: append($components, spinner);
+@if $mSpinnerClass {
+  $components: append($components, spinner);
+}
 
 @function set-spinner-properties($_theme, $_properties: ()) {
   $_properties: () !default;
@@ -29,8 +31,8 @@ $components: append($components, spinner);
       duration: 0.8s,
       name: #{$mPrefix}spin,
       iteration-count: infinite,
-      timing-function: ease-in-out,
-    ),
+      timing-function: ease-in-out
+    )
   );
 
   $_result: merge-flattened-map($_basic, $_properties);

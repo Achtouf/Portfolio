@@ -1,7 +1,9 @@
 @use "sass:map";
 @use "sass:math";
 
-$components: append($components, label);
+@if $mLabelClass {
+  $components: append($components, label);
+}
 
 @function set-label-properties($_theme, $_properties: ()) {
   $_properties: () !default;
@@ -30,7 +32,6 @@ $components: append($components, label);
     font-weight: bold,
     color: $_textColor,
     font-size: map.get($_theme, font-size),
-    
     border-style: $_borderStyle,
     border-width: $_borderWidth,
     border-color: $_borderColor,
@@ -41,9 +42,9 @@ $components: append($components, label);
       line-height: 0.7,
       font-size: 1.6rem,
       font-weight: bolder,
-      color: $_asteriskColor,
+      color: $_asteriskColor
     ),
-    transition: map.get($_core, transition),
+    transition: map.get($_core, transition)
   );
 
   $_result: merge-flattened-map($_basic, $_properties);

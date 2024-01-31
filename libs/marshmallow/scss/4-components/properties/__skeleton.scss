@@ -1,6 +1,8 @@
 @use "sass:map";
 
-$components: append($components, skeleton);
+@if $mSkeletonClass {
+  $components: append($components, skeleton);
+}
 
 @function set-skeleton-properties($_theme, $_properties: ()) {
   $_properties: () !default;
@@ -32,16 +34,16 @@ $components: append($components, skeleton);
         duration: 1.5s,
         direction: alternate,
         timing-function: linear,
-        iteration-count: infinite,
+        iteration-count: infinite
       ),
       wink: (
         delay: 1s,
         duration: 0.7s,
         direction: alternate,
         timing-function: linear,
-        iteration-count: infinite,
-      ),
-    ),
+        iteration-count: infinite
+      )
+    )
   );
 
   $_result: merge-flattened-map($_basic, $_properties);

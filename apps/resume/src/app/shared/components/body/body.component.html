@@ -7,7 +7,7 @@
       <li *ngFor="let section of sections">
         <button
           (click)="goToTarget(section)"
-          class="m-button m-button-text m-md:text-body:4 m-sm:text-body:6 m-primary m-text-decoration:none"
+          class="m-button m-button-text m-md:text-body:4 m-sm:text-body:5 m-primary m-text-decoration:none"
         >
           {{ "GENERAL." + section | translate }}
         </button>
@@ -18,13 +18,16 @@
     id="APP_CONTENT"
     class="body-content m-flex m-flex-column m-flex-gap:2 m-width:full m-height:full"
   >
-    <div id="APP_ASIDE" class="m-flex m-flex-column m-flex-gap:2 m-width:full">
+    <div id="APP_EDUCATION" class="m-flex m-flex-column m-flex-gap:2 m-width:full">
       <aa-education-section></aa-education-section>
       <aa-skills-section></aa-skills-section>
     </div>
-    <div id="APP_MAIN" class="m-flex m-flex-column m-flex-gap:2 m-width:full">
+    <div id="APP_PROFESSIONAL" class="m-flex m-flex-column m-flex-gap:2 m-width:full">
       <aa-experience-section></aa-experience-section>
       <aa-personal-projects-section></aa-personal-projects-section>
+    </div>
+    <div class="APP_CONTACT" class="m-display:none m-md:display:flex m-flex-column m-flex-gap:2 m-width:full">
+      <aa-contact-section></aa-contact-section>
     </div>
   </div>
 </div>

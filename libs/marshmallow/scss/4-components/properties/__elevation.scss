@@ -1,6 +1,8 @@
 @use "sass:map";
 
-$components: append($components, elevation);
+@if $mElevationClass {
+  $components: append($components, elevation);
+}
 
 @function set-elevation-properties($_theme, $_properties: ()) {
   $_properties: () !default;

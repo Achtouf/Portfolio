@@ -1,6 +1,6 @@
 <aa-section id="PERSONAL_PROJECTS" [isLast]="true" class="m-width:full">
   <h2 class="aa-title:1">{{ "PERSONAL_PROJECTS.TITLE" | translate }}</h2>
-  <span class="aa-paragraph m-padding-l:2">
+  <span class="aa-paragraph m-padding-l:2 m-md:padding-l:1">
     {{ "PERSONAL_PROJECTS.DESCRIPTION" | translate }}
   </span>
   <div class="m-flex m-flex-column m-flex-gap:4 m-width:full">
@@ -26,7 +26,7 @@
         <ng-container *ngFor="let project of bloc.PROJECTS">
           <div
             [attr.id]="util.toId(project.TITLE)"
-            class="m-flex m-flex-column m-flex-gap:1 m-padding-l:2"
+            class="m-flex m-flex-column m-flex-gap:1 m-padding-l:2 m-md:padding-l:1"
           >
             <div class="m-flex m-flex-column">
               <div *ngIf="project.TITLE" class="aa-title:3 m-text-bold">
@@ -43,11 +43,11 @@
               {{ project.DESCRIPTION }}
             </div>
             <div
-              class="m-grid m-grid-gap:1 m-grid-columns:{{ project.COLUMNS }} m-grid-rows:{{ project.ROWS }}"
+              class="m-grid m-grid-gap:1 m-grid-columns:{{ project.COLUMNS }} m-grid-rows:{{ project.ROWS }} m-xs:grid-columns:1"
             >
               <ng-container *ngFor="let detail of project.DETAILS">
                 <div
-                  class="m-flex m-grid-c:{{ detail.COLUMN }} m-grid-r:{{ detail.ROW }}"
+                  class="m-flex m-grid-c:{{ detail.COLUMN }} m-grid-r:{{ detail.ROW }} m-xs:grid-c:1"
                 >
                   <span *ngIf="detail.TEXT" class="aa-paragraph m-width:full">
                     {{ detail.TEXT }}

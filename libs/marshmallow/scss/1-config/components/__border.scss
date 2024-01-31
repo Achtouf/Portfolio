@@ -8,8 +8,9 @@ $mBorderDirection: true !default;
 $mBorderDirectionProperties: $mObjectExtendedDirections !default;
 
 $mBorderWidth: true !default;
-$mBorderWidthLimit: 10 !default;
-$mBorderWidthProperties: thin medium thick !default;
+$mBorderWidthLimit: 5 !default;
+$mBorderWidthProperties: false !default;
+$mBorderWidthPropertiesList: thin medium thick !default;
 
 $mBorderColor: true !default;
 $mBorderColorList: $mSeveritiesList !default;
@@ -20,17 +21,17 @@ $mBorderStyleProperties: none hidden dotted dashed solid double groove ridge
   inset outset !default;
 
 $mBorderRadius: true !default;
-$mBorderRadiusLimit: 10 !default;
+$mBorderRadiusLimit: 5 !default;
 $mBorderRadiusCorners: $mObjectCorners !default;
 $mBorderRadiusProperties: () !default;
 
-$mBorderRadiusVertical: true !default;
+$mBorderRadiusVertical: false !default;
 $mBorderRadiusVerticalSides: $mObjectVerticalSides !default;
 
-$mBorderRadiusHorizontal: true !default;
+$mBorderRadiusHorizontal: false !default;
 $mBorderRadiusHorizontalSides: $mObjectHorizontalSides !default;
 
-$mBorderRadiusExtra: true !default;
+$mBorderRadiusExtra: false !default;
 $mBorderRadiusExtraComponents: true !default;
 $mBorderRadiusExtraComponentsList: "accordion", "avatar", "badge", "banner",
   "breadcrumb", "button", "card", "checkbox", "dropdown", "form", "inputtext",

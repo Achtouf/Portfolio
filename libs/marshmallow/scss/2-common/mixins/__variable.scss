@@ -1,4 +1,4 @@
-@use "../functions/global";
+@use "../functions";
 
 @mixin set-variable($_name, $_value) {
   // @debug "#{$_name}: #{$_value};";

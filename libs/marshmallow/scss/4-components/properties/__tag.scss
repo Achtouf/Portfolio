@@ -1,6 +1,8 @@
 @use "sass:map";
 
-$components: append($components, tag);
+@if $mTagClass {
+  $components: append($components, tag);
+}
 
 @function set-tag-properties($_theme, $_properties: ()) {
   $_properties: () !default;
@@ -34,9 +36,9 @@ $components: append($components, tag);
       style: $_borderStyle,
       width: $_borderWidth,
       color: $_borderColor,
-      radius: $_borderRadius,
+      radius: $_borderRadius
     ),
-    transition: map.get($_core, transition),
+    transition: map.get($_core, transition)
   );
 
   $_result: merge-flattened-map($_basic, $_properties);

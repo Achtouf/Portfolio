@@ -8,7 +8,10 @@ import {
   EducationSection,
   ExperienceSection,
   PersonalProjectsSection,
+  ContactSection,
 } from '@resume/sections';
+
+import { ContactComponent } from '../contact/contact.component';
 
 @Component({
   selector: 'aa-body',
@@ -17,8 +20,10 @@ import {
     CommonModule,
     RouterModule,
     TranslateModule,
+    ContactComponent,
     // Sections
     SkillsSection,
+    ContactSection,
     EducationSection,
     ExperienceSection,
     PersonalProjectsSection,
@@ -49,17 +54,21 @@ export class BodyComponent {
   ];
 
   goToTarget(target: string): void {
-    const child = document.getElementById(target);
+    let child = document.getElementById(target);
+    if (child && !child.offsetParent) {
+      child = document.getElementById(`MIN_${target}`);
+    }
     if (child) {
       let _top = 0;
-      const _nav = document.getElementById('APP_NAVIGATION');
-      if (_nav) {
-        _top = _nav.getBoundingClientRect().height;
+      const _item = document.getElementById('APP_NAVIGATION');
+      console.log('[goToTarget] nav: ', _item);
+      if (_item) {
+        _top = _item.getBoundingClientRect().height;
+        window.scrollTo({
+          top: child.offsetTop - _top,
+          behavior: 'smooth',
+        });
       }
-      window.scrollTo({
-        top: child.offsetTop - _top,
-        behavior: 'smooth',
-      });
     }
   }
 }

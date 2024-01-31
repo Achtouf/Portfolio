@@ -1,248 +1,250 @@
 $_c: popup;
 
-.#{$mPrefix}#{$_c} {
-  position: relative;
+@if $mPopupClass {
+  .#{$mPrefix}#{$_c} {
+    position: relative;
 
-  &-panel {
-    $_prefix: &;
+    &-panel {
+      $_prefix: &;
 
-    position: absolute;
-    z-index: variable(#{$_c}-panel-zindex, $mPopupZIndex);
+      position: absolute;
+      z-index: variable(#{$_c}-panel-zindex, $mPopupZIndex);
 
-    border: variable(#{$_c}-panel-border-width)
-      variable(#{$_c}-panel-border-style) variable(#{$_c}-panel-border-color);
+      border: variable(#{$_c}-panel-border-width)
+        variable(#{$_c}-panel-border-style)
+        variable(#{$_c}-panel-border-color);
 
-    // Horizontal
-    &#{$_prefix}-right {
-      right: auto;
-      left: 0;
-    }
-
-    &#{$_prefix}-left {
-      left: auto;
-      right: 0;
-    }
-
-    &#{$_prefix}-center {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    // Vertical
-    &#{$_prefix}-top {
-      top: auto;
-      bottom: 0;
-    }
-
-    &#{$_prefix}-bottom {
-      bottom: auto;
-      top: 0;
-    }
-
-    &#{$_prefix}-middle {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    &#{$_prefix}-center#{$_prefix}-middle,
-    &#{$_prefix}-middle#{$_prefix}-center {
-      transform: translateX(-50%) translateY(-50%);
-    }
-
-    // Horizontal
-    &#{$_prefix}-horizontal {
-      &-edge {
-        &#{$_prefix}-right {
-          left: 100%;
-        }
-
-        &#{$_prefix}-left {
-          right: 100%;
-        }
-      }
-
-      &-gap {
-        &#{$_prefix}-right {
-          margin-left: variable(#{$_c}-panel-gap);
-        }
-
-        &#{$_prefix}-left {
-          margin-right: variable(#{$_c}-panel-gap);
-        }
-      }
-    }
-
-    // Vertical
-    &#{$_prefix}-vertical {
-      &-edge {
-        &#{$_prefix}-top {
-          bottom: 100%;
-        }
-
-        &#{$_prefix}-bottom {
-          top: 100%;
-        }
-      }
-      &-gap {
-        &#{$_prefix}-top {
-          margin-bottom: variable(#{$_c}-panel-gap);
-        }
-
-        &#{$_prefix}-bottom {
-          margin-top: variable(#{$_c}-panel-gap);
-        }
-      }
-    }
-
-    // Drop Shadow
-    &#{$_prefix}-raised {
-      filter: drop-shadow(variable(#{$_c}-panel-drop-shadow))
-        variable(#{$_c}-panel-filter);
-    }
-
-    // Arrow
-    &#{$_prefix}-arrow {
-      &:before,
-      &:after {
-        position: absolute;
-
-        content: "";
-        display: flex;
-
-        width: variable(#{$_c}-arrow-width);
-        height: variable(#{$_c}-arrow-width);
-
-        pointer-events: none;
-
-        color: variable(#{$_c}-arrow-text-color, variable(text-color));
-
-        background-color: inherit;
-        clip-path: circle(0% at 50% 50%);
-      }
-
-      &:before {
-        filter: variable(#{$_c}-arrow-box-shadow);
-        background-color: variable(#{$_c}-panel-border-color);
-      }
-
-      &:after {
-        $_borderWidth: var(--m-#{$_c}-panel-border-width);
-        $_size: calc(variable(#{$_c}-arrow-width) - calc(2 * $_borderWidth));
-
-        width: $_size;
-        height: $_size;
-
-        margin: calc($_borderWidth * 0.3) $_borderWidth;
-      }
-
+      // Horizontal
       &#{$_prefix}-right {
-        &:before,
-        &:after {
-          right: auto;
-          left: variable(#{$_c}-arrow-gap);
-        }
+        right: auto;
+        left: 0;
       }
 
       &#{$_prefix}-left {
-        &:before,
-        &:after {
-          left: auto;
-          right: variable(#{$_c}-arrow-gap);
-        }
+        left: auto;
+        right: 0;
       }
 
       &#{$_prefix}-center {
-        &:before,
-        &:after {
-          left: calc(50% - (variable(#{$_c}-arrow-width) / 2));
-        }
+        left: 50%;
+        transform: translateX(-50%);
       }
 
+      // Vertical
       &#{$_prefix}-top {
-        &:before,
-        &:after {
-          bottom: auto;
-          top: calc(100% - (variable(#{$_c}-arrow-width) / 2));
-          clip-path: polygon(50% 50%, 100% 50%, 50% 100%, 0% 50%);
-        }
+        top: auto;
+        bottom: 0;
       }
 
       &#{$_prefix}-bottom {
-        &:before,
-        &:after {
-          top: auto;
-          bottom: calc(100% - (variable(#{$_c}-arrow-width) / 2 + 0.1rem));
-          clip-path: polygon(50% 0%, 100% 50%, 50% 50%, 0% 50%);
-        }
+        bottom: auto;
+        top: 0;
       }
 
       &#{$_prefix}-middle {
-        &:before,
-        &:after {
-          top: calc(50% - (variable(#{$_c}-arrow-width) / 2));
-        }
-
-        &:after {
-          $_borderWidth: var(--m-#{$_c}-panel-border-width);
-          margin: $_borderWidth calc($_borderWidth * 0.3);
-        }
-
-        &#{$_prefix}-left {
-          &:before,
-          &:after {
-            right: auto;
-            left: calc(100% - (variable(#{$_c}-arrow-width) / 2));
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 50% 50%);
-          }
-        }
-
-        &#{$_prefix}-right {
-          &:before,
-          &:after {
-            left: auto;
-            right: calc(100% - (variable(#{$_c}-arrow-width) / 2));
-            clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 50% 50%);
-          }
-        }
+        top: 50%;
+        transform: translateY(-50%);
       }
 
       &#{$_prefix}-center#{$_prefix}-middle,
       &#{$_prefix}-middle#{$_prefix}-center {
-        &:before,
-        &:after {
-          display: none;
+        transform: translateX(-50%) translateY(-50%);
+      }
+
+      // Horizontal
+      &#{$_prefix}-horizontal {
+        &-edge {
+          &#{$_prefix}-right {
+            left: 100%;
+          }
+
+          &#{$_prefix}-left {
+            right: 100%;
+          }
+        }
+
+        &-gap {
+          &#{$_prefix}-right {
+            margin-left: variable(#{$_c}-panel-gap);
+          }
+
+          &#{$_prefix}-left {
+            margin-right: variable(#{$_c}-panel-gap);
+          }
         }
       }
 
-      &#{$_prefix}-perspective {
-        &#{$_prefix}-top {
-          &#{$_prefix}-left {
-            &:before,
-            &:after {
-              clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 50%);
-            }
+      // Vertical
+      &#{$_prefix}-vertical {
+        &-edge {
+          &#{$_prefix}-top {
+            bottom: 100%;
           }
 
-          &#{$_prefix}-right {
-            &:before,
-            &:after {
-              clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 100%);
-            }
+          &#{$_prefix}-bottom {
+            top: 100%;
+          }
+        }
+        &-gap {
+          &#{$_prefix}-top {
+            margin-bottom: variable(#{$_c}-panel-gap);
+          }
+
+          &#{$_prefix}-bottom {
+            margin-top: variable(#{$_c}-panel-gap);
+          }
+        }
+      }
+
+      // Drop Shadow
+      &#{$_prefix}-raised {
+        filter: drop-shadow(variable(#{$_c}-panel-drop-shadow)) variable(#{$_c}-panel-filter);
+      }
+
+      // Arrow
+      &#{$_prefix}-arrow {
+        &:before,
+        &:after {
+          position: absolute;
+
+          content: "";
+          display: flex;
+
+          width: variable(#{$_c}-arrow-width);
+          height: variable(#{$_c}-arrow-width);
+
+          pointer-events: none;
+
+          color: variable(#{$_c}-arrow-text-color, variable(text-color));
+
+          background-color: inherit;
+          clip-path: circle(0% at 50% 50%);
+        }
+
+        &:before {
+          filter: variable(#{$_c}-arrow-box-shadow);
+          background-color: variable(#{$_c}-panel-border-color);
+        }
+
+        &:after {
+          $_borderWidth: var(--m-#{$_c}-panel-border-width);
+          $_size: calc(variable(#{$_c}-arrow-width) - calc(2 * $_borderWidth));
+
+          width: $_size;
+          height: $_size;
+
+          margin: calc($_borderWidth * 0.3) $_borderWidth;
+        }
+
+        &#{$_prefix}-right {
+          &:before,
+          &:after {
+            right: auto;
+            left: variable(#{$_c}-arrow-gap);
+          }
+        }
+
+        &#{$_prefix}-left {
+          &:before,
+          &:after {
+            left: auto;
+            right: variable(#{$_c}-arrow-gap);
+          }
+        }
+
+        &#{$_prefix}-center {
+          &:before,
+          &:after {
+            left: calc(50% - (variable(#{$_c}-arrow-width) / 2));
+          }
+        }
+
+        &#{$_prefix}-top {
+          &:before,
+          &:after {
+            bottom: auto;
+            top: calc(100% - (variable(#{$_c}-arrow-width) / 2));
+            clip-path: polygon(50% 50%, 100% 50%, 50% 100%, 0% 50%);
           }
         }
 
         &#{$_prefix}-bottom {
+          &:before,
+          &:after {
+            top: auto;
+            bottom: calc(100% - (variable(#{$_c}-arrow-width) / 2 + 0.1rem));
+            clip-path: polygon(50% 0%, 100% 50%, 50% 50%, 0% 50%);
+          }
+        }
+
+        &#{$_prefix}-middle {
+          &:before,
+          &:after {
+            top: calc(50% - (variable(#{$_c}-arrow-width) / 2));
+          }
+
+          &:after {
+            $_borderWidth: var(--m-#{$_c}-panel-border-width);
+            margin: $_borderWidth calc($_borderWidth * 0.3);
+          }
+
           &#{$_prefix}-left {
             &:before,
             &:after {
-              clip-path: polygon(0% 100%, 0% 50%, 100% 0%, 100% 50%);
+              right: auto;
+              left: calc(100% - (variable(#{$_c}-arrow-width) / 2));
+              clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 50% 50%);
             }
           }
 
           &#{$_prefix}-right {
             &:before,
             &:after {
-              clip-path: polygon(0% 0%, 100% 50%, 100% 100%, 0% 100%);
+              left: auto;
+              right: calc(100% - (variable(#{$_c}-arrow-width) / 2));
+              clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 50% 50%);
+            }
+          }
+        }
+
+        &#{$_prefix}-center#{$_prefix}-middle,
+        &#{$_prefix}-middle#{$_prefix}-center {
+          &:before,
+          &:after {
+            display: none;
+          }
+        }
+
+        &#{$_prefix}-perspective {
+          &#{$_prefix}-top {
+            &#{$_prefix}-left {
+              &:before,
+              &:after {
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 50%);
+              }
+            }
+
+            &#{$_prefix}-right {
+              &:before,
+              &:after {
+                clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 100%);
+              }
+            }
+          }
+
+          &#{$_prefix}-bottom {
+            &#{$_prefix}-left {
+              &:before,
+              &:after {
+                clip-path: polygon(0% 100%, 0% 50%, 100% 0%, 100% 50%);
+              }
+            }
+
+            &#{$_prefix}-right {
+              &:before,
+              &:after {
+                clip-path: polygon(0% 0%, 100% 50%, 100% 100%, 0% 100%);
+              }
             }
           }
         }

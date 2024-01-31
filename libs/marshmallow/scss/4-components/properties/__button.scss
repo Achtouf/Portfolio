@@ -1,7 +1,9 @@
 @use "sass:map";
 @use "sass:math";
 
-$components: append($components, button);
+@if $mButtonClass {
+  $components: append($components, button);
+}
 
 @function set-button-properties($_theme, $_properties: ()) {
   $_properties: () !default;
@@ -51,7 +53,7 @@ $components: append($components, button);
     outline-color: map.get($_core, outline-color),
     outline-width: map.get($_core, outline-width),
     outline-gap-width: map.get($_core, outline-gap-width),
-    outline-gap-color: map.get($_core, outline-gap-color),
+    outline-gap-color: map.get($_core, outline-gap-color)
   );
 
   $_result: merge-component-properties($_basic, $_properties);
@@ -103,13 +105,7 @@ $components: append($components, button);
     $_result: map.set(
       $_result,
       $_level,
-      generate-two-colors-properties(
-        $_main,
-        $_accent,
-        $_scheme,
-        $_darkAccent: $_accent,
-        $_lightAccent: $_accent
-      )
+      generate-two-colors-properties($_main, $_accent, $_scheme, $_darkAccent: $_accent, $_lightAccent: $_accent)
     );
   }
 
@@ -118,15 +114,7 @@ $components: append($components, button);
   @return $_result;
 }
 
-@function get-button-size-properties(
-  $_size,
-  $_ratio,
-  $_height,
-  $_fontSize,
-  $_iconSize,
-  $_borderRadius,
-  $_gap
-) {
+@function get-button-size-properties($_size, $_ratio, $_height, $_fontSize, $_iconSize, $_borderRadius, $_gap) {
   $_result: () !default;
 
   $_height: $_height * $_ratio;
@@ -160,15 +148,7 @@ $components: append($components, button);
   $_newRatio: $_ratio !default;
 
   $_props: merge-component-properties(
-    get-button-size-properties(
-      $_size,
-      $_newRatio,
-      $_height,
-      $_fontSize,
-      $_iconSize,
-      $_borderRadius,
-      $_gap
-    ),
+    get-button-size-properties($_size, $_newRatio, $_height, $_fontSize, $_iconSize, $_borderRadius, $_gap),
     $_props
   );
 

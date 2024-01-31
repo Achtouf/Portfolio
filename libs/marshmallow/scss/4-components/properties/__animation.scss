@@ -2,7 +2,9 @@
 @use "sass:map";
 @use "sass:math";
 
-$components: append($components, animation);
+@if $mAnimationClass {
+  $components: append($components, animation);
+}
 
 @function set-animation-properties($_theme, $_properties: ()) {
   $_properties: () !default;

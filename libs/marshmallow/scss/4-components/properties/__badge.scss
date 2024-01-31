@@ -1,7 +1,9 @@
 @use "sass:map";
 @use "sass:math";
 
-$components: append($components, badge);
+@if $mBadgeClass {
+  $components: append($components, badge);
+}
 
 @function set-badge-properties($_theme, $_properties: ()) {
   $_properties: () !default;
@@ -35,7 +37,7 @@ $components: append($components, badge);
       style: $_borderStyle,
       width: $_borderWidth,
       color: $_borderColor,
-      radius: $_borderRadius,
+      radius: $_borderRadius
     ),
 
     transition: map.get($_core, transition)

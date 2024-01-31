@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "sass:math";
 
-$components: append($components, inputtext);
+// $components: append($components, inputtext);
 
 @function set-inputtext-properties($_theme, $_properties: ()) {
   $_properties: () !default;

@@ -1,5 +1,0 @@
-@use "sass:meta";
-
-@function is-number($_object) {
-  @return meta.type-of($_object) == "number";
-}

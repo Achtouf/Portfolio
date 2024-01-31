@@ -1,5 +1,5 @@
 // Translate
-$mTranslate: true !default;
+$mTranslate: false !default;
 $mTranslateAxes: $mObject3dAxes !default;
 $mTranslateAxesPrefixes: (
   x: '',
@@ -7,11 +7,11 @@ $mTranslateAxesPrefixes: (
   z: '0 0'
 ) !default;
 
-$mTranslateUnit: true !default;
+$mTranslateUnit: false !default;
 $mTranslateUnitStep: 1 !default;
 $mTranslateUnitLimit: 10 !default;
 
-$mTranslatePercent: true !default;
+$mTranslatePercent: false !default;
 $mTranslatePercentStep: 10 !default;
 $mTranslatePercentAxes: x y !default;
 $mTranslatePercentLimit: 100 !default;

@@ -2,7 +2,9 @@
   class="header m-flex m-flex-column m-flex-gap:4 m-flex-justify:between m-width:full m-height:full m-position:relative"
 >
   <!-- Identity -->
-  <div class="header-section m-flex m-flex-column m-flex-gap:4 m-width:full m-padding:2 m-lg:padding-b:10 m-md:padding-b:2">
+  <div
+    class="header-section m-flex m-flex-column m-flex-gap:4 m-width:full m-padding:2 m-lg:padding-b:10 m-md:padding-b:2"
+  >
     <!-- Name -->
     <aa-logo class="m-display:block m-width:24"></aa-logo>
 
@@ -23,21 +25,23 @@
     <div class="m-width:full m-md:display:none">
       <!-- Information -->
       <aa-aside class="m-position:sticky m-inset-t:0 m-width:full">
-        <aa-information class="m-width:full" [content]="infos"></aa-information>
+        <aa-information class="m-width:full"></aa-information>
       </aa-aside>
     </div>
   </div>
 
   <!-- Hobbies -->
   <div
-    class="m-flex m-flex-gap:4 m-flex-column m-widrh:full m-padding:2 m-md:display:none"
+    class="m-flex m-flex-gap:4 m-flex-column m-width:full m-padding:2 m-md:display:none"
   >
     <aa-hobbies class="m-width:full"></aa-hobbies>
     <aa-software-skills class="m-width:full"></aa-software-skills>
   </div>
 
   <!-- Glossary -->
-  <div class="m-flex m-flex-column m-flex-gap:4 m-width:full m-md:display:none"></div>
+  <div
+    class="m-flex m-flex-column m-flex-gap:4 m-width:full m-md:display:none"
+  ></div>
 
   <!-- Illustration -->
   <div class="m-md:display:none"></div>

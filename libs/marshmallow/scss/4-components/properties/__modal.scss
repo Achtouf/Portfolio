@@ -1,6 +1,8 @@
 @use "sass:map";
 
-$components: append($components, modal);
+@if $mModalClass {
+  $components: append($components, modal);
+}
 
 @function set-modal-properties($_theme, $_properties: ()) {
   $_properties: () !default;
@@ -35,12 +37,11 @@ $components: append($components, modal);
     text-color: $_onSurface,
     background-color: $_surfaceColor,
     transition: map.get($_core, transition),
-
     border: (
       style: $_borderStyle,
       width: $_borderWidth,
       color: $_borderColor,
-      radius: $_borderRadius,
+      radius: $_borderRadius
     ),
     header-padding: $_padding,
     body-padding: $_padding,
@@ -50,8 +51,8 @@ $components: append($components, modal);
       overlay-opacity: 0.7,
       overlay-padding: $_padding,
       overlay-accent: $_onOverlay,
-      overlay-main: $_overlayColor,
-    ),
+      overlay-main: $_overlayColor
+    )
   );
 
   $_result: merge-flattened-map($_basic, $_properties);

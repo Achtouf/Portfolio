@@ -1,7 +1,9 @@
 @use "sass:math";
 @use "sass:map";
 
-$components: append($components, popup);
+@if $mPopupClass {
+  $components: append($components, popup);
+}
 
 @function set-popup-properties($_theme, $_properties: ()) {
   $_properties: () !default;
@@ -28,14 +30,14 @@ $components: append($components, popup);
       border: (
         width: 0rem,
         color: map.get($_core, border-color),
-        style: map.get($_core, border-style),
-      ),
+        style: map.get($_core, border-style)
+      )
     ),
     arrow: (
       gap: 0.4rem,
       width: 1.6rem,
-      text-color: inherit,
-    ),
+      text-color: inherit
+    )
   );
 
   $_result: merge-flattened-map($_basic, $_properties);

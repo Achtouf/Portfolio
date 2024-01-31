@@ -1,6 +1,8 @@
 @use "sass:map";
 
-$components: append($components, breadcrumb);
+@if $mBreadcrumbClass {
+  $components: append($components, breadcrumb);
+}
 
 @function set-breadcrumb-properties($_theme, $_properties: ()) {
   $_properties: () !default;
@@ -37,27 +39,27 @@ $components: append($components, breadcrumb);
         size: $_fontSize,
         color: $_primaryColor,
         border-radius: $_borderRadius,
-        background-color: transparent,
-      ),
+        background-color: transparent
+      )
     ),
     separator: (
       margin: 0 0.6rem,
       icon: (
         size: $_fontSize,
-        color: $_textColor,
-      ),
+        color: $_textColor
+      )
     ),
     hover: (
-      color: $_primaryColor,
+      color: $_primaryColor
     ),
     active: (
-      color: $_primaryColor,
+      color: $_primaryColor
     ),
     disabled: (
       opacity: 0.6,
-      color: rgba($_primaryColor, 0.5),
+      color: rgba($_primaryColor, 0.5)
     ),
-    transition: map.get($_core, transition),
+    transition: map.get($_core, transition)
   );
 
   $_result: merge-flattened-map($_basic, $_properties);

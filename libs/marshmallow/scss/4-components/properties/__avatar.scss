@@ -1,7 +1,9 @@
 @use "sass:math";
 @use "sass:map";
 
-$components: append($components, avatar);
+@if $mAvatarClass {
+  $components: append($components, avatar);
+}
 
 @function set-avatar-properties($_theme, $_properties: ()) {
   $_properties: () !default;

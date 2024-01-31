@@ -1,44 +1,45 @@
-$heading-properties: "margin", "padding", "color", "font-weight", "font-family",
-  "line-height";
+@if $mTextClass {
+  $heading-properties: "margin", "padding", "color", "font-weight", "font-family", "line-height";
 
-// Headings
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @each $_prop in $heading-properties {
-    #{$_prop}: variable(heading-#{$_prop});
-  }
-
-  &:first-child {
-    margin-top: 0;
-  }
-}
-
-@for $i from 0 to $headingTextSizeLimit {
-  $_index: $i + 1;
-  $_key: heading-#{$_index};
-
-  h#{$_index},
-  .#{$mPrefix}heading#{$mSeparator}#{$_index} {
+  // Headings
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @each $_prop in $heading-properties {
-      #{$_prop}: variable(#{$_key}-#{$_prop}, variable(heading-#{$_prop}));
-      font-size: variable(#{$_key}-font-size, variable(heading-font-size));
+      #{$_prop}: variable(heading-#{$_prop});
+    }
+
+    &:first-child {
+      margin-top: 0;
     }
   }
-}
 
-// Paragraphs
-.#{$mPrefix}paragraph,
-p {
-  margin: variable(paragraph-margin);
-  padding: variable(paragraph-padding);
+  @for $i from 0 to $headingTextSizeLimit {
+    $_index: $i + 1;
+    $_key: heading-#{$_index};
 
-  color: variable(paragraph-color);
-  font-size: variable(paragraph-font-size);
-  font-weight: variable(paragraph-font-weight);
-  font-family: variable(paragraph-font-family);
-  line-height: variable(paragraph-line-height);
+    h#{$_index},
+    .#{$mPrefix}heading#{$mSeparator}#{$_index} {
+      @each $_prop in $heading-properties {
+        #{$_prop}: variable(#{$_key}-#{$_prop}, variable(heading-#{$_prop}));
+        font-size: variable(#{$_key}-font-size, variable(heading-font-size));
+      }
+    }
+  }
+
+  // Paragraphs
+  .#{$mPrefix}paragraph,
+  p {
+    margin: variable(paragraph-margin);
+    padding: variable(paragraph-padding);
+
+    color: variable(paragraph-color);
+    font-size: variable(paragraph-font-size);
+    font-weight: variable(paragraph-font-weight);
+    font-family: variable(paragraph-font-family);
+    line-height: variable(paragraph-line-height);
+  }
 }

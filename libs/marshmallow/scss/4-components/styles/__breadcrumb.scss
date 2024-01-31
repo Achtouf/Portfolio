@@ -1,86 +1,88 @@
 $_c: breadcrumb;
 
-.#{$mPrefix}#{$_c} {
-  $_prefix: &;
+@if $mBreadcrumbClass {
+  .#{$mPrefix}#{$_c} {
+    $_prefix: &;
 
-  padding: variable(#{$_c}-padding);
+    padding: variable(#{$_c}-padding);
 
-  color: variable(#{$_c}-color, variable(surface-accent));
-  background-color: variable(#{$_c}-background-color, variable(surface-main));
+    color: variable(#{$_c}-color, variable(surface-accent));
+    background-color: variable(#{$_c}-background-color, variable(surface-main));
 
-  border-style: variable(#{$_c}-border-style);
-  border-width: variable(#{$_c}-border-width);
-  border-color: variable(#{$_c}-border-color);
-  border-radius: variable(#{$_c}-border-radius);
+    border-style: variable(#{$_c}-border-style);
+    border-width: variable(#{$_c}-border-width);
+    border-color: variable(#{$_c}-border-color);
+    border-radius: variable(#{$_c}-border-radius);
 
-  overflow-x: auto;
-  overflow-y: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
 
-  &-navigation {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    padding: 0;
-    margin: 0;
+    &-navigation {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      padding: 0;
+      margin: 0;
 
-    list-style: none;
-  }
-
-  &-separator,
-  &-item {
-    display: inline-flex;
-    align-items: center;
-  }
-
-  &-item {
-    color: variable(#{$_c}-color);
-    font-size: variable(#{$_c}-font-size);
-
-    .#{$mPrefix}link {
-      @include component-on-states(hover) {
-        color: variable(#{$_c}-hover-color);
-      }
-
-      @include component-on-states(active) {
-        color: variable(#{$_c}-active-color);
-      }
-
-      @include component-on-states(disabled) {
-        cursor: auto;
-        pointer-events: none;
-      }
+      list-style: none;
     }
-  }
 
-  &-icon {
-    display: inline-block;
-  }
-
-  &-home {
-    margin: variable(#{$_c}-home-margin);
-    padding: variable(#{$_c}-home-icon-padding);
-
-    border-radius: variable(#{$_c}-home-icon-border-radius);
-    background-color: variable(#{$_c}-home-icon-background-color);
-
-    .#{$mPrefix}link {
+    &-separator,
+    &-item {
       display: inline-flex;
       align-items: center;
     }
 
-    #{$_prefix}-icon {
-      text-decoration: inherit;
-      color: variable(#{$_c}-home-icon-color);
-      font-size: variable(#{$_c}-home-icon-size);
+    &-item {
+      color: variable(#{$_c}-color);
+      font-size: variable(#{$_c}-font-size);
+
+      .#{$mPrefix}link {
+        @include component-on-states(hover) {
+          color: variable(#{$_c}-hover-color);
+        }
+
+        @include component-on-states(active) {
+          color: variable(#{$_c}-active-color);
+        }
+
+        @include component-on-states(disabled) {
+          cursor: auto;
+          pointer-events: none;
+        }
+      }
     }
-  }
 
-  &-separator {
-    margin: variable(#{$_c}-separator-margin);
+    &-icon {
+      display: inline-block;
+    }
 
-    #{$_prefix}-icon {
-      color: variable(#{$_c}-separator-icon-color);
-      font-size: variable(#{$_c}-separator-icon-size);
+    &-home {
+      margin: variable(#{$_c}-home-margin);
+      padding: variable(#{$_c}-home-icon-padding);
+
+      border-radius: variable(#{$_c}-home-icon-border-radius);
+      background-color: variable(#{$_c}-home-icon-background-color);
+
+      .#{$mPrefix}link {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      #{$_prefix}-icon {
+        text-decoration: inherit;
+        color: variable(#{$_c}-home-icon-color);
+        font-size: variable(#{$_c}-home-icon-size);
+      }
+    }
+
+    &-separator {
+      margin: variable(#{$_c}-separator-margin);
+
+      #{$_prefix}-icon {
+        color: variable(#{$_c}-separator-icon-color);
+        font-size: variable(#{$_c}-separator-icon-size);
+      }
     }
   }
 }

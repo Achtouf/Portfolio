@@ -1,7 +1,9 @@
 @use "sass:map";
 @use "sass:math";
 
-$components: append($components, accordion);
+@if $mAccordionClass {
+  $components: append($components, accordion);
+}
 
 @function set-accordion-properties($_theme, $_properties: ()) {
   $_properties: () !default;
@@ -36,38 +38,36 @@ $components: append($components, accordion);
     border-style: map.get($_core, border-style),
     border-width: map.get($_core, border-width),
     border-radius: map.get($_core, border-radius),
-  
     outline-color: map.get($_core, outline-color),
     outline-width: map.get($_core, outline-width),
     outline-gap-width: map.get($_core, outline-gap-width),
     outline-gap-color: map.get($_core, outline-gap-color),
-
     header: (
       gap: 1rem,
       padding: 1rem,
       color: map.get($_surface, accent),
-      background-color: map.get($_surface, main),
+      background-color: map.get($_surface, main)
     ),
     content: (
       padding: 1rem,
-      background-color: map.get($_surface, main),
+      background-color: map.get($_surface, main)
     ),
     disabled: (
-      opacity: 0.5,
+      opacity: 0.5
     ),
     active: (
       header: (
         color: map.get($_background, accent),
-        background-color: map.get($_background, main),
-      ),
+        background-color: map.get($_background, main)
+      )
     ),
     hover: (
       header: (
         color: map.get($_background, accent),
-        background-color: map.get($_background, main),
-      ),
+        background-color: map.get($_background, main)
+      )
     ),
-    
+
     transition: map.get($_core, transition)
   );
 

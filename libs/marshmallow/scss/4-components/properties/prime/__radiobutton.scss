@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "sass:math";
 
-$components: append($components, radiobutton);
+// $components: append($components, radiobutton);
 
 @function set-radiobutton-properties($_theme, $_properties: ()) {
   $_properties: () !default;

@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "sass:math";
 
-$components: append($components, checkbox);
+// $components: append($components, checkbox);
 
 @function set-checkbox-properties($_theme, $_properties: ()) {
   $_properties: () !default;

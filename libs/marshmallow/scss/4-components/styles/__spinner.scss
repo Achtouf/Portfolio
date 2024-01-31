@@ -1,82 +1,84 @@
-.#{$mPrefix}spinner {
-  $_prefix: &;
+@if $mSpinnerClass {
+  .#{$mPrefix}spinner {
+    $_prefix: &;
 
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  justify-content: center;
-
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 1;
-
-  font-weight: 600;
-
-  border-radius: 100%;
-
-  &:before,
-  &:after {
-    inset: 0;
-    position: absolute;
+    position: relative;
 
     display: flex;
-    content: "";
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-content: center;
 
-    rotate: z variable(spinner-rotateZ);
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
 
-    width: calc(100% - (variable(spinner-border-width) * 2));
-    height: calc(100% - (variable(spinner-border-width) * 2));
+    font-weight: 600;
 
     border-radius: 100%;
-    border-style: solid;
-    border-width: variable(spinner-border-width);
-  }
 
-  &:before {
-    border-color: variable(spinner-background-color);
-  }
-
-  &:after {
-    border-color: transparent;
-    border-top-color: variable(spinner-color);
-    animation-name: variable(spinner-animation-name);
-    animation-delay: variable(spinner-animation-delay);
-    animation-duration: variable(spinner-animation-duration);
-    animation-direction: variable(spinner-animation-direction);
-    animation-timing-function: variable(spinner-animation-timing-function);
-    animation-iteration-count: variable(spinner-animation-iteration-count);
-  }
-
-  &#{$_prefix}-two {
+    &:before,
     &:after {
-      border-bottom-color: variable(spinner-color);
+      inset: 0;
+      position: absolute;
+
+      display: flex;
+      content: "";
+
+      rotate: z variable(spinner-rotateZ);
+
+      width: calc(100% - (variable(spinner-border-width) * 2));
+      height: calc(100% - (variable(spinner-border-width) * 2));
+
+      border-radius: 100%;
+      border-style: solid;
+      border-width: variable(spinner-border-width);
     }
-  }
 
-  @each $status in $mStatusesList {
-    $color: variable(#{$status}-main);
-    $onColor: variable(#{$status}-accent);
+    &:before {
+      border-color: variable(spinner-background-color);
+    }
 
-    $hoverColor: variable(#{$status}-hover);
-    $activeColor: variable(#{$status}-active);
-    $outlineColor: variable(#{$status}-outline-color);
+    &:after {
+      border-color: transparent;
+      border-top-color: variable(spinner-color);
+      animation-name: variable(spinner-animation-name);
+      animation-delay: variable(spinner-animation-delay);
+      animation-duration: variable(spinner-animation-duration);
+      animation-direction: variable(spinner-animation-direction);
+      animation-timing-function: variable(spinner-animation-timing-function);
+      animation-iteration-count: variable(spinner-animation-iteration-count);
+    }
 
-    $hoverOutlineColor: variable(#{$status}-outline-hover);
-    $activeOutlineColor: variable(#{$status}-outline-active);
-
-    &.#{$mPrefix}#{$status} {
-      color: $color;
-
+    &#{$_prefix}-two {
       &:after {
-        border-top-color: $color;
+        border-bottom-color: variable(spinner-color);
       }
+    }
 
-      &#{$_prefix}-two {
+    @each $status in $mStatusesList {
+      $color: variable(#{$status}-main);
+      $onColor: variable(#{$status}-accent);
+
+      $hoverColor: variable(#{$status}-hover);
+      $activeColor: variable(#{$status}-active);
+      $outlineColor: variable(#{$status}-outline-color);
+
+      $hoverOutlineColor: variable(#{$status}-outline-hover);
+      $activeOutlineColor: variable(#{$status}-outline-active);
+
+      &.#{$mPrefix}#{$status} {
+        color: $color;
+
         &:after {
-          border-bottom-color: $color;
+          border-top-color: $color;
+        }
+
+        &#{$_prefix}-two {
+          &:after {
+            border-bottom-color: $color;
+          }
         }
       }
     }

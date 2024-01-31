@@ -3,7 +3,7 @@
 $mText: true !default;
 $mTextExtra: true !default;
 
-$displayTextSize: true !default;
+$displayTextSize: false !default;
 $displayTextSizeProperties: (
   1: 2,
   2: 2.25,
@@ -17,16 +17,16 @@ $displayTextSizeProperties: (
   10: 10,
 ) !default;
 
-$headingTextSize: true !default;
+$headingTextSize: false !default;
 $headingTextSizeLimit: 6 !default;
 
-$bodyTextSize: true !default;
+$bodyTextSize: false !default;
 $bodyTextSizeLimit: 6 !default;
 
-$mTextSize: true !default;
+$mTextSize: false !default;
 $mTextSizeProperties: $mSizesProperties !default;
 
-$mTextLine: true !default;
+$mTextLine: false !default;
 $mTextLineLimit: 10 !default;
 
 $mTextColor: true !default;
@@ -37,10 +37,10 @@ $mTextColorShades: true !default;
 $mTextColorShadesStep: 5 !default;
 $mTextColorShadesLimit: 10 !default;
 
-$mTextAlign: true !default;
+$mTextAlign: false !default;
 $mTextAlignProperties: start left center right end justify !default;
 
-$mTextStyle: true !default;
+$mTextStyle: false !default;
 $mTextStyleProperties: italic normal oblique !default;
 
 $mTextWeight: true !default;
@@ -58,13 +58,13 @@ $mTextWeightExtraProperties: (
   "black": 900,
 ) !default;
 
-$mTextOverflow: true !default;
+$mTextOverflow: false !default;
 $mTextOverflowProperties: clip ellipsis !default;
 
-$mTextTransform: true !default;
+$mTextTransform: false !default;
 $mTextTransformProperties: capitalize uppercase lowercase none !default;
 
-$mTextLineHeight: true !default;
+$mTextLineHeight: false !default;
 $mTextLineHeightProperties: normal !default;
 
 $mTextLineHeightValue: true !default;
@@ -79,16 +79,16 @@ $mTextLineHeightPercentage: true !default;
 $mTextLineHeightPercentageStep: 5 !default;
 $mTextLineHeightPercentageLimit: 100 !default;
 
-$mTextWrap: true !default;
+$mTextWrap: false !default;
 $mTextWrapProperties: wrap nowrap balance !default;
 
 // TODO
 // max-inline-size: $_length * 1ch;
-$mTextInlineSize: true !default;
+$mTextInlineSize: false !default;
 $mTextInlineSizeStep: 10 !default;
 $mTextInlineSizeLimit: 100 !default;
 
-$mTextDecoration: true !default;
+$mTextDecoration: false !default;
 
 $mTextDecorationLine: true !default;
 $mTextDecorationLineProperties: none underline overline line-through blink !default;
@@ -99,8 +99,8 @@ $mTextDecorationStyleProperties: solid double dotted dashed wavy !default;
 $mTextDecorationColor: true !default;
 $mTextDecorationColorProperties: list.join($mSeveritiesList, $mColorsList) !default;
 
-$mTextWhiteSpace: true !default;
+$mTextWhiteSpace: false !default;
 $mTextWhiteSpaceProperties: normal nowrap pre pre-wrap pre-line break-spaces !default;
 
-$mTextVerticalAlign: true !default;
+$mTextVerticalAlign: false !default;
 $mTextVerticalAlignProperties: baseline sub super text-top text-bottom middle top bottom !default;

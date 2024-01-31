@@ -1,7 +1,9 @@
 @use "sass:map";
 @use "sass:math";
 
-$components: append($components, loader);
+@if $mLoaderClass {
+  $components: append($components, loader);
+}
 
 @function set-loader-properties($_theme, $_properties: ()) {
   $_properties: () !default;
@@ -35,16 +37,16 @@ $components: append($components, loader);
         duration: $_animationDuration,
         direction: $_animationDirection,
         iteration-count: $_animationCount,
-        timing-function: $_animationTimingFunction,
+        timing-function: $_animationTimingFunction
       ),
       after: (
         delay: $_animationDuration,
         duration: $_animationDuration,
         direction: $_animationDirection,
         iteration-count: $_animationCount,
-        timing-function: $_animationTimingFunction,
-      ),
-    ),
+        timing-function: $_animationTimingFunction
+      )
+    )
   );
 
   $_result: merge-flattened-map($_basic, $_properties);

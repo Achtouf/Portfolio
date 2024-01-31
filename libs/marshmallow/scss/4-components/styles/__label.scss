@@ -1,57 +1,59 @@
 $_c: label;
 
-.#{$mPrefix}#{$_c} {
-  $_prefix: &;
+@if $mLabelClass {
+  .#{$mPrefix}#{$_c} {
+    $_prefix: &;
 
-  display: flex;
-  flex-direction: column;
-  gap: variable(#{$_c}-gap);
-  padding: variable(#{$_c}-padding);
-
-  &__title {
     display: flex;
-    gap: variable(#{$_c}-asterisk-gap);
+    flex-direction: column;
+    gap: variable(#{$_c}-gap);
+    padding: variable(#{$_c}-padding);
 
-    color: variable(#{$_c}-color);
-    font-size: variable(#{$_c}-font-size);
-    font-weight: variable(#{$_c}-font-weight);
-    line-height: variable(#{$_c}-line-height);
-  }
+    &__title {
+      display: flex;
+      gap: variable(#{$_c}-asterisk-gap);
 
-  &.#{$mPrefix}required {
-    #{$_prefix}__title {
-      &-icon {
-        user-select: none;
-        color: variable(#{$_c}-asterisk-color);
-        font-size: variable(#{$_c}-asterisk-font-size);
-        line-height: variable(#{$_c}-asterisk-line-height);
-        font-weight: variable(#{$_c}-asterisk-font-weight);
+      color: variable(#{$_c}-color);
+      font-size: variable(#{$_c}-font-size);
+      font-weight: variable(#{$_c}-font-weight);
+      line-height: variable(#{$_c}-line-height);
+    }
+
+    &.#{$mPrefix}required {
+      #{$_prefix}__title {
+        &-icon {
+          user-select: none;
+          color: variable(#{$_c}-asterisk-color);
+          font-size: variable(#{$_c}-asterisk-font-size);
+          line-height: variable(#{$_c}-asterisk-line-height);
+          font-weight: variable(#{$_c}-asterisk-font-weight);
+        }
       }
     }
-  }
 
-  @each $_size, $_ratio in $mSizesProperties {
-    $_pSize: #{$_c}-#{$_size};
+    @each $_size, $_ratio in $mSizesProperties {
+      $_pSize: #{$_c}-#{$_size};
 
-    &-#{$_size} {
-      gap: variable(#{$_pSize}-gap);
-      padding: variable(#{$_pSize}-padding);
+      &-#{$_size} {
+        gap: variable(#{$_pSize}-gap);
+        padding: variable(#{$_pSize}-padding);
 
-      #{$_prefix}__title {
-        gap: variable(#{$_pSize}-asterisk-gap);
-      }
-
-      &.#{$mPrefix}required {
         #{$_prefix}__title {
-          gap: variable(#{$_pSize}-gap);
-          font-size: variable(#{$_pSize}-font-size, variable(#{$_c}-font-size));
-          font-weight: variable(#{$_pSize}-font-weight, variable(#{$_c}-font-weight));
-          line-height: variable(#{$_pSize}-line-height, variable(#{$_c}-line-height));
+          gap: variable(#{$_pSize}-asterisk-gap);
+        }
 
-          &-icon {
-            font-size: variable(#{$_pSize}-asterisk-font-size);
-            line-height: variable(#{$_pSize}-asterisk-line-height);
-            font-weight: variable(#{$_pSize}-asterisk-font-weight);
+        &.#{$mPrefix}required {
+          #{$_prefix}__title {
+            gap: variable(#{$_pSize}-gap);
+            font-size: variable(#{$_pSize}-font-size, variable(#{$_c}-font-size));
+            font-weight: variable(#{$_pSize}-font-weight, variable(#{$_c}-font-weight));
+            line-height: variable(#{$_pSize}-line-height, variable(#{$_c}-line-height));
+
+            &-icon {
+              font-size: variable(#{$_pSize}-asterisk-font-size);
+              line-height: variable(#{$_pSize}-asterisk-line-height);
+              font-weight: variable(#{$_pSize}-asterisk-font-weight);
+            }
           }
         }
       }

@@ -1,8 +1,10 @@
 @use "sass:map";
 
-$components: append($components, text);
-$components: append($components, heading);
-$components: append($components, paragraph);
+@if $mTextClass {
+  $components: append($components, text);
+  // $components: append($components, heading);
+  // $components: append($components, paragraph);
+}
 
 @function set-text-properties($_theme, $_properties: ()) {
   $_properties: () !default;
@@ -13,7 +15,7 @@ $components: append($components, paragraph);
   $_fontSize: map.get($_core, font-size);
 
   $_basic: (
-    font-size: $_fontSize,
+    font-size: $_fontSize
   );
 
   $_basic: generate-component-sizes($_basic, (font-size));
@@ -33,7 +35,7 @@ $components: append($components, paragraph);
     font-size: inherit,
     line-height: inherit,
     font-weight: inherit,
-    font-family: inherit,
+    font-family: inherit
   );
 
   $_result: merge-flattened-map($_basic, $_properties);
@@ -58,7 +60,7 @@ $components: append($components, paragraph);
 
     line-height: 1.2,
     font-weight: 600,
-    font-family: $_fontFamily,
+    font-family: $_fontFamily
   );
 
   $_result: merge-flattened-map($_basic, $_properties);

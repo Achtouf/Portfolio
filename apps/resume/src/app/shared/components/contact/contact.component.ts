@@ -1,6 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   standalone: true,
@@ -9,4 +9,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   imports: [NgIf, NgFor, TranslateModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ContactComponent {}
+export class ContactComponent {
+  prefix = input('');
+}
