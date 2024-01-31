@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,4 +8,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './separator.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SeparatorComponent {}
+export class SeparatorComponent {
+  level = input('primary');
+}

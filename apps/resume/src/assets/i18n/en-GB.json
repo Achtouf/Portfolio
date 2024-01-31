@@ -1,6 +1,6 @@
 {
   "GENERAL": {
-    "JOB_TITLE": "Frontend Engineer",
+    "JOB_TITLE": "Senior Frontend Engineer",
     "NATIONALITY": "French Nationality",
     "MISCELLANEOUS": "Miscellaneous",
     "SKILLS": "Skills",
@@ -44,7 +44,7 @@
       "DESCRIPTION": "A web enthusiast who lives in Lyon. I try to see what is most marvelous in the simplest things. I am creative and have a passionate taste for cinema and music."
     },
     {
-      "ANCHORS": "LEAD_FRONTEND_DEVELOPER",
+      "ANCHORS": "SENIOR_FRONTEND_ENGINEER",
       "DESCRIPTION": "During my experience, I have worked both as a freelancer, for short and long missions, and for a final client. I had the opportunity to develop soft skills, such as demonstrating concentration, rigor, patience and tenacity, which allowed me to work independently, both alone and in a team."
     },
     {
@@ -122,7 +122,7 @@
     "TITLE": "Experience",
     "CONTENT": [
       {
-        "TITLE": "Lead Frontend Developer",
+        "TITLE": "Senior Frontend Engineer",
         "SUBTITLE": "Odigo",
         "DATE": {
           "FROM": "NOV. 2019",

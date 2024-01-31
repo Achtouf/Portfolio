@@ -3,7 +3,7 @@
 >
   <!-- Identity -->
   <div
-    class="header-section m-flex m-flex-column m-flex-gap:4 m-width:full m-padding:2 m-lg:padding-b:10 m-md:padding-b:2"
+    class="header-section m-flex m-flex-column m-flex-gap:3 m-width:full m-padding:2 m-lg:padding-b:10 m-md:padding-b:2"
   >
     <!-- Name -->
     <aa-logo class="m-display:block m-width:24"></aa-logo>
@@ -32,22 +32,19 @@
 
   <!-- Hobbies -->
   <div
-    class="m-flex m-flex-gap:4 m-flex-column m-width:full m-padding:2 m-md:display:none"
+    class="m-flex m-flex-gap:2 m-flex-column m-width:full m-padding:2 m-md:display:none m-position:sticky m-inset-b:0"
   >
+    <!-- Hobbies -->
     <aa-hobbies class="m-width:full"></aa-hobbies>
+    <aa-separator level="background-55" class="m-width:50p" />
+
+    <!-- Skill -->
     <aa-software-skills class="m-width:full"></aa-software-skills>
+    <aa-separator level="background-55" class="m-width:50p" />
+
+    <!-- Contact -->
+    <aa-contact
+      class="m-flex m-flex-self:end m-width:full m-md:display:none"
+    ></aa-contact>
   </div>
-
-  <!-- Glossary -->
-  <div
-    class="m-flex m-flex-column m-flex-gap:4 m-width:full m-md:display:none"
-  ></div>
-
-  <!-- Illustration -->
-  <div class="m-md:display:none"></div>
-
-  <!-- Contact -->
-  <aa-contact
-    class="m-flex m-flex-self:end m-width:full m-padding:2 m-md:display:none"
-  ></aa-contact>
 </div>

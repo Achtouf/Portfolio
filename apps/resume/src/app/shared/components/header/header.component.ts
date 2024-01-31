@@ -9,6 +9,7 @@ import {
   HobbiesComponent,
   InformationComponent,
   SoftwareSkillsComponent,
+  SeparatorComponent,
 } from '@resume/components';
 
 @Component({
@@ -23,6 +24,7 @@ import {
     AsideComponent,
     ContactComponent,
     HobbiesComponent,
+    SeparatorComponent,
     InformationComponent,
     SoftwareSkillsComponent,
   ],
