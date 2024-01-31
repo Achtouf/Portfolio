@@ -1,6 +1,6 @@
-import { NgStyle } from '@angular/common';
+import { NgIf, NgStyle } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import {
   LogoComponent,
@@ -11,6 +11,7 @@ import {
   SoftwareSkillsComponent,
   SeparatorComponent,
 } from '@resume/components';
+import { AnchorService, ContentService } from '@resume/services';
 
 @Component({
   standalone: true,
@@ -18,6 +19,7 @@ import {
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
+    NgIf,
     NgStyle,
     TranslateModule,
     LogoComponent,
@@ -29,4 +31,7 @@ import {
     SoftwareSkillsComponent,
   ],
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  readonly anchor = inject(AnchorService);
+  readonly content = inject(ContentService);
+}

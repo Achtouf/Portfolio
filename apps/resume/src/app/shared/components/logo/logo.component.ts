@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, input } from '@angular/core';
 
 export type ThemeLevel =
   | 'primary'
@@ -23,6 +23,6 @@ export type ThemeExtendedLevel = ThemeLevel | 'surface' | 'background';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LogoComponent {
-  @Input() isArabic = false;
+  arabic = input(false);
   @Input() level: ThemeExtendedLevel = 'tertiary';
 }

@@ -5,13 +5,18 @@ import {
 } from '@ngx-translate/core';
 import { from, Observable } from 'rxjs';
 
-export enum ResumeLanguages {
-  frFR = 'fr-FR',
-  // enUS = 'en-US',
-  enGB = 'en-GB',
+export enum ResumeDirection {
+  rtl = 'rtl',
+  ltr = 'ltr',
 }
 
-export const defaultLanguage = ResumeLanguages.enGB;
+export enum ResumeLanguage {
+  fr = 'fr',
+  en = 'en',
+}
+
+export const defaultLanguage = ResumeLanguage.en;
+export const defaultDirection = ResumeDirection.ltr;
 
 export class ResumeTranslateLoader implements TranslateLoader {
   getTranslation(lang: string = defaultLanguage): Observable<unknown> {

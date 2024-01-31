@@ -4,6 +4,7 @@
   font-weight: bold;
   font-style: normal;
   color: m(primary-50);
+  cursor: help;
 
   &:before {
     left: 50%;
@@ -20,7 +21,6 @@
     text-align: center;
     color: m(background-50);
 
-    cursor: help;
     transform: translateX(-50%);
     border-radius: m(border-radius);
     background-color: m(overlay-90);

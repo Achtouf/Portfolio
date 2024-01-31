@@ -6,7 +6,10 @@
     class="header-section m-flex m-flex-column m-flex-gap:3 m-width:full m-padding:2 m-lg:padding-b:10 m-md:padding-b:2"
   >
     <!-- Name -->
-    <aa-logo class="m-display:block m-width:24"></aa-logo>
+    <aa-logo
+      [arabic]="content.isArabic()"
+      class="m-display:block m-width:24"
+    ></aa-logo>
 
     <!-- Description -->
     <div class="m-flex m-flex-column m-flex-gap:4 m-width:full">
@@ -22,7 +25,10 @@
     </div>
 
     <!-- Additional Content -->
-    <div class="m-width:full m-md:display:none">
+    <div
+      *ngIf="anchor.information().length"
+      class="m-width:full m-md:display:none"
+    >
       <!-- Information -->
       <aa-aside class="m-position:sticky m-inset-t:0 m-width:full">
         <aa-information class="m-width:full"></aa-information>
