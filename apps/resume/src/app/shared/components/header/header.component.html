@@ -3,7 +3,7 @@
 >
   <!-- Identity -->
   <div
-    class="header-section m-flex m-flex-column m-flex-gap:3 m-width:full m-padding:2 m-lg:padding-b:10 m-md:padding-b:2"
+    class="header-section m-flex m-flex-column m-flex-gap:2 m-width:full m-padding:2 m-lg:padding-b:10 m-md:padding-b:2"
   >
     <!-- Name -->
     <aa-logo
@@ -17,7 +17,9 @@
         [ngStyle]="{ gap: '0.2rem' }"
         class="m-flex m-flex-column m-width:full"
       >
-        <div class="aa-subtitle">{{ "GENERAL.NATIONALITY" | translate }}</div>
+        <div class="aa-subtitle" *ngIf="hasNationality()">
+          {{ "GENERAL.NATIONALITY" | translate }}
+        </div>
         <div class="m-text-color:primary m-text-uppercase m-text-bold">
           {{ "GENERAL.JOB_TITLE" | translate }}
         </div>
