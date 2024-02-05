@@ -2,6 +2,7 @@ export * from './body/body.component';
 export * from './logo/logo.component';
 export * from './aside/aside.component';
 export * from './header/header.component';
+export * from './loader/loader.component';
 export * from './contact/contact.component';
 export * from './content/content.component';
 export * from './section/section.component';

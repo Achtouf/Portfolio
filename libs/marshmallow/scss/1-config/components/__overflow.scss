@@ -1,5 +1,5 @@
 @use "sass:list";
 
-$mOverflow: false !default;
+$mOverflow: true !default;
 $mOverflowAxis: list.join($mObject2dAxes, "") !default;
 $mOverflowProperties: auto clip scroll hidden visible !default;

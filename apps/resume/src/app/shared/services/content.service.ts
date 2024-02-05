@@ -16,6 +16,7 @@ export class ContentService implements OnInit {
   readonly title = inject(Title);
   readonly translator = inject(TranslateService);
 
+  isLoaded = signal(false);
   language = signal(defaultLanguage);
   direction = signal(defaultDirection);
   isArabic = computed(() => this.language() === ('ar' as ResumeLanguage));
@@ -25,6 +26,7 @@ export class ContentService implements OnInit {
       .pipe(takeUntilDestroyed(), distinctUntilChanged())
       .subscribe((_data) => {
         console.log('[onLangChange] language: ', _data);
+        this.isLoaded.set(true);
         this.language.set(_data.lang as ResumeLanguage);
         this._updateDocumentLanguage(this.language());
       });

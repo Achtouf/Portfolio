@@ -7,25 +7,11 @@
 @function set-spinner-properties($_theme, $_properties: ()) {
   $_properties: () !default;
 
-  $_core: map.get($_theme, core);
-  $_core: () !default;
-  $_neutral: map.get($_theme, neutral);
-  $_neutral: () !default;
-  $_primary: map.get($_theme, primary);
-  $_primary: () !default;
-
-  $_textColor: map.get($_core, text-color);
-
-  $_spinnerBorderWidth: 0.3rem;
-
-  $_spinnerColor: map.get($_primary, main);
-  $_spinnerBackgroundColor: map.get($_neutral, main);
-
   $_basic: (
     rotateZ: 45deg,
-    color: $_spinnerColor,
-    border-width: $_spinnerBorderWidth,
-    background-color: $_spinnerBackgroundColor,
+    border-width: 0.3rem,
+    color: variable(primary-main),
+    background-color: variable(neutral-30),
     animation: (
       delay: 0s,
       duration: 0.8s,

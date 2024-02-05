@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { AnchorService } from '@resume/services';
-import { HelpIconComponent } from '@resume/components';
+
+import { HelpIconComponent } from '../help-icon/help-icon.component';
 
 @Component({
   standalone: true,

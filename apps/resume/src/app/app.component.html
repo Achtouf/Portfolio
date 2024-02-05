@@ -1,6 +1,29 @@
-<div class="app m-flex m-flex-column m-width:full m-min-height:full">
+<div
+  *ngIf="isAppReady()"
+  class="app m-flex m-flex-column m-width:full m-min-height:full"
+>
   <div class="app-content m-flex m-md:flex-column">
     <aa-header class="app-header m-flex m-width:30 m-min-width:30"></aa-header>
-    <aa-body class="app-body m-flex m-flex-grow:1 m-padding-b:3 m-sm:max-width:full"></aa-body>
+    <aa-body
+      class="app-body m-flex m-flex-grow:1 m-padding-b:3 m-sm:max-width:full"
+    ></aa-body>
+  </div>
+</div>
+
+<div
+  *ngIf="!isAppReady()"
+  class="app-loader m-flex m-flex-column m-flex-center m-flex-gap:1 m-size:full m-bg-color:surface m-position:fixed m-inset:0 m-zindex:last"
+>
+  <aa-help-icon class="m-flex m-flex-center" width="2.5rem" />
+  <div class="app-loader-message">
+    <span class="app-loader-message__title">Loading</span>
+    <ng-container *ngFor="let item of [].constructor(3); let i = index">
+      <span
+        class="app-loader-message__dot"
+        ngClass="m-display:inline-block m-animate m-animate-name:jump m-animate-timing:ease-in-out m-animate-dir:alternate m-animate-iterate:infinite m-animate-duration:6 m-animate-delay:{{ i * 3 }}"
+      >
+        .
+      </span>
+    </ng-container>
   </div>
 </div>

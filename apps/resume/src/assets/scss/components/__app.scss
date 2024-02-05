@@ -4,6 +4,14 @@
     margin-bottom: mar(8);
     padding-inline: pad(2);
   }
+
+  &-loader {
+    &-message {
+      &__dot {
+        letter-spacing: 0-.5rem;
+      }
+    }
+  }
 }
 
 @media print {

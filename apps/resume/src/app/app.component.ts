@@ -3,10 +3,14 @@ import {
   ChangeDetectorRef,
   Component,
   ViewEncapsulation,
+  computed,
   inject,
 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
+import { ContentService } from '@resume/services';
+
+import { DomUtil } from './app.util';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +21,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class AppComponent {
   readonly cdr = inject(ChangeDetectorRef);
+  readonly content = inject(ContentService);
   readonly translator = inject(TranslateService);
 
   title = 'Achraf Abdessalem - Resume';
@@ -28,9 +33,13 @@ export class AppComponent {
     'CONTACT',
   ];
 
-  constructor() {
-    this.translator.onLangChange.pipe(takeUntilDestroyed()).subscribe(() => {
-      this.cdr.detectChanges();
-    });
-  }
+  isAppReady = computed(() => {
+    const _isContentLoaded = this.content.isLoaded();
+    if (_isContentLoaded) {
+      DomUtil.removeClass(document.body, 'm-overflow:hidden');
+    } else {
+      DomUtil.addClass(document.body, 'm-overflow:hidden');
+    }
+    return _isContentLoaded;
+  });
 }

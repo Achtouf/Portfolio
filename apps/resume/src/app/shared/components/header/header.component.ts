@@ -1,24 +1,23 @@
-import { NgIf, NgStyle } from '@angular/common';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import {
   ChangeDetectionStrategy,
   Component,
   inject,
   signal,
 } from '@angular/core';
-
-import {
-  LogoComponent,
-  AsideComponent,
-  ContactComponent,
-  HobbiesComponent,
-  SeparatorComponent,
-  InformationComponent,
-  SoftwareSkillsComponent,
-} from '@resume/components';
-import { AnchorService, ContentService } from '@resume/services';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { distinctUntilChanged } from 'rxjs';
+import { NgIf, NgStyle } from '@angular/common';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
+import { AnchorService, ContentService } from '@resume/services';
+
+import { LogoComponent } from '../logo/logo.component';
+import { AsideComponent } from '../aside/aside.component';
+import { ContactComponent } from '../contact/contact.component';
+import { HobbiesComponent } from '../hobbies/hobbies.component';
+import { SeparatorComponent } from '../separator/separator.component';
+import { InformationComponent } from '../information/information.component';
+import { SoftwareSkillsComponent } from '../software-skills/software-skills.component';
 
 @Component({
   standalone: true,
