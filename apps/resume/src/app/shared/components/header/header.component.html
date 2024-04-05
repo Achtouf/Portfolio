@@ -13,12 +13,9 @@
 
     <!-- Description -->
     <div class="m-flex m-flex-column m-flex-gap:4 m-width:full">
-      <div
-        [ngStyle]="{ gap: '0.2rem' }"
-        class="m-flex m-flex-column m-width:full"
-      >
-        <div class="aa-subtitle" *ngIf="hasNationality()">
-          {{ "GENERAL.NATIONALITY" | translate }}
+      <div class="m-flex m-flex-column m-width:full m-flex-gap:half">
+        <div class="aa-subtitle">
+          {{ "GENERAL.DESCRIPTION" | translate }}
         </div>
         <div class="m-text-color:primary m-text-uppercase m-text-bold">
           {{ "GENERAL.JOB_TITLE" | translate }}
@@ -27,10 +24,7 @@
     </div>
 
     <!-- Additional Content -->
-    <div
-      *ngIf="anchor.information().length"
-      class="m-width:full m-md:display:none"
-    >
+    <div *ngIf="anchor.information()" class="m-width:full m-md:display:none">
       <!-- Information -->
       <aa-aside class="m-position:sticky m-inset-t:0 m-width:full">
         <aa-information class="m-width:full"></aa-information>

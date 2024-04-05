@@ -4,7 +4,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { distinctUntilChanged } from 'rxjs';
+import { distinctUntilChanged, merge } from 'rxjs';
 import { NgIf, NgStyle } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -40,19 +40,4 @@ import { SoftwareSkillsComponent } from '../software-skills/software-skills.comp
 export class HeaderComponent {
   readonly anchor = inject(AnchorService);
   readonly content = inject(ContentService);
-  readonly translator = inject(TranslateService);
-
-  hasNationality = signal(false);
-  nationalityKey = 'GENERAL.NATIONALITY';
-
-  constructor() {
-    this.translator
-      .get(this.nationalityKey)
-      .pipe(takeUntilDestroyed(), distinctUntilChanged())
-      .subscribe((_value) => {
-        if (_value !== this.nationalityKey) {
-          this.hasNationality.set(true);
-        }
-      });
-  }
 }

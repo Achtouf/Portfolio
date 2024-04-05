@@ -1,4 +1,4 @@
-import { distinctUntilChanged, merge } from 'rxjs';
+import { distinctUntilChanged, merge, take } from 'rxjs';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -12,7 +12,7 @@ import {
 } from '@resume/src/app/app.i18n';
 
 @Injectable({ providedIn: 'root' })
-export class ContentService implements OnInit {
+export class ContentService {
   readonly title = inject(Title);
   readonly translator = inject(TranslateService);
 
@@ -29,10 +29,14 @@ export class ContentService implements OnInit {
         this.isLoaded.set(true);
         this.language.set(_data.lang as ResumeLanguage);
         this._updateDocumentLanguage(this.language());
+        this._updateDirection();
       });
+  }
+
+  private _updateDirection(): void {
     this.translator
       .get('GENERAL.DIRECTION')
-      .pipe(takeUntilDestroyed(), distinctUntilChanged())
+      .pipe(take(1))
       .subscribe((_data) => {
         console.log('[onLangChange] direction: ', _data);
         this.direction.set(_data as ResumeDirection);
@@ -40,14 +44,13 @@ export class ContentService implements OnInit {
       });
   }
 
-  ngOnInit(): void {}
-
   private _updateDocumentLanguage(_language: string): void {
     const _html = document.querySelector('html');
     if (_html) {
       _html.lang = _language;
     }
   }
+
   private _updateDocumentDirection(_direction: string): void {
     const _html = document.querySelector('html');
     if (_html) {

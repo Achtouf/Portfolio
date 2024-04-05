@@ -1,18 +1,18 @@
 {
   "GENERAL": {
     "DIRECTION": "ltr",
-    "JOB_TITLE": "Senior Frontend Engineer",
-    "NATIONALITY": "French Nationality",
-    "MISCELLANEOUS": "Miscellaneous",
-    "SKILLS": "Skills",
-    "EDUCATION": "Education",
-    "EXPERIENCE": "Experience",
-    "PERSONAL_PROJECTS": "Personal Projects",
+    "JOB_TITLE": "Développeur Frontend Senior",
+    "DESCRIPTION": "Nationalité Française",
+    "MISCELLANEOUS": "Divers",
+    "SKILLS": "Compétences",
+    "EDUCATION": "Formation",
+    "EXPERIENCE": "Expériences",
+    "PERSONAL_PROJECTS": "Projets personnels",
     "CONTACT": "Contact"
   },
   "HOBBIES": {
     "TITLE": "Hobbies",
-    "ELEMENTS": ["Gaming", "Music", "UX/UI Design", "Movies", "Illustration"]
+    "ELEMENTS": ["Jeux vidéo", "Musique", "UX/UI Design", "Cinéma", "Illustration"]
   },
   "CONTACT": {
     "TITLE": "Contact",
@@ -33,7 +33,7 @@
         "LINK": "https://www.linkedin.com/in/amachref/"
       },
       {
-        "TITLE": "Place",
+        "TITLE": "Ville",
         "VALUE": "Lyon - France",
         "LINK": "https://maps.app.goo.gl/kC7kaN9YcNRxy4Kd6"
       }
@@ -41,8 +41,8 @@
   },
   "INFORMATION": [
     {
-      "ANCHORS": "APP_EDUCATION,SKILLS",
-      "DESCRIPTION": "A web enthusiast who lives in Lyon. I try to see what is most marvelous in the simplest things. I am creative and have a passionate taste for cinema and music."
+      "ANCHORS": "EDUCATION,SKILLS",
+      "DESCRIPTION": "Passionné du web et résidant à Lyon. J'essaie de voir ce qu'il y a de plus merveilleux dans les choses les plus simples. Je suis créatif et j'ai un goût passionné pour le cinéma et la musique."
     },
     {
       "ANCHORS": "SENIOR_FRONTEND_ENGINEER",
@@ -58,33 +58,33 @@
     }
   ],
   "EDUCATION": {
-    "TITLE": "Education",
+    "TITLE": "Formation",
     "CONTENT": {
       "MASTER": {
-        "TITLE": "Master of Computer Science specialized in Technology of Information",
-        "PLACE": "University Lyon 1",
+        "TITLE": "Master Informatique spécialisé en Technologies de l'information",
+        "PLACE": "Université Lyon 1",
         "DATE": "2019"
       },
       "BACHELOR": {
-        "TITLE": "Bachelor of Mathematics and Computer Science",
-        "PLACE": "University Lyon 1",
+        "TITLE": "Licence de Mathématiques et Informatique",
+        "PLACE": "Université Lyon 1",
         "DATE": "2017"
       }
     }
   },
   "SKILLS": {
-    "TITLE": "Skills",
+    "TITLE": "Compétences",
     "CONTENT": {
       "TECHNICAL_SKILLS": {
-        "TITLE": "Technical Skills",
+        "TITLE": "Compétences Techniques",
         "VALUE": "Javascript, Typescript, CSS/SASS, HTML, Angular, NgRX, RXJS, Schematics, NodeJS, NestJS, UI/UX, Accessibility, Design System."
       },
       "TOOLS": {
-        "TITLE": "Tools",
+        "TITLE": "Outils",
         "VALUE": "NPM, Angular CLI, Lerna, NX, Gulp, Git, GitLab, Jenkins, Nexus, AWS, Visual Studio Code, IntelliJ, Figma, Jira, Confluence."
       },
       "LANGUAGES": {
-        "TITLE": "Languages",
+        "TITLE": "Langues",
         "VALUE": "French, English, Arabic."
       }
     },
@@ -123,11 +123,11 @@
     "TITLE": "Experience",
     "CONTENT": [
       {
-        "TITLE": "Senior Frontend Engineer",
+        "TITLE": "Développeur Frontend Senior",
         "SUBTITLE": "Odigo",
         "DATE": {
           "FROM": "NOV. 2019",
-          "TO": "TODAY"
+          "TO": "AUJOURD'HUI"
         },
         "PROJECTS": [
           {

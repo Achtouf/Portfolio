@@ -2,7 +2,7 @@
   "GENERAL": {
     "DIRECTION": "ltr",
     "JOB_TITLE": "Senior Frontend Engineer",
-    "DESCRIPTION": "Willing to relocate",
+    "DESCRIPTION": "French Nationality",
     "MISCELLANEOUS": "Miscellaneous",
     "SKILLS": "Skills",
     "EDUCATION": "Education",
@@ -31,6 +31,11 @@
         "TITLE": "LinkedIn",
         "VALUE": "linkedin.com/in/amachref",
         "LINK": "https://www.linkedin.com/in/amachref/"
+      },
+      {
+        "TITLE": "Place",
+        "VALUE": "Lyon - France",
+        "LINK": "https://maps.app.goo.gl/kC7kaN9YcNRxy4Kd6"
       }
     ]
   },

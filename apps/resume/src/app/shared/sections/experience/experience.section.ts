@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { IdUtil } from '../../utils/id.util';
 import { HtmlPipe } from '../../pipes/html.pipe';
 import { SectionComponent } from '../../components/section/section.component';
 
@@ -15,5 +14,4 @@ import { SectionComponent } from '../../components/section/section.component';
 })
 export class ExperienceSection {
   length = 3;
-  util = IdUtil;
 }

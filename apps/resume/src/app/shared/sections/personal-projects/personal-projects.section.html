@@ -8,7 +8,7 @@
       *ngFor="let bloc of ('PERSONAL_PROJECTS.CONTENT' | translate)"
     >
       <div
-        [attr.id]="util.toId(bloc.TITLE)"
+        [attr.id]="bloc.ID"
         class="m-flex m-flex-column m-flex-gap:2"
       >
         <div class="m-flex m-flex-column m-width:full">
@@ -25,7 +25,7 @@
         </div>
         <ng-container *ngFor="let project of bloc.PROJECTS">
           <div
-            [attr.id]="util.toId(project.TITLE)"
+            [attr.id]="project.ID"
             class="m-flex m-flex-column m-flex-gap:1 m-padding-l:2 m-md:padding-l:1"
           >
             <div class="m-flex m-flex-column">

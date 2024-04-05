@@ -8,15 +8,9 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
-import {
-  BodyComponent,
-  LogoComponent,
-  HeaderComponent,
-  LoaderComponent,
-  HelpIconComponent,
-} from '@resume/components';
 import { HtmlPipe } from '@resume/pipes';
 import { AnchorService } from '@resume/services';
+import { HelpIconComponent } from '@resume/components';
 
 import {
   defaultLanguage,
@@ -24,6 +18,7 @@ import {
   ResumeMissingTranslationHandler,
 } from './app.i18n';
 import { AppComponent } from './app.component';
+import { ResumeLayout } from './shared/layouts';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -32,11 +27,9 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    // Layouts
+    ResumeLayout,
     // Components
-    LogoComponent,
-    BodyComponent,
-    HeaderComponent,
-    LoaderComponent,
     HelpIconComponent,
     // Translate
     TranslateModule.forRoot({

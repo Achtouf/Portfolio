@@ -1,7 +1,8 @@
+import { isEqual } from 'lodash';
 import { TranslateService } from '@ngx-translate/core';
-import { fromEvent, distinctUntilChanged } from 'rxjs';
+import { Injectable, inject, signal } from '@angular/core';
+import { fromEvent, distinctUntilChanged, merge } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Injectable, OnInit, inject, signal } from '@angular/core';
 
 import {
   InformationOffset,
@@ -9,7 +10,7 @@ import {
   InformationSet,
 } from '@resume/interfaces';
 import { ObjectUtil } from '@resume/utils';
-import { isEqual } from 'lodash';
+import { environment } from '@resume/env/environment';
 
 export interface AnchorDetails {
   anchor: string;
@@ -17,7 +18,7 @@ export interface AnchorDetails {
 }
 
 @Injectable({ providedIn: 'root' })
-export class AnchorService implements OnInit {
+export class AnchorService {
   readonly translator = inject(TranslateService);
 
   private _offset: InformationOffset = {};
@@ -26,38 +27,12 @@ export class AnchorService implements OnInit {
   information = signal<string[]>([]);
 
   constructor() {
-    this.translator
-      .get('INFORMATION')
-      .pipe(takeUntilDestroyed())
-      .subscribe((data: InformationSection[]) => {
-        let _infos: InformationSet = {};
-        data.forEach((_item) => {
-          const _anchors = _item.ANCHORS.split(',').map((_anchor) =>
-            _anchor.trim()
-          );
-          _infos = {
-            ..._infos,
-            ..._anchors
-              .map((_anchor) => {
-                const _value = _item.DESCRIPTION.trim();
-                const _descriptions: string[] = [];
-                const _found = _infos[_anchor];
-                if (_found) {
-                  _descriptions.push(..._found);
-                }
-                if (!_descriptions.includes(_value)) {
-                  _descriptions.push(_value);
-                }
-                return { [_anchor]: _descriptions } as InformationSet;
-              })
-              .reduce(
-                (_result, _item) => ({ ..._result, ..._item }),
-                {} as InformationSet
-              ),
-          };
-        });
-        this.infos.set(_infos);
-      });
+    this.getOffsets();
+    this.getInformation();
+
+    merge(this.translator.onLangChange, this.translator.onDefaultLangChange)
+      .pipe(takeUntilDestroyed(), distinctUntilChanged())
+      .subscribe(() => this.getInformation());
 
     fromEvent(document, 'scroll')
       .pipe(takeUntilDestroyed(), distinctUntilChanged())
@@ -66,8 +41,42 @@ export class AnchorService implements OnInit {
       });
   }
 
-  ngOnInit(): void {
-    this._offset = this._getOffsets();
+  getOffsets(): void {
+    this._offset = this._calculateOffset();
+  }
+
+  getInformation(): void {
+    const data = this.translator.instant('INFORMATION');
+    if (!environment.production) {
+      console.log('[AnchorService] data: ', data);
+    }
+    let _infos: InformationSet = {};
+    data.forEach((_item: InformationSection) => {
+      const _anchors = _item.ANCHORS.split(',').map((_anchor) =>
+        _anchor.trim()
+      );
+      _infos = {
+        ..._infos,
+        ..._anchors
+          .map((_anchor) => {
+            const _value = _item.DESCRIPTION.trim();
+            const _descriptions: string[] = [];
+            const _found = _infos[_anchor];
+            if (_found) {
+              _descriptions.push(..._found);
+            }
+            if (!_descriptions.includes(_value)) {
+              _descriptions.push(_value);
+            }
+            return { [_anchor]: _descriptions } as InformationSet;
+          })
+          .reduce(
+            (_result, _item) => ({ ..._result, ..._item }),
+            {} as InformationSet
+          ),
+      };
+    });
+    this.infos.set(_infos);
   }
 
   updateInformation(_information: string[]): void {
@@ -77,7 +86,7 @@ export class AnchorService implements OnInit {
   }
 
   private _updateText(): void {
-    const offsets = this._getOffsets();
+    const offsets = this._calculateOffset();
     const haveChanged = this._didOffsetsChange(offsets);
 
     if (haveChanged) {
@@ -105,7 +114,7 @@ export class AnchorService implements OnInit {
     return !!changes;
   }
 
-  private _getOffsets(): InformationOffset {
+  private _calculateOffset(): InformationOffset {
     const _offset: InformationOffset = {};
 
     for (const id in this.infos()) {
@@ -114,6 +123,7 @@ export class AnchorService implements OnInit {
         _offset[id] = target.offsetTop;
       }
     }
+
     return _offset;
   }
 }

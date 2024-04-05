@@ -27,6 +27,8 @@
       "@resume/sections": ["./apps/resume/src/app/shared/sections"],
       "@resume/interfaces": ["./apps/resume/src/app/shared/interfaces"],
       "@resume/components": ["./apps/resume/src/app/shared/components"],
+      "@resume/env/*": ["./apps/resume/src/environments/*"],
+      "@resume/assets/*": ["./apps/resume/src/assets/*"],
       "@resume/*": ["./apps/resume/*"],
       "@apps/*": ["./apps/*"],
       "@achtouf/marshmallow/*": ["libs/marshmallow/*"],

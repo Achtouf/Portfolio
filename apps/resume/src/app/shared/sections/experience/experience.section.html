@@ -2,12 +2,11 @@
   <h2 class="aa-title:1">{{ "EXPERIENCE.TITLE" | translate }}</h2>
   <div class="m-flex m-flex-column m-flex-gap:4 m-width:full">
     <ng-container *ngFor="let bloc of ('EXPERIENCE.CONTENT' | translate)">
-      <div
-        class="m-flex m-flex-column m-flex-gap:2"
-        [attr.id]="util.toId(bloc.TITLE)"
-      >
+      <div [attr.id]="bloc.ID" class="m-flex m-flex-column m-flex-gap:2">
         <div class="m-flex m-flex-column m-width:full">
-          <div class="m-flex m-flex-justify:between m-flex-items:center m-xs:flex-column m-xs:flex-items:start">
+          <div
+            class="m-flex m-flex-justify:between m-flex-items:center m-xs:flex-column m-xs:flex-items:start"
+          >
             <h3 class="aa-title:2 m-text-uppercase">{{ bloc.TITLE }}</h3>
             <span *ngIf="bloc.DATE" class="aa-title:3 m-text-color:neutral">
               <span *ngIf="bloc.DATE.FROM">{{ bloc.DATE.FROM }}</span>
@@ -20,7 +19,7 @@
         </div>
         <ng-container *ngFor="let project of bloc.PROJECTS">
           <div
-            [attr.id]="util.toId(project.TITLE)"
+            [attr.id]="project.ID"
             class="m-flex m-flex-column m-flex-gap:1 m-padding-l:2 m-md:padding-l:1"
           >
             <div class="m-flex m-flex-column m-flex-gap:half">

@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { IdUtil } from '../../utils/id.util';
 import { SectionComponent } from '../../components/section/section.component';
 
 @Component({
@@ -12,6 +11,4 @@ import { SectionComponent } from '../../components/section/section.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, SectionComponent, TranslateModule],
 })
-export class PersonalProjectsSection {
-  util = IdUtil;
-}
+export class PersonalProjectsSection {}
