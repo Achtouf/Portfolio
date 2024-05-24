@@ -6,7 +6,7 @@
     "start": "ng serve",
     "start:all": "ng serve --port 4200 --host 0.0.0.0",
     "build": "ng build",
-    "publish": "npx surge ./apps/resume/dist --domain achraf-abdessalem.surge.sh ",
+    "publish": "npx surge ./apps/resume/dist --domain achraf-abdessalem.surge.sh",
     "deploy": "npm run build && npm run publish",
     "link:libs": "npx lerna run link",
     "watch": "ng build --watch --configuration development",

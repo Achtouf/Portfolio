@@ -16,4 +16,4 @@ jobs:
       - run: npm run build
       - run: ls
       - run: ls ./apps/resume/dist
-      - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      - run: surge ./apps/resume/dist ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
