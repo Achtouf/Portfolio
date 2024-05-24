@@ -1,8 +1,8 @@
 {
   "GENERAL": {
     "DIRECTION": "ltr",
-    "JOB_TITLE": "Senior Frontend Engineer",
-    "DESCRIPTION": "Willing to relocate",
+    "JOB_TITLE": "Senior Frontend Engineer – Angular Expert",
+    "DESCRIPTION": "Willing to relocato to CHE",
     "MISCELLANEOUS": "Miscellaneous",
     "SKILLS": "Skills",
     "EDUCATION": "Education",
@@ -23,6 +23,11 @@
         "LINK": "mailto:achraf.abdessalem@gmail.com"
       },
       {
+        "TITLE": "Phone",
+        "VALUE": "+33 699 94 01 34",
+        "LINK": "tel:+33699940134"
+      },
+      {
         "TITLE": "Github",
         "VALUE": "@Achtouf",
         "LINK": "https://github.com/Achtouf"
@@ -31,6 +36,11 @@
         "TITLE": "LinkedIn",
         "VALUE": "linkedin.com/in/amachref",
         "LINK": "https://www.linkedin.com/in/amachref/"
+      },
+      {
+        "TITLE": "Place",
+        "VALUE": "Annemasse - France",
+        "LINK": "https://maps.app.goo.gl/1fFsZ8eGU2Jb2pKe6"
       }
     ]
   },

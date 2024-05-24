@@ -1,7 +1,7 @@
 {
   "GENERAL": {
     "DIRECTION": "ltr",
-    "JOB_TITLE": "Senior Frontend Engineer",
+    "JOB_TITLE": "Senior Frontend Engineer – Angular Expert",
     "DESCRIPTION": "French Nationality",
     "MISCELLANEOUS": "Miscellaneous",
     "SKILLS": "Skills",
@@ -80,7 +80,7 @@
     "CONTENT": {
       "TECHNICAL_SKILLS": {
         "TITLE": "Technical Skills",
-        "VALUE": "Javascript, Typescript, CSS/SASS, HTML, Angular, NgRX, RXJS, Schematics, NodeJS, NestJS, UI/UX, Accessibility, Design System."
+        "VALUE": "Angular, NgRX, RXJS, Javascript, Typescript, CSS/SASS, HTML, Schematics, NodeJS, NestJS, UI/UX, Accessibility, Design System."
       },
       "TOOLS": {
         "TITLE": "Tools",
@@ -128,13 +128,24 @@
     "CONTENT": [
       {
         "ID": "ODIGO_LEAD_FRONTEND_DEVELOPER",
-        "TITLE": "Lead Frontend Developer",
+        "TITLE": "Lead Frontend Developer / Senior Frongend Engineer",
         "SUBTITLE": "Odigo",
         "DATE": {
           "FROM": "APRIL 2020",
           "TO": "TODAY"
         },
         "PROJECTS": [
+          {
+            "ID": "CX_STUDIO",
+            "TITLE": "Cx Studio",
+            "DESCRIPTION": "Web application to help companies define scenarios on customer journeys for multichannel interactions.",
+            "DETAILS": [
+              "Optimize code and improve run and build time and performances.",
+              "Enhance UI/UX using Mosaic and MosaicNG.",
+              "Improve the code quality by implementing ESLint, Prettier, and Stylelint, and adding guidelines and best practices.",
+              "Refactor app, write solid and reusable components, and form fields."
+            ]
+          },
           {
             "ID": "MOSAIC",
             "TITLE": "Mosaic",
@@ -174,7 +185,7 @@
             ]
           },
           {
-            "ID": "CAS_AUTHENTICATION_NB",
+            "ID": "CAS_AUTHENTICATION_NG",
             "TITLE": "CAS Authentication NG",
             "DESCRIPTION": "Angular library to manage CAS authentication.",
             "DETAILS": [

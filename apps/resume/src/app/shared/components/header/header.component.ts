@@ -2,12 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
-  signal,
 } from '@angular/core';
-import { distinctUntilChanged, merge } from 'rxjs';
 import { NgIf, NgStyle } from '@angular/common';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { AnchorService, ContentService } from '@resume/services';
 

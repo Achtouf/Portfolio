@@ -6,3 +6,11 @@
     background-image: linear-gradient(180deg, m(surface-main) 0 90%, transparent);
   }
 }
+
+@media print {
+  .header {
+    &-section {
+      background-image: none;
+    }
+  }
+}

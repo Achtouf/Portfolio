@@ -48,7 +48,7 @@ export class AnchorService {
   getInformation(): void {
     const data = this.translator.instant('INFORMATION');
     if (!environment.production) {
-      console.log('[AnchorService] data: ', data);
+      // console.log('[AnchorService] data: ', data);
     }
     let _infos: InformationSet = {};
     data.forEach((_item: InformationSection) => {

@@ -77,7 +77,7 @@
     "CONTENT": {
       "TECHNICAL_SKILLS": {
         "TITLE": "Compétences Techniques",
-        "VALUE": "Javascript, Typescript, CSS/SASS, HTML, Angular, NgRX, RXJS, Schematics, NodeJS, NestJS, UI/UX, Accessibility, Design System."
+        "VALUE": "Angular, NgRX, RXJS, Javascript, Typescript, CSS/SASS, HTML, Schematics, NodeJS, NestJS, UI/UX, Accessibility, Design System."
       },
       "TOOLS": {
         "TITLE": "Outils",

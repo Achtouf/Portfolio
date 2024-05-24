@@ -4,7 +4,11 @@ import {
   MissingTranslationHandler,
 } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {
+  CommonModule,
+  HashLocationStrategy,
+  LocationStrategy,
+} from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -20,6 +24,7 @@ import {
 import { AppComponent } from './app.component';
 import { ResumeLayout } from './shared/layouts';
 import { AppRoutingModule } from './app-routing.module';
+import { withHashLocation } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -46,6 +51,13 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   bootstrap: [AppComponent],
   declarations: [AppComponent],
-  providers: [HtmlPipe, AnchorService],
+  providers: [
+    HtmlPipe,
+    AnchorService,
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy,
+    },
+  ],
 })
 export class AppModule {}
