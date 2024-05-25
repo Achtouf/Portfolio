@@ -24,7 +24,6 @@ import {
 import { AppComponent } from './app.component';
 import { ResumeLayout } from './shared/layouts';
 import { AppRoutingModule } from './app-routing.module';
-import { withHashLocation } from '@angular/router';
 
 @NgModule({
   imports: [

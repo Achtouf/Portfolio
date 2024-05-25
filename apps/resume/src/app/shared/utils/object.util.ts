@@ -1,4 +1,5 @@
-import * as _ from 'lodash';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { transform, isEqual, isObject } from 'lodash';
 
 type NullOrUndefined = undefined | null;
 
@@ -11,12 +12,12 @@ export class ObjectUtil {
   }
 
   static difference(next: any, base: any): any {
-    return _.transform(
+    return transform(
       next,
       (result: { [x: string]: any }, value: any, key: string | number) => {
-        if (!_.isEqual(value, base[key])) {
+        if (!isEqual(value, base[key])) {
           result[key] =
-            _.isObject(value) && _.isObject(base[key])
+            isObject(value) && isObject(base[key])
               ? ObjectUtil.difference(value, base[key])
               : value;
         }

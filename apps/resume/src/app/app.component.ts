@@ -13,7 +13,7 @@ import { ContentService } from '@resume/services';
 import { DomUtil } from './app.util';
 
 @Component({
-  selector: 'app-root',
+  selector: 'aa-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None,

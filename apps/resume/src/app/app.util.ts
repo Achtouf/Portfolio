@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 export class DomUtil {
   public static hasClass(element: any, className: string): boolean {
     if (element && className) {

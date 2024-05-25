@@ -12,7 +12,7 @@ export const LanguageResolver = (
   const _translator = inject(TranslateService);
 
   let _result: ResumeLanguage = defaultLanguage;
-  let _language = route.paramMap.get('language') ?? defaultLanguage;
+  const _language = route.paramMap.get('language') ?? defaultLanguage;
 
   if (
     _language &&

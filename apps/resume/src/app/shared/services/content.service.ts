@@ -1,8 +1,8 @@
-import { distinctUntilChanged, merge, take } from 'rxjs';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
+import { distinctUntilChanged, merge, take } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Injectable, OnInit, computed, inject, signal } from '@angular/core';
+import { Injectable, computed, inject, signal } from '@angular/core';
 
 import {
   ResumeDirection,

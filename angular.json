@@ -43,14 +43,21 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "inlineStyleLanguage": "scss",
             "outputPath": "apps/resume/dist",
             "main": "apps/resume/src/main.ts",
             "index": "apps/resume/src/index.html",
-            "allowedCommonJsDependencies": ["lodash"],
+            "allowedCommonJsDependencies": [
+              "lodash"
+            ],
             "tsConfig": "apps/resume/tsconfig.app.json",
-            "assets": ["apps/resume/src/favicon.ico", "apps/resume/src/assets"],
+            "assets": [
+              "apps/resume/src/favicon.ico",
+              "apps/resume/src/assets"
+            ],
             "styles": [
               "apps/resume/src/assets/scss/styles.scss",
               {
@@ -114,18 +121,38 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "apps/resume/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["apps/resume/src/favicon.ico", "apps/resume/src/assets"],
-            "styles": ["apps/resume/src/styles.scss"]
+            "assets": [
+              "apps/resume/src/favicon.ico",
+              "apps/resume/src/assets"
+            ],
+            "styles": [
+              "apps/resume/src/styles.scss"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/resume/**/*.ts",
+              "apps/resume/**/*.html"
+            ]
           }
         }
       }
     }
   },
   "cli": {
-    "schematicCollections": ["@schematics/angular"],
+    "schematicCollections": [
+      "@angular-eslint/schematics",
+      "@schematics/angular"
+    ],
     "analytics": false
   },
   "schematics": {

@@ -10,7 +10,9 @@
     "deploy": "npm run build && npm run publish",
     "link:libs": "npx lerna run link",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint",
+    "lint:fix": "ng lint --fix"
   },
   "private": true,
   "dependencies": {
@@ -32,11 +34,19 @@
   "devDependencies": {
     "@achtouf/marshmallow": "file:libs/marshmallow/dist",
     "@angular-devkit/build-angular": "^17.1.1",
+    "@angular-eslint/builder": "17.5.1",
+    "@angular-eslint/eslint-plugin": "17.5.1",
+    "@angular-eslint/eslint-plugin-template": "17.5.1",
+    "@angular-eslint/schematics": "17.5.1",
+    "@angular-eslint/template-parser": "17.5.1",
     "@angular/cli": "^17.1.1",
     "@angular/compiler-cli": "^17.1.1",
     "@types/jasmine": "~5.1.4",
     "@types/lodash": "^4.14.202",
+    "@typescript-eslint/eslint-plugin": "7.10.0",
+    "@typescript-eslint/parser": "7.10.0",
     "copyfiles": "^2.4.1",
+    "eslint": "^8.57.0",
     "jasmine-core": "~5.1.1",
     "karma": "~6.4.2",
     "karma-chrome-launcher": "~3.2.0",
