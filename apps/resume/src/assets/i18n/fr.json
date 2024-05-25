@@ -1,0 +1,457 @@
+{
+  "GENERAL": {
+    "DIRECTION": "ltr",
+    "JOB_TITLE": "Développeur Frontend Senior – Expert Angular",
+    "DESCRIPTION": "Nationalité Française",
+    "MISCELLANEOUS": "Divers",
+    "SKILLS": "Compétences",
+    "EDUCATION": "Formation",
+    "EXPERIENCE": "Expérience",
+    "PERSONAL_PROJECTS": "Projets Personnels",
+    "CONTACT": "Contact"
+  },
+  "HOBBIES": {
+    "TITLE": "Hobbies",
+    "ELEMENTS": ["Gaming", "Musique", "UX/UI Design", "Cinéma", "Illustrations"]
+  },
+  "CONTACT": {
+    "TITLE": "Contact",
+    "ELEMENTS": [
+      {
+        "TITLE": "Email",
+        "VALUE": "achraf.abdessalem@gmail.com",
+        "LINK": "mailto:achraf.abdessalem@gmail.com"
+      },
+      {
+        "TITLE": "Github",
+        "VALUE": "@Achtouf",
+        "LINK": "https://github.com/Achtouf"
+      },
+      {
+        "TITLE": "LinkedIn",
+        "VALUE": "linkedin.com/in/amachref",
+        "LINK": "https://www.linkedin.com/in/amachref/"
+      }
+    ]
+  },
+  "INFORMATION": [
+    {
+      "ANCHORS": "EDUCATION,SKILLS",
+      "DESCRIPTION": "Un passionné du web qui vit en France. J'essaie de voir ce qu'il y a de plus merveilleux dans les choses les plus simples. Je suis créatif et j'ai un goût passionné pour le cinéma et la musique."
+    },
+    {
+      "ANCHORS": "ODIGO_LEAD_FRONTEND_DEVELOPER",
+      "DESCRIPTION": "Au cours de mon expérience, j'ai travaillé à la fois en freelance, sur des missions courtes et longues, et pour des clients finaux. J'ai eu l'opportunité de développer des compétences transversales telles que la concentration, la rigueur, la patience et la ténacité, qui m'ont permis de travailler de manière autonome, que ce soit seul ou en équipe."
+    },
+    {
+      "ANCHORS": "MOBILE",
+      "DESCRIPTION": "Pendant mon temps libre, j'aime lire des articles, assister à des meet-ups et participer à des rencontres pour rester informé des différentes alternatives aux technologies que j'utilise quotidiennement. J'essaie également de maintenir ma pratique et ma maîtrise de ces technologies en créant et en mettant à jour certains projets personnels à l'aide de Supabase, Firebase, Flutter, React et d'autres frameworks, langages ou bibliothèques."
+    },
+    {
+      "ANCHORS": "WEB,DESIGN_SYSTEMS_UI_UX_AND_BRANDING",
+      "DESCRIPTION": "En tant qu'ingénieur Front-End, j'aime combler le fossé entre l'ingénierie et le design en alliant mes connaissances techniques à mon sens aigu du design pour créer un produit esthétique. Mon objectif est de toujours concevoir des applications évolutives et performantes tout en offrant des expériences utilisateur attrayantes et précises jusqu'au pixel près."
+    }
+  ],
+  "EDUCATION": {
+    "ID": "EDUCATION",
+    "TITLE": "Formation",
+    "CONTENT": {
+      "MASTER": {
+        "ID": "MASTER",
+        "TITLE": "Master Informatique spécialisé en Web et Technologies de l'Information",
+        "PLACE": "Université Claude Bernard Lyon 1",
+        "DATE": "2019"
+      },
+      "BACHELOR": {
+        "ID": "BACHELOR",
+        "TITLE": "Licence en Mathématiques et Informatique",
+        "PLACE": "Université Claude Bernard Lyon 1",
+        "DATE": "2017"
+      }
+    }
+  },
+  "SKILLS": {
+    "TITLE": "Compétences",
+    "CONTENT": {
+      "TECHNICAL_SKILLS": {
+        "TITLE": "Compétences Techniques",
+        "VALUE": "Angular, NgRX, RXJS, Javascript, Typescript, CSS/SASS, HTML, Schematics, NodeJS, NestJS, UI/UX, Accessibility, Design System."
+      },
+      "TOOLS": {
+        "TITLE": "Tools",
+        "VALUE": "NPM, Angular CLI, Lerna, NX, Gulp, Git, GitLab, Jenkins, Nexus, AWS, Visual Studio Code, IntelliJ, Figma, Jira, Confluence."
+      },
+      "LANGUAGES": {
+        "TITLE": "Languages",
+        "VALUE": "Français, Anglais, Arabe."
+      }
+    },
+    "SOFTWARES": [
+      {
+        "PERCENT": "65p",
+        "TITLE": "Rocket league"
+      },
+      {
+        "PERCENT": "85p",
+        "TITLE": "Adobe XD"
+      },
+      {
+        "PERCENT": "75p",
+        "TITLE": "Illustrator"
+      },
+      {
+        "PERCENT": "35p",
+        "TITLE": "Photoshop"
+      },
+      {
+        "PERCENT": "45p",
+        "TITLE": "Figma"
+      },
+      {
+        "PERCENT": "40p",
+        "TITLE": "Zeplin"
+      },
+      {
+        "PERCENT": "65p",
+        "TITLE": "Procreate"
+      }
+    ]
+  },
+  "EXPERIENCE": {
+    "ID": "EXPERIENCE",
+    "TITLE": "Expérience",
+    "CONTENT": [
+      {
+        "ID": "ODIGO_LEAD_FRONTEND_DEVELOPER",
+        "TITLE": "Diriger le développement Frontend / Ingénieur Frontend Senior",
+        "SUBTITLE": "Odigo",
+        "DATE": {
+          "FROM": "Avril 2020",
+          "TO": "Aujourd'hui"
+        },
+        "PROJECTS": [
+          {
+            "ID": "CX_STUDIO",
+            "TITLE": "Cx Studio",
+            "DESCRIPTION": "Application web pour aider les entreprises à définir des scénarios sur les parcours client pour les interactions multicanal.",
+            "DETAILS": [
+              "Améliorer l'UI/UX en utilisant Mosaic et MosaicNG.",
+              "Optimiser le code et améliorer le temps d'exécution et de compilation ainsi que les performances.",
+              "Améliorer la qualité du code en mettant en œuvre ESLint, Prettier et Stylelint, et en ajoutant des directives et meilleures pratiques.",
+              "Refactoriser l'application, écrire des composants solides et réutilisables, et des champs de formulaire."
+            ]
+          },
+          {
+            "ID": "MOSAIC",
+            "TITLE": "Mosaic",
+            "DESCRIPTION": "Framework CSS basé sur le système de design d'Odigo.",
+            "DETAILS": [
+              "Développer un framework CSS riche, entièrement personnalisable et complet en utilisant NPM, SASS et Gulp.",
+              "Écrire et déployer une documentation pour aider les équipes à utiliser Mosaic : journaux de modifications et documentation.",
+              "Développer une application de création de thèmes qui adapte Mosaic à n'importe quel système de design en utilisant Angular, Typescript et Sass.",
+              "Travailler en étroite collaboration avec l'équipe de design pour améliorer les composants, les modèles et créer des palettes de couleurs entièrement accessibles générées automatiquement.",
+              "Améliorer le processus de développement, de déploiement et de contribution pour rendre le projet open source interne."
+            ]
+          },
+          {
+            "ID": "MOSAIC_NG",
+            "TITLE": "Mosaic NG",
+            "DESCRIPTION": "Bibliothèque Angular basée sur Mosaic et le système de design d'Odigo.",
+            "DETAILS": [
+              "Développer des composants génériques, performants, documentés et accessibles en utilisant Angular, Typescript, NgRx, RXJS.",
+              "Écrire et déployer une documentation pour aider les équipes à utiliser MosaicNG : journaux de modifications, guide de migration et documentation.",
+              "Améliorer les performances, la qualité du code et la conformité avec l'UI fournie par l'équipe de design.",
+              "Travailler avec des experts en accessibilité pour rendre les composants accessibles dans toutes les librairies.",
+              "Soutenir les équipes produit du monde entier travaillant chez Odigo dans leur utilisation de Mosaic et Mosaic NG."
+            ]
+          },
+          {
+            "ID": "AGENT_DESKTOP",
+            "TITLE": "Agent Desktop",
+            "DESCRIPTION": "Application web pour aider les agents à gérer les interactions avec les clients (V6).",
+            "DETAILS": [
+              "Développer les fonctionnalités principales et les composants complexes en utilisant Angular, Typescript, RXJS, NgRX, NgxTranslate, MosaicNG et PrimeNG.",
+              "Construire un SDK et des librairies Angular fournissant aux autres équipes des fonctionnalités et des composants.",
+              "Maintenir et déployer de multiples librairies NPM et publier une nouvelle version majeure avec des composants redessinés suivant les nouvelles directives de marque et les nouveaux composants.",
+              "Adopter et contribuer au système de design d'Odigo en créant une bibliothèque Angular.",
+              "Aider à améliorer la relation entre les ingénieurs logiciels et les UX/UI designers.",
+              "Concevoir le projet en utilisant une approche d'architecture micro-frontends.",
+              "Créer le projet à partir de zéro, ajouter les dépendances nécessaires et suivre les RNF, décisions de la <i aa-glossary=\"Community Of Practice\">CoP</i>, meilleures pratiques et directives communes."
+            ]
+          },
+          {
+            "ID": "CAS_AUTHENTICATION_NG",
+            "TITLE": "Authentification CAS NG",
+            "DESCRIPTION": "Bibliothèque Angular pour gérer l'authentification CAS.",
+            "DETAILS": [
+              "Développer des services documentés en utilisant Angular, Typescript, NgRx, RXJS.",
+              "Écrire et déployer une documentation pour aider les équipes à utiliser la bibliothèque : journaux de modifications, guide de migration et documentation.",
+              "Soutenir les équipes produit du monde entier travaillant chez Odigo dans leur utilisation de CAS Authentication NG."
+            ]
+          },
+          {
+            "ID": "QUALIFICATION_CENTER",
+            "TITLE": "Centre de Qualification",
+            "DESCRIPTION": "Application web pour aider les experts NL à gérer les corpus et les moteurs d'intention.",
+            "DETAILS": [
+              "Aider l'équipe à s'améliorer en Front-End en effectuant des revues de code et en mettant en place des séances de programmation en binôme et de formation.",
+              "Développer les fonctionnalités principales et les composants complexes en utilisant Angular, Typescript, RXJS, NgRX, NgxTranslate et PrimeNG.",
+              "Développer des API REST en utilisant Java et Quarkus.",
+              "Créer le projet à partir de zéro, ajouter les dépendances nécessaires et suivre les RNF, décisions de la <i aa-glossary=\"Community Of Practice\">CoP</i>, meilleures pratiques et directives communes."
+            ]
+          },
+          {
+            "ID": "LIFE_AT_ODIGO",
+            "TITLE": "La Vie chez Odigo",
+            "DETAILS": [
+              "Auditer plusieurs projets dans le but d'améliorer la qualité technique.",
+              "Initier une <i aa-glossary=\"Community Of Practice\">CoP</i> pour discuter des préoccupations concernant le déploiement, le développement et les meilleures pratiques Frontend.",
+              "Créer une Communauté DEV/UX pour aider à améliorer la relation entre les ingénieurs logiciels et les UX/UI designers.",
+              "Aider à créer des RNF, des directives, des meilleures pratiques et des améliorations de la qualité du code pour les projets Frontend.",
+              "Aider à créer de nouvelles offres, améliorer les offres existantes et recruter de nouveaux talents."
+            ]
+          }
+        ]
+      },
+      {
+        "ID": "ODIGO_FRONTEND_DEVELOPER",
+        "TITLE": "Développeur Frontend",
+        "SUBTITLE": "Odigo",
+        "DATE": {
+          "FROM": "Nov. 2019",
+          "TO": "Avril 2020"
+        },
+        "PROJECTS": [
+          {
+            "ID": "CONSOLE",
+            "TITLE": "Console",
+            "DESCRIPTION": "Application web pour aider les agents à gérer les interactions avec les clients (V5).",
+            "DETAILS": [
+              "Développer les fonctionnalités principales et les composants complexes en utilisant Angular, Typescript, RXJS, NgRX et NgxTranslate.",
+              "Améliorer les performances, la qualité du code et la conformité avec l'UI fournie par l'équipe de design.",
+              "Maintenir l'application en Angular.",
+              "Travailler aux côtés d'une équipe délocalisée d'ingénieurs en Inde ; fournir un support technique et optimiser et améliorer les performances de l'application frontend."
+            ]
+          }
+        ]
+      },
+      {
+        "ID": "ACENSI_FULLSTACK_DEVELOPER",
+        "TITLE": "Développeur Fullstack",
+        "SUBTITLE": "Acensi - Missions Courtes",
+        "DATE": {
+          "FROM": "Sept. 2018",
+          "TO": "Déc. 2022"
+        },
+        "PROJECTS": [
+          {
+            "ID": "DGAD",
+            "TITLE": "DGAD",
+            "DESCRIPTION": "Applications Web B2B et B2C pour vendre des produits Michelin.",
+            "DETAILS": [
+              "Développer de nouvelles fonctionnalités et résoudre plusieurs bugs en utilisant VueJS, ApostropheCMS, Nunjucks, MongoDB, SCSS, NodeJS."
+            ]
+          },
+          {
+            "ID": "KEEP_COOL",
+            "TITLE": "Keep Cool",
+            "DESCRIPTION": "Application web pour aider les coachs à gérer les rendez-vous, les leçons et les clients.",
+            "DETAILS": [
+              "Aider à rendre le projet utilisable, construisible et prêt à être déployé en utilisant Scala, Play et un framework frontend interne."
+            ]
+          },
+          {
+            "ID": "FUZE",
+            "TITLE": "Fuze",
+            "DESCRIPTION": "Applications Web et mobiles pour aider le département RH d'Acensi à gérer et à trouver de nouveaux candidats.",
+            "DETAILS": [
+              "Créer un projet d'application Web à partir de zéro en utilisant Angular, Typescript et NgRX.",
+              "Créer un projet d'application mobile à partir de zéro en utilisant Flutter et Dart.",
+              "Développer des API REST en utilisant NodeJS et Express.",
+              "Créer des frameworks CSS et un système de design simple pour les applications internes de l'agence de Lyon."
+            ]
+          },
+          {
+            "ID": "LIFE_AT_ACENSI",
+            "TITLE": "La Vie chez Acensi",
+            "DETAILS": [
+              "Auditer plusieurs projets dans le but d'améliorer la qualité technique.",
+              "Aider à améliorer les offres existantes et à recruter de nouveaux talents.",
+              "Former les ingénieurs aux technologies Front-End.",
+              "Animer des petites discussions sur les nouvelles technologies, les processus et les meilleures pratiques.",
+              "Participer à l'élaboration de propositions pour différents clients et projets."
+            ]
+          }
+        ]
+      },
+      {
+        "ID": "E_MAGINEURS_WEB_DEVELOPER",
+        "TITLE": "Développeur Web",
+        "SUBTITLE": "E-magineurs",
+        "DATE": {
+          "FROM": "Sept. 2018",
+          "TO": "Déc. 2022"
+        },
+        "PROJECTS": [
+          {
+            "TITLE": "Projets Divers",
+            "DESCRIPTION": "Sites Web pour des villes.",
+            "DETAILS": [
+              "Développer des librairies en utilisant Javascript, Ajax et Sass.",
+              "Créer le site Web en utilisant Type3, Typoscript, Javascript, Sass, jQuery, Ajax et PHP."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "PERSONAL_PROJECTS": {
+    "ID": "PERSONAL_PROJECTS",
+    "TITLE": "Projets Personnels",
+    "DESCRIPTION": "La plupart des projets sur lesquels j'ai travaillé ou sur lesquels je travaille encore sont destinés à un usage personnel ou constituent un terrain d'entraînement avec un contexte riche. Vous pouvez trouver quelques exemples de ces projets ici.",
+    "CONTENT": [
+      {
+        "ID": "MOBILE",
+        "TITLE": "Mobile",
+        "SUBTITLE": "Usage Personnel",
+        "PROJECTS": [
+          {
+            "ID": "MOBANK",
+            "TITLE": "Mobank",
+            "SUBTITLE": "Application Mobile",
+            "COLUMNS": 4,
+            "DETAILS": [
+              {
+                "COLUMN": 4,
+                "TEXT": "Cette application vise à permettre aux utilisateurs d'avoir une vue d'ensemble de leurs budgets afin de faciliter la gestion de leurs projets personnels et d'avoir plus de contrôle sur leurs dépenses et leurs revenus. Les transactions sont saisies manuellement pour donner à l'utilisateur un contrôle total sur ses données. Elle est développée en utilisant Flutter et Firebase."
+              },
+              {
+                "COLUMN": 1,
+                "SRC": "assets/images/png/MOBANK_1.png"
+              },
+              {
+                "COLUMN": 1,
+                "SRC": "assets/images/png/MOBANK_2.png"
+              },
+              {
+                "COLUMN": 1,
+                "SRC": "assets/images/png/MOBANK_3.png"
+              },
+              {
+                "COLUMN": 1,
+                "SRC": "assets/images/png/MOBANK_4.png"
+              }
+            ]
+          },
+          {
+            "ID": "ENJOY",
+            "TITLE": "Enjoy",
+            "SUBTITLE": "Application Mobile",
+            "COLUMNS": 4,
+            "DETAILS": [
+              {
+                "COLUMN": 4,
+                "TEXT": "Initialement conçue pour les entreprises, cette application permet aux utilisateurs de suivre les événements organisés par leurs entreprises et les groupes auxquels ils appartiennent, ou de proposer des événements à leurs groupes. Elle est développée en utilisant Flutter et Firebase."
+              },
+              {
+                "COLUMN": 1,
+                "SRC": "assets/images/png/ENJOY_1.png"
+              },
+              {
+                "COLUMN": 1,
+                "SRC": "assets/images/png/ENJOY_2.png"
+              },
+              {
+                "COLUMN": 1,
+                "SRC": "assets/images/png/ENJOY_3.png"
+              },
+              {
+                "COLUMN": 1,
+                "SRC": "assets/images/png/ENJOY_4.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "ID": "WEB",
+        "TITLE": "Web",
+        "SUBTITLE": "Terrain d'Entraînement",
+        "PROJECTS": [
+          {
+            "COLUMNS": 4,
+            "TITLE": "Wazaaa",
+            "SUBTITLE": "Application Web",
+            "DETAILS": [
+              {
+                "COLUMN": 1,
+                "TEXT": "Un clone de Slack, qui intègre des fonctionnalités de base permettant de tester les bases de données en temps réel, d'approfondir certaines fonctionnalités d'Angular et d'utiliser des plateformes Baas comme Supabase et Firebase. Elle est développée en utilisant Angular, Supabase, NgRX, RXJS et NgxTranslate."
+              },
+              {
+                "COLUMN": 3,
+                "SRC": "assets/images/png/WAZAAA_1.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "ID": "DESIGN_SYSTEMS_UI_UX_AND_BRANDING",
+        "TITLE": "Systèmes de Design, UI/UX et Branding",
+        "SUBTITLE": "Côté Design",
+        "PROJECTS": [
+          {
+            "COLUMNS": 4,
+            "TITLE": "Kiropus",
+            "SUBTITLE": "Brand",
+            "DETAILS": [
+              {
+                "COLUMN": 4,
+                "TEXT": "Ce projet inclut plusieurs aspects ; une idéation de branding, un système de design et plusieurs applications."
+              },
+              {
+                "COLUMN": 2,
+                "SRC": "assets/images/png/KIROPUS_1.png"
+              },
+              {
+                "COLUMN": 2,
+                "SRC": "assets/images/png/KIROPUS_2.png"
+              },
+              {
+                "COLUMN": 2,
+                "SRC": "assets/images/png/KIROPUS_3.png"
+              },
+              {
+                "COLUMN": 2,
+                "SRC": "assets/images/png/KIROPUS_4.png"
+              }
+            ]
+          },
+          {
+            "COLUMNS": 4,
+            "TITLE": "Kiropus UI",
+            "SUBTITLE": "Système de Design",
+            "DETAILS": [
+              {
+                "COLUMN": 2,
+                "TEXT": "Un système de design propre que j'ai créé il y a quelques années utilisé pour créer les écrans de mes applications mobiles. Il inclut des palettes de couleurs riches, des composants conçus, des propriétés de typographie et des spécifications d'espacement. Le projet initial a été réalisé sur Adobe XD, et j'essaie de le transférer sur Figma, de le mettre à jour et d'utiliser des jetons de design."
+              },
+              {
+                "COLUMN": 2,
+                "SRC": "assets/images/png/KIROPUS_UI_1.png"
+              },
+              {
+                "COLUMN": 2,
+                "SRC": "assets/images/png/KIROPUS_UI_2.png"
+              },
+              {
+                "COLUMN": 2,
+                "SRC": "assets/images/png/KIROPUS_UI_3.png"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

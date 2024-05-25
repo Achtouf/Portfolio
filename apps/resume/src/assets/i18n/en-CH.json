@@ -2,7 +2,7 @@
   "GENERAL": {
     "DIRECTION": "ltr",
     "JOB_TITLE": "Senior Frontend Engineer – Angular Expert",
-    "DESCRIPTION": "Willing to relocato to CHE",
+    "DESCRIPTION": "Willing to relocate to CHE",
     "MISCELLANEOUS": "Miscellaneous",
     "SKILLS": "Skills",
     "EDUCATION": "Education",
@@ -133,7 +133,7 @@
     "CONTENT": [
       {
         "ID": "ODIGO_LEAD_FRONTEND_DEVELOPER",
-        "TITLE": "Lead Frontend Developer / Senior Frongend Engineer",
+        "TITLE": "Lead Frontend Developer / Senior Frontend Engineer",
         "SUBTITLE": "Odigo",
         "DATE": {
           "FROM": "APRIL 2020",
@@ -145,10 +145,10 @@
             "TITLE": "Cx Studio",
             "DESCRIPTION": "Web application to help companies define scenarios on customer journeys for multichannel interactions.",
             "DETAILS": [
-              "Optimize code and improve run and build time and performances.",
-              "Enhance UI/UX using Mosaic and MosaicNG.",
-              "Improve the code quality by implementing ESLint, Prettier, and Stylelint, and adding guidelines and best practices.",
-              "Refactor app, write solid and reusable components, and form fields."
+              "Enhanced UI/UX using Mosaic and MosaicNG.",
+              "Optimized code to improve run and build time and performance.",
+              "Improved code quality by implementing ESLint, Prettier, and Stylelint, and adding guidelines and best practices.",
+              "Refactored app, wrote solid and reusable components, and form fields."
             ]
           },
           {
@@ -156,11 +156,11 @@
             "TITLE": "Mosaic",
             "DESCRIPTION": "CSS Framework based on Odigo's Design System.",
             "DETAILS": [
-              "Develop a rich, fully customizable, and complete CSS framework using NPM, SASS, and Gulp.",
-              "Write and deploy documentation to help teams use Mosaic: changelogs and documentation.",
-              "Develop a themes builder app that adapts Mosaic to any Design system using Angular, Typescript, and Sass.",
-              "Work closely with the design team on improving components, templates, and building automatically generated color palettes fully accessible.",
-              "Improve development, deployment, and contribution process to make the project inner source."
+              "Developed a rich, fully customizable, and complete CSS framework using NPM, SASS, and Gulp.",
+              "Wrote and deployed documentation to help teams use Mosaic: changelogs and documentation.",
+              "Developed a themes builder app that adapts Mosaic to any Design system using Angular, Typescript, and Sass.",
+              "Worked closely with the design team on improving components, templates, and building automatically generated color palettes fully accessible.",
+              "Improved development, deployment, and contribution processes to make the project inner source."
             ]
           },
           {
@@ -168,11 +168,11 @@
             "TITLE": "Mosaic NG",
             "DESCRIPTION": "Angular library based on Mosaic and Odigo's Design System.",
             "DETAILS": [
-              "Develop generic, performant, documented, and accessible components using Angular, Typescript, NgRx, RXJS.",
-              "Write and deploy documentation to help teams use MosaicNG: changelogs, migration guide, and documentation.",
+              "Developed generic, performant, documented, and accessible components using Angular, Typescript, NgRx, RXJS.",
+              "Wrote and deployed documentation to help teams use MosaicNG: changelogs, migration guide, and documentation.",
               "Improved performance, code quality, and compliance with the UI provided by the design team.",
-              "Work with accessibility experts to make components accessible in all libraries.",
-              "Support worldwide product teams working at Odigo in their usage of Mosaic and Mosaic NG."
+              "Worked with accessibility experts to make components accessible in all libraries.",
+              "Supported worldwide product teams working at Odigo in their usage of Mosaic and Mosaic NG."
             ]
           },
           {
@@ -180,13 +180,13 @@
             "TITLE": "Agent Desktop",
             "DESCRIPTION": "Web application to help agents manage interactions with customers (V6).",
             "DETAILS": [
-              "Develop main features and complex components using Angular, Typescript, RXJS, NgRX, NgxTranslate, MosaicNG, and PrimeNG.",
-              "Build SDK and Angular libraries providing other teams features and components.",
-              "Maintain and deploy multiple NPM libraries and release a new major version with redesigned components following the new brand guidelines and new components.",
-              "Adopt and contribute to Odigo's Design System by creating an Angular library.",
-              "Help improve the relationship between Software Engineers and UX/UI Designers.",
-              "Design project using a micro-frontend architecture approach.",
-              "Create the project from scratch, adding needed dependencies, and following NFRs, <i aa-glossary=\"Community Of Practice\">CoP</i> decisions, best practices, and common guidelines."
+              "Developed main features and complex components using Angular, Typescript, RXJS, NgRX, NgxTranslate, MosaicNG, and PrimeNG.",
+              "Built SDK and Angular libraries providing other teams features and components.",
+              "Maintained and deployed multiple NPM libraries and released a new major version with redesigned components following the new brand guidelines and new components.",
+              "Adopted and contributed to Odigo's Design System by creating an Angular library.",
+              "Helped improve the relationship between Software Engineers and UX/UI Designers.",
+              "Designed project using a micro-frontend architecture approach.",
+              "Created the project from scratch, adding needed dependencies, and following NFRs, <i aa-glossary=\"Community Of Practice\">CoP</i> decisions, best practices, and common guidelines."
             ]
           },
           {
@@ -194,9 +194,9 @@
             "TITLE": "CAS Authentication NG",
             "DESCRIPTION": "Angular library to manage CAS authentication.",
             "DETAILS": [
-              "Develop documented services using Angular, Typescript, NgRx, RXJS.",
-              "Write and deploy documentation to help teams use the library: changelogs, migration guide, and documentation.",
-              "Support worldwide product teams working at Odigo in their usage of CAS Authentication NG."
+              "Developed documented services using Angular, Typescript, NgRx, RXJS.",
+              "Wrote and deployed documentation to help teams use the library: changelogs, migration guide, and documentation.",
+              "Supported worldwide product teams working at Odigo in their usage of CAS Authentication NG."
             ]
           },
           {
@@ -204,7 +204,7 @@
             "TITLE": "Qualification Center",
             "DESCRIPTION": "Web application to help NL Experts manage Corpora and Intent Engines.",
             "DETAILS": [
-              "Helped the team improve in Front-End by doing code reviews and setting up pair programming and training sessions.",
+              "Helped the team improve in Front-End by conducting code reviews and setting up pair programming and training sessions.",
               "Developed main features and complex components using Angular, Typescript, RXJS, NgRX, NgxTranslate, and PrimeNG.",
               "Developed Rest APIs using Java and Quarkus.",
               "Created the project from scratch, adding needed dependencies, and following NFRs, <i aa-glossary=\"Community Of Practice\">CoP</i> decisions, best practices, and common guidelines."
@@ -218,7 +218,7 @@
               "Initiated a <i aa-glossary=\"Community Of Practice\">CoP</i> to discuss front-end deployment, development, and best practices concerns.",
               "Created a DEV/UX Community to help improve the relationship between Software Engineers and UX/UI Designers.",
               "Helped create NFRs, guidelines, best practices, and code quality improvements for front-end projects.",
-              "Helped create new offers, improve existing offers, and recruit new talents."
+              "Helped create new offers, improve existing offers, and recruit new talent."
             ]
           }
         ]
@@ -240,7 +240,7 @@
               "Developed main features and complex components using Angular, Typescript, RXJS, NgRX, and NgxTranslate.",
               "Improved performance, code quality, and compliance with the UI provided by the design team.",
               "Maintained application in Angular.",
-              "Worked alongside an offshore team of engineers in India; provided technical support and optimized and improved front-end application performances."
+              "Worked alongside an offshore team of engineers in India; provided technical support and optimized and improved front-end application performance."
             ]
           }
         ]
@@ -259,7 +259,7 @@
             "TITLE": "DGAD",
             "DESCRIPTION": "B2B and B2C Web apps to sell Michelin products.",
             "DETAILS": [
-              "Developed new features and resolved multiples bugs using VueJS, ApostropheCMS, Nunjucks, MongoDB, SCSS, NodeJS."
+              "Developed new features and resolved multiple bugs using VueJS, ApostropheCMS, Nunjucks, MongoDB, SCSS, NodeJS."
             ]
           },
           {
@@ -267,7 +267,7 @@
             "TITLE": "Keep Cool",
             "DESCRIPTION": "Web app to help coaches manage appointments, lessons, and customers.",
             "DETAILS": [
-              "Helped make project usable, buildable and ready to be deployed using Scala, Play, and internal front-end framework."
+              "Helped make project usable, buildable, and ready to be deployed using Scala, Play, and internal front-end framework."
             ]
           },
           {
@@ -276,7 +276,7 @@
             "DESCRIPTION": "Web and mobile apps to help Acensi HR department manage and find new candidates.",
             "DETAILS": [
               "Created a web app project from scratch using Angular, Typescript, and NgRX.",
-              "Created a mobile app project from scratch using Flutter, and Dart.",
+              "Created a mobile app project from scratch using Flutter and Dart.",
               "Developed Rest APIs using NodeJS and Express.",
               "Created CSS frameworks and a simple Design System for Lyon agency's internal apps."
             ]
@@ -284,10 +284,9 @@
           {
             "ID": "LIFE_AT_ACENSI",
             "TITLE": "Life at Acensi",
-            "DESCRIPTION": "Web and mobile apps to help Acensi HR department manage and find new candidates.",
             "DETAILS": [
               "Audited multiple projects in an effort to improve technical quality.",
-              "Helped improve existing offers, and recruit new talents.",
+              "Helped improve existing offers and recruit new talent.",
               "Trained engineers in Front-End technologies.",
               "Animated small talks about new technologies, processes, and best practices.",
               "Participated in making proposals for different clients and projects."
@@ -308,8 +307,8 @@
             "TITLE": "Various Projects",
             "DESCRIPTION": "Websites for cities.",
             "DETAILS": [
-              "Developed libraries using Javascript, Ajax, and Sass.",
-              "Create the website using Type3, Typoscript, Javascript, Sass, jQuery, Ajax, and PHP."
+              "Developed libraries using JavaScript, Ajax, and Sass.",
+              "Created the website using Type3, Typoscript, JavaScript, Sass, jQuery, Ajax, and PHP."
             ]
           }
         ]
