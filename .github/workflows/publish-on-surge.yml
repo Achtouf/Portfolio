@@ -15,6 +15,7 @@ jobs:
       - run: npm run build
       - uses: dswistowski/surge-sh-action@v1
         with:
-          domain: ${{ secrets.SURGE_DOMAIN }}
+          project: "./apps/resume/dist"
           login: ${{ secrets.SURGE_LOGIN }}
           token: ${{ secrets.SURGE_TOKEN }}
+          domain: ${{ secrets.SURGE_DOMAIN }}
