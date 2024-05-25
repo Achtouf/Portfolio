@@ -12,9 +12,9 @@ jobs:
           node-version: 20
       - run: ls
       - run: npm install
-      - run: npm install -g surge lerna
-      - run: npx lerna run build
       - run: npm run build
-      - run: ls -la
-      - run: ls -la ./apps/resume/dist
-      - run: npx surge ./apps/resume/dist --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      - uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: ${{ secrets.SURGE_DOMAIN }}
+          login: ${{ secrets.SURGE_LOGIN }}
+          token: ${{ secrets.SURGE_TOKEN }}
