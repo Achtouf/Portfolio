@@ -10,8 +10,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - run: ls
       - run: npm install
       - run: npm install -g surge lerna
       - run: npx lerna run build
       - run: npm run build
+      - run: ls -la
+      - run: ls -la ./apps/resume/dist
       - run: npx surge ./apps/resume/dist --domain ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
