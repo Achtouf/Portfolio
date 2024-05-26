@@ -63,7 +63,7 @@
               {
                 "inject": false,
                 "bundleName": "marshmallow.min",
-                "input": "apps/resume/src/assets/scss/modules/__marshmallow.scss"
+                "input": "libs/marshmallow/scss/styles.scss"
               }
             ]
           },

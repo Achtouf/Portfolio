@@ -8,9 +8,9 @@ import {
 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-import { ContentService } from '@resume/services';
 
 import { DomUtil } from './app.util';
+import { ContentService } from '@resume/services';
 
 @Component({
   selector: 'aa-root',

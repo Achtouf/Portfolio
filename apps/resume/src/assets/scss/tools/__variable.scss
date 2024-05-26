@@ -1,3 +1,5 @@
-@function m($_name, $_prefix: $mPrefix) {
+@use "../../../../../../libs/marshmallow/scss/utils";
+
+@function m($_name, $_prefix: utils.$mPrefix) {
   @return var(--#{$_prefix}#{$_name});
 }
