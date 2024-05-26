@@ -48,6 +48,7 @@
   }
 
   #{$_additionalSelectors}#{$_selector} {
+    @debug &;
     @include expose-theme-variables($_theme);
   }
 }

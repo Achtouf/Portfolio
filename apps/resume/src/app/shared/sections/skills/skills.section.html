@@ -2,13 +2,16 @@
   <h2 class="aa-title:1">{{ "SKILLS.TITLE" | translate }}</h2>
   <ul class="m-flex m-flex-column m-flex-gap:2 m-width:full">
     <ng-container *ngFor="let item of skills">
-      <li class="m-flex m-flex-column m-width:full m-padding-l:2 m-md:padding-l:1">
+      <li
+        class="m-flex m-flex-column m-width:full m-padding-l:2 m-md:padding-l:1"
+      >
         <h3 class="aa-title:3 m-text-bold">
           {{ ("SKILLS.CONTENT." + item + ".TITLE") | translate }}
         </h3>
-        <p class="aa-paragraph m-padding-l:2 m-md:padding-l:1">
-          {{ ("SKILLS.CONTENT." + item + ".VALUE") | translate }}
-        </p>
+        <span
+          class="aa-paragraph m-padding-l:2 m-md:padding-l:1"
+          [innerHTML]="('SKILLS.CONTENT.' + item + '.VALUE') | translate | html"
+        ></span>
       </li>
     </ng-container>
   </ul>

@@ -1,8 +1,8 @@
 @use "../../../../../../libs/marshmallow/scss/utils";
 
-@mixin robotnik-light() {
+@mixin robotnik-dark() {
   $name: "Robotnic";
-  $scheme: light;
+  $scheme: dark;
   // Text
   $unit: 8px;
   $iconSize: 1.8rem;
@@ -13,9 +13,10 @@
   $primary: #2d6cff;
   $onPrimary: #ffffff;
   $secondary: #ddee49;
-  $onSecondary: #000000;
-  $tertiary: #000000;
-  $onTertiary: #ffffff;
+  $onSecondary: #1a1414;
+  $tertiary: #ffffff;
+  $onTertiary: #000000;
+
   // Severity Colors
   $info: #2c8ae7;
   $onInfo: #ffffff;
@@ -27,22 +28,21 @@
   $onDanger: #ffffff;
   $help: #9a51c2;
   $onHelp: #ffffff;
+  
   // Structural Colors
-  $surface: #ffffff;
-  $onSurface: black;
-  $background: #f7f7f7;
-  $onBackground: black;
-  // $onNeutral: #ffffff;
-  // $neutral: #6d6d78;
-  $neutral: #7f7f7f;
-  $onNeutral: #ffffff;
-  $overlay: #1e1e1e;
-  $onOverlay: #ffffff;
-  $shadow: #1e1e1e;
+  $surface: black;
+  $onSurface: #ffffff;
+  $background: #1e1e1e;
+  $onBackground: #ffffff;
+  $neutral: #bdbdbd;
+  $onNeutral: #000000;
+  $overlay: #bdbdbd;
+  $onOverlay: #000000;
+  $shadow: #000000;
   $onShadow: #ffffff;
   // Additional
-  $gray: #6d6d78;
-  $onGray: #ffffff;
+  $gray: #94949d;
+  $onGray: #1a1a1a;
 
   // Misc
   $inset: 1rem;
@@ -72,7 +72,7 @@
     orange: #ffa600
   );
 
-  $odigoLight: (
+  $odigoDark: (
     name: $name /* string: name of the theme */,
     scheme: $scheme /* enum[dark, light]: scheme of the theme */,
     core: (
@@ -401,6 +401,6 @@
     )
   );
 
-  $theme: utils.build-theme($odigoLight);
-  @include utils.expose-theme-selector($theme, false, ".light");
+  $theme: utils.build-theme($odigoDark);
+  @include utils.expose-theme-selector($theme, false, ".dark");
 }

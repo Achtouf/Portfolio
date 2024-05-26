@@ -1,5 +1,5 @@
-import { Pipe, PipeTransform, inject } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Pipe, PipeTransform, SecurityContext, inject } from '@angular/core';
 
 @Pipe({
   name: 'html',
@@ -8,10 +8,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class HtmlPipe implements PipeTransform {
   private _sanitizer = inject(DomSanitizer);
 
-  transform(value: string): SafeHtml {
+  transform(value: string): string | null {
     const wrapper = `<span class="aa-paragraph">
       ${value}
     </span>`;
-    return this._sanitizer.bypassSecurityTrustHtml(wrapper);
+    return this._sanitizer.sanitize(SecurityContext.HTML, wrapper);
   }
 }
