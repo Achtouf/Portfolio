@@ -2,7 +2,7 @@
   "GENERAL": {
     "DIRECTION": "ltr",
     "JOB_TITLE": "Développeur Frontend Senior – Expert Angular",
-    "DESCRIPTION": "Prêt à déménager à Genève",
+    "DESCRIPTION": "Désire déménager à Genève",
     "MISCELLANEOUS": "Divers",
     "SKILLS": "Compétences",
     "EDUCATION": "Formation",
@@ -88,11 +88,11 @@
         "VALUE": "Angular, NgRX, RXJS, Javascript, Typescript, CSS/SASS, HTML, Schematics, NodeJS, NestJS, UI/UX, Accessibility, Design System."
       },
       "TOOLS": {
-        "TITLE": "Tools",
+        "TITLE": "Outils",
         "VALUE": "NPM, Angular CLI, Lerna, NX, Gulp, Git, GitLab, Jenkins, Nexus, AWS, Visual Studio Code, IntelliJ, Figma, Jira, Confluence."
       },
       "LANGUAGES": {
-        "TITLE": "Languages",
+        "TITLE": "Langues",
         "VALUE": "Français, Anglais, Arabe."
       }
     },
@@ -191,7 +191,7 @@
           },
           {
             "ID": "CAS_AUTHENTICATION_NG",
-            "TITLE": "Authentification CAS NG",
+            "TITLE": "CAS Authentication NG",
             "DESCRIPTION": "Bibliothèque Angular pour gérer l'authentification CAS.",
             "DETAILS": [
               "Développer des services documentés en utilisant Angular, Typescript, NgRx, RXJS.",
@@ -201,7 +201,7 @@
           },
           {
             "ID": "QUALIFICATION_CENTER",
-            "TITLE": "Centre de Qualification",
+            "TITLE": "Qualification Center",
             "DESCRIPTION": "Application web pour aider les experts NL à gérer les corpus et les moteurs d'intention.",
             "DETAILS": [
               "Aider l'équipe à s'améliorer en Front-End en effectuant des revues de code et en mettant en place des séances de programmation en binôme et de formation.",

@@ -13,8 +13,9 @@ export enum ResumeDirection {
 export enum ResumeLanguage {
   // France
   fr = 'fr',
-  en = 'en',
   frCH = 'fr-CH',
+  en = 'en',
+  enIN = 'en-IN',
   enCH = 'en-CH',
 }
 

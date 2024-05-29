@@ -10,6 +10,7 @@ import {
   defaultDirection,
   defaultLanguage,
 } from '@resume/src/app/app.i18n';
+import { LoggerUtil } from '@resume/utils';
 
 @Injectable({ providedIn: 'root' })
 export class ContentService {
@@ -25,7 +26,7 @@ export class ContentService {
     merge(this.translator.onLangChange, this.translator.onDefaultLangChange)
       .pipe(takeUntilDestroyed(), distinctUntilChanged())
       .subscribe((_data) => {
-        // console.log('[onLangChange] language: ', _data);
+        LoggerUtil.log('[onLangChange] language: ', _data);
         this.isLoaded.set(true);
         this.language.set(_data.lang as ResumeLanguage);
         this._updateDocumentLanguage(this.language());
@@ -38,7 +39,7 @@ export class ContentService {
       .get('GENERAL.DIRECTION')
       .pipe(take(1))
       .subscribe((_data) => {
-        // console.log('[onLangChange] direction: ', _data);
+        LoggerUtil.log('[onLangChange] direction: ', _data);
         this.direction.set(_data as ResumeDirection);
         this._updateDocumentDirection(this.direction());
       });
