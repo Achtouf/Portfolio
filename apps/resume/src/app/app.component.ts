@@ -34,12 +34,6 @@ export class AppComponent {
   ];
 
   isAppReady = computed(() => {
-    const _isContentLoaded = this.content.isLoaded();
-    if (_isContentLoaded) {
-      DomUtil.removeClass(document.body, 'm-overflow:hidden');
-    } else {
-      DomUtil.addClass(document.body, 'm-overflow:hidden');
-    }
-    return _isContentLoaded;
+    return false;
   });
 }
