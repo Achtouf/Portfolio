@@ -15,9 +15,6 @@ jobs:
       - run: npm run build
       - shell: bash
         env:
-          SURGE_PROJECT: "./apps/resume/dist"
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-          SURGE_DOMAIN: ${{ secrets.SURGE_DOMAIN }}
         run: |
-          npx surge --project "$SURGE_PROJECT" --domain "$SURGE_DOMAIN" --token "$SURGE_TOKEN"
-
+          npx surge --project ./apps/resume/dist --domain achraf-abdessalem.surge.sh --token "$SURGE_TOKEN"
