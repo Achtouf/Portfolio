@@ -186,7 +186,7 @@
               "Adopted and contributed to Odigo's Design System by creating an Angular library.",
               "Helped improve the relationship between Software Engineers and UX/UI Designers.",
               "Designed project using a micro-frontend architecture approach.",
-              "Created the project from scratch, adding needed dependencies, and following NFRs, <i aa-glossary=\"Community Of Practice\">CoP</i> decisions, best practices, and common guidelines."
+              "Created the project from scratch, adding needed dependencies, and following NFRs, <i data-glossary=\"Community Of Practice\">CoP</i> decisions, best practices, and common guidelines."
             ]
           },
           {

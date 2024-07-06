@@ -1,7 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  effect,
+  inject,
+} from '@angular/core';
 
 import {
   SkillsSection,
@@ -12,6 +17,7 @@ import {
 } from '@resume/sections';
 
 import { ContactComponent } from '../contact/contact.component';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'aa-body',
@@ -44,6 +50,8 @@ import { ContactComponent } from '../contact/contact.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BodyComponent {
+  readonly theme = inject(ThemeService);
+
   isTranslationInitialized = false;
   sections = [
     'EDUCATION',
@@ -52,6 +60,15 @@ export class BodyComponent {
     'PERSONAL_PROJECTS',
     'CONTACT',
   ];
+
+  constructor() {
+    effect(() => {
+      document
+        .getElementsByTagName('html')
+        .item(0)
+        ?.setAttribute('aa-theme', this.theme.theme());
+    });
+  }
 
   goToTarget(target: string): void {
     let child = document.getElementById(target);

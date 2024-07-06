@@ -10,7 +10,7 @@ $mStrokeColorShadesLimit: 10 !default;
 
 $mFill: true !default;
 $mFillColor: true !default;
-$mFillColorOn: false !default;
+$mFillColorOn: true !default;
 $mFillColorProperties: list.join($mSeveritiesList, $mColorsList) !default;
 $mFillColorShades: false !default;
 $mFillColorShadesStep: 10 !default;

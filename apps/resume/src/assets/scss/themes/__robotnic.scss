@@ -403,5 +403,5 @@
   );
 
   $theme: utils.build-theme($odigoLight);
-  @include utils.expose-theme-selector($theme, false, ".light");
+  @include utils.expose-theme-selector($theme, false, "[aa-theme=light]");
 }
