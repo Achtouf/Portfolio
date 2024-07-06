@@ -4,12 +4,14 @@
     class="body-navigation m-width:full m-position:sticky m-inset-h:0 m-inset-t:0 m-padding-h:2 m-padding-v:1 m-margin-b:6 m-md:margin-b:0"
   >
     <ul
+      ngClass="m-md:text-body:4 m-sm:text-body:5"
       class="m-width:full m-flex m-flex-wrap m-flex-justify:end m-flex-items:center m-flex-gap:1"
     >
       <li *ngFor="let section of sections">
         <button
           (click)="goToTarget(section)"
-          class="m-button m-button-text m-md:text-body:4 m-sm:text-body:5 m-primary m-text-decoration:none"
+          [ngStyle]="{ fontSize: 'inherit' }"
+          class="m-button m-button-text m-primary m-text-decoration:none"
         >
           {{ "GENERAL." + section | translate }}
         </button>
