@@ -8,14 +8,12 @@ import {
 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-
 import { DomUtil } from './app.util';
 import { ContentService } from '@resume/services';
 
 @Component({
   selector: 'aa-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

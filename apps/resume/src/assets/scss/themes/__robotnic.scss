@@ -4,9 +4,9 @@
   $name: "Robotnic";
   $scheme: light;
   // Text
-  $unit: 8px;
-  $iconSize: 1.8rem;
-  $fontSize: 1.6rem;
+  $unit: 10px;
+  $iconSize: 1.6rem;
+  $fontSize: 1.4rem;
   $fontFamily: "Noto Sans Mono";
 
   // Basic Colors
@@ -216,8 +216,9 @@
       )
     ),
     button: (
+      font-size: 1.4rem,
+      icon-size: 1.6rem,
       height: $buttonHeight,
-      icon-size: 1.8rem,
       xs: (
         ratio: 0.67,
         padding: 0 $spacing

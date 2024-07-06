@@ -1,4 +1,7 @@
 .app {
+  margin: auto;
+  max-width: 144rem;
+
   &-navigation {
     padding-top: pad(2);
     margin-bottom: mar(8);
@@ -8,7 +11,7 @@
   &-loader {
     &-message {
       &__dot {
-        letter-spacing: 0-.5rem;
+        letter-spacing: -0.5rem;
       }
     }
   }

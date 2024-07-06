@@ -15,7 +15,9 @@
     <ng-container *ngFor="let item of [].constructor(3); let i = index">
       <span
         class="app-loader-message__dot"
-        ngClass="m-display:inline-block m-animate m-animate-name:jump m-animate-timing:ease-in-out m-animate-dir:alternate m-animate-iterate:infinite m-animate-duration:6 m-animate-delay:{{ i * 3 }}"
+        ngClass="m-display:inline-block m-animate m-animate-name:jump m-animate-timing:ease-in-out m-animate-dir:alternate m-animate-iterate:infinite m-animate-duration:6 m-animate-delay:{{
+          i * 3
+        }}"
       >
         .
       </span>
